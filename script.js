@@ -202,10 +202,10 @@ if (document.getElementById('transactionForm')) {
 
 // Logika 88 Levels
 if (document.getElementById('levelTable')) {
-    // Data statis untuk 88 Levels (tidak diubah, tetap dari besar ke kecil untuk tabel)
+    // Data statis untuk 88 Levels (tanpa koma di definisi)
     const levelData = [
         { level: 88, initialBalance: 100000.00, volume: 100.00, targetProfitLoss: 10000.00, ifProfit: 110000.00, ifLoss: 90000.00, nextLevelBalance: 110000.00, color: '#e74c3c' },
-        { level: 87, initialBalance: 256.00, volume: 5.12, targetProfitLoss: 256.00, ifProfit: 512.00, ifLoss: 0.00, nextLevelBalance: 512.00, color: '#2ecc71' },
+        { level: 87, initialBalance: 91000.00, volume: 90.00, targetProfitLoss: 9000.00, ifProfit: 100000.00, ifLoss: 82000.00, nextLevelBalance: 110000.00, color: '#2ecc71' },
         { level: 86, initialBalance: 128.00, volume: 2.56, targetProfitLoss: 128.00, ifProfit: 256.00, ifLoss: 0.00, nextLevelBalance: 256.00, color: '#2ecc71' },
         { level: 85, initialBalance: 64.00, volume: 1.28, targetProfitLoss: 64.00, ifProfit: 128.00, ifLoss: 0.00, nextLevelBalance: 128.00, color: '#2ecc71' },
         { level: 84, initialBalance: 32.00, volume: 0.64, targetProfitLoss: 32.00, ifProfit: 64.00, ifLoss: 0.00, nextLevelBalance: 64.00, color: '#2ecc71' },
@@ -217,7 +217,7 @@ if (document.getElementById('levelTable')) {
         { level: 78, initialBalance: 0.50, volume: 0.01, targetProfitLoss: 0.50, ifProfit: 1.00, ifLoss: 0.00, nextLevelBalance: 1.00, color: '#3498db' }
     ];
 
-    // Fungsi untuk mengisi tabel (tidak diubah)
+    // Fungsi untuk mengisi tabel dengan tanda koma
     function populateLevelTable() {
         const tableBody = document.querySelector("#levelTable tbody");
         if (!tableBody) {
@@ -229,12 +229,12 @@ if (document.getElementById('levelTable')) {
             const tr = document.createElement('tr');
             tr.innerHTML = `
                 <td>${row.level}</td>
-                <td>${row.initialBalance.toFixed(2)}</td>
-                <td>${row.volume.toFixed(2)}</td>
-                <td>${row.targetProfitLoss.toFixed(2)}</td>
-                <td>${row.ifProfit.toFixed(2)}</td>
-                <td>${row.ifLoss.toFixed(2)}</td>
-                <td>${row.nextLevelBalance.toFixed(2)}</td>
+                <td>${row.initialBalance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                <td>${row.volume.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                <td>${row.targetProfitLoss.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                <td>${row.ifProfit.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                <td>${row.ifLoss.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                <td>${row.nextLevelBalance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
             `;
             tableBody.appendChild(tr);
         });
@@ -248,20 +248,19 @@ if (document.getElementById('levelTable')) {
     if (!ctxEquity) {
         console.error('Canvas #equityChart not found or context not available');
     } else {
-        // Membalik urutan data untuk grafik
         const reversedLevelData = [...levelData].reverse();
         new Chart(ctxEquity, {
             type: 'line',
             data: {
-                labels: reversedLevelData.map(row => `Level ${row.level}`), // Dari Level 78 ke Level 88
+                labels: reversedLevelData.map(row => `Level ${row.level}`),
                 datasets: [{
                     label: 'Saldo Awal Perdagangan ($)',
-                    data: reversedLevelData.map(row => row.initialBalance), // Saldo awal sesuai urutan terbalik
+                    data: reversedLevelData.map(row => row.initialBalance),
                     borderColor: 'rgba(75, 192, 192, 1)',
                     backgroundColor: 'rgba(75, 192, 192, 0.2)',
                     fill: true,
                     tension: 0.1,
-                    pointBackgroundColor: reversedLevelData.map(row => row.color), // Warna sesuai urutan terbalik
+                    pointBackgroundColor: reversedLevelData.map(row => row.color),
                     pointRadius: 5
                 }]
             },
