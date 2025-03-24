@@ -135,69 +135,88 @@ if (document.getElementById('transactionForm')) {
         }
     });
 
-    // Simulasi Pertumbuhan di Dashboard
-    const data = [
-        {transaksi: 11, volume: 10.00, targetPoin: 5000, modalAwal: 512.00, keuntungan: 500.00, modalAkhir: 1012.00, color: '#e74c3c'},
-        {transaksi: 10, volume: 5.12, targetPoin: 5000, modalAwal: 256.00, keuntungan: 256.00, modalAkhir: 512.00, color: '#2ecc71'},
-        {transaksi: 9, volume: 2.56, targetPoin: 5000, modalAwal: 128.00, keuntungan: 128.00, modalAkhir: 256.00, color: '#2ecc71'},
-        {transaksi: 8, volume: 1.28, targetPoin: 5000, modalAwal: 64.00, keuntungan: 64.00, modalAkhir: 128.00, color: '#2ecc71'},
-        {transaksi: 7, volume: 0.64, targetPoin: 5000, modalAwal: 32.00, keuntungan: 32.00, modalAkhir: 64.00, color: '#2ecc71'},
-        {transaksi: 6, volume: 0.32, targetPoin: 5000, modalAwal: 16.00, keuntungan: 16.00, modalAkhir: 32.00, color: '#2ecc71'},
-        {transaksi: 5, volume: 0.16, targetPoin: 5000, modalAwal: 8.00, keuntungan: 8.00, modalAkhir: 16.00, color: '#2ecc71'},
-        {transaksi: 4, volume: 0.08, targetPoin: 5000, modalAwal: 4.00, keuntungan: 4.00, modalAkhir: 8.00, color: '#2ecc71'},
-        {transaksi: 3, volume: 0.04, targetPoin: 5000, modalAwal: 2.00, keuntungan: 2.00, modalAkhir: 4.00, color: '#2ecc71'},
-        {transaksi: 2, volume: 0.02, targetPoin: 5000, modalAwal: 1.00, keuntungan: 1.00, modalAkhir: 2.00, color: '#2ecc71'},
-        {transaksi: 1, volume: 0.01, targetPoin: 5000, modalAwal: 0.50, keuntungan: 0.50, modalAkhir: 1.00, color: '#3498db'}
-    ];
+    // Data asli
+const data = [
+    {transaksi: 11, volume: 10.00, targetPoin: 5000, modalAwal: 512.00, keuntungan: 500.00, modalAkhir: 1012.00, color: '#e74c3c'},
+    {transaksi: 10, volume: 5.12, targetPoin: 5000, modalAwal: 256.00, keuntungan: 256.00, modalAkhir: 512.00, color: '#2ecc71'},
+    {transaksi: 9, volume: 2.56, targetPoin: 5000, modalAwal: 128.00, keuntungan: 128.00, modalAkhir: 256.00, color: '#2ecc71'},
+    {transaksi: 8, volume: 1.28, targetPoin: 5000, modalAwal: 64.00, keuntungan: 64.00, modalAkhir: 128.00, color: '#2ecc71'},
+    {transaksi: 7, volume: 0.64, targetPoin: 5000, modalAwal: 32.00, keuntungan: 32.00, modalAkhir: 64.00, color: '#2ecc71'},
+    {transaksi: 6, volume: 0.32, targetPoin: 5000, modalAwal: 16.00, keuntungan: 16.00, modalAkhir: 32.00, color: '#2ecc71'},
+    {transaksi: 5, volume: 0.16, targetPoin: 5000, modalAwal: 8.00, keuntungan: 8.00, modalAkhir: 16.00, color: '#2ecc71'},
+    {transaksi: 4, volume: 0.08, targetPoin: 5000, modalAwal: 4.00, keuntungan: 4.00, modalAkhir: 8.00, color: '#2ecc71'},
+    {transaksi: 3, volume: 0.04, targetPoin: 5000, modalAwal: 2.00, keuntungan: 2.00, modalAkhir: 4.00, color: '#2ecc71'},
+    {transaksi: 2, volume: 0.02, targetPoin: 5000, modalAwal: 1.00, keuntungan: 1.00, modalAkhir: 2.00, color: '#2ecc71'},
+    {transaksi: 1, volume: 0.01, targetPoin: 5000, modalAwal: 0.50, keuntungan: 0.50, modalAkhir: 1.00, color: '#3498db'}
+];
 
-    function populateTable() {
-        const tableBody = document.querySelector("#growthTable tbody");
-        data.forEach(row => {
-            const tr = document.createElement('tr');
-            tr.innerHTML = `
-                <td>${row.transaksi}</td>
-                <td>${row.volume.toFixed(2)}</td>
-                <td>${row.targetPoin}</td>
-                <td>${row.modalAwal.toFixed(2)}</td>
-                <td>${row.keuntungan.toFixed(2)}</td>
-                <td>${row.modalAkhir.toFixed(2)}</td>
-            `;
-            tableBody.appendChild(tr);
-        });
-    }
+// Data untuk grafik kedua (transaksi 11 di kanan)
+const dataReversed = [...data].reverse();
 
-    const ctx = document.getElementById('growthChart')?.getContext('2d');
-    if (ctx) {
-        new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: data.map(row => `Transaksi ${row.transaksi}`),
-                datasets: [{
-                    label: 'Modal Akhir ($)',
-                    data: data.map(row => row.modalAkhir),
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    fill: true,
-                    tension: 0.1,
-                    pointBackgroundColor: data.map(row => row.color),
-                    pointRadius: 5
-                }]
+function populateTable() {
+    const tableBody = document.querySelector("#growthTable tbody");
+    data.forEach(row => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td>${row.transaksi}</td>
+            <td>${row.volume.toFixed(2)}</td>
+            <td>${row.targetPoin}</td>
+            <td>${row.modalAwal.toFixed(2)}</td>
+            <td>${row.keuntungan.toFixed(2)}</td>
+            <td>${row.modalAkhir.toFixed(2)}</td>
+        `;
+        tableBody.appendChild(tr);
+    });
+}
+
+// Fungsi untuk membuat grafik
+function createChart(ctx, chartData, title) {
+    return new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: chartData.map(row => `Transaksi ${row.transaksi}`),
+            datasets: [{
+                label: 'Modal Akhir ($)',
+                data: chartData.map(row => row.modalAkhir),
+                borderColor: 'rgba(75, 192, 192, 1)',
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                fill: true,
+                tension: 0.1,
+                pointBackgroundColor: chartData.map(row => row.color),
+                pointRadius: 5
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: { beginAtZero: true, title: { display: true, text: 'Modal Akhir ($)' } },
+                x: { title: { display: true, text: 'Transaksi' } }
             },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    y: { beginAtZero: true, title: { display: true, text: 'Modal Akhir ($)' } },
-                    x: { title: { display: true, text: 'Transaksi' } }
-                },
-                plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false } }
+            plugins: { 
+                legend: { display: false },
+                tooltip: { mode: 'index', intersect: false },
+                title: { display: true, text: title }
             }
-        });
-    }
+        }
+    });
+}
 
-    if (document.getElementById('growthTable')) {
-        window.onload = populateTable;
-    }
+// Inisialisasi grafik pertama (transaksi 11 di kiri)
+const ctx1 = document.getElementById('growthChart')?.getContext('2d');
+if (ctx1) {
+    createChart(ctx1, data, 'Pertumbuhan (Transaksi 11 di Kiri)');
+}
+
+// Inisialisasi grafik kedua (transaksi 11 di kanan)
+const ctx2 = document.getElementById('growthChart2')?.getContext('2d');
+if (ctx2) {
+    createChart(ctx2, dataReversed, 'Pertumbuhan (Transaksi 11 di Kanan)');
+}
+
+// Populate table saat window load
+if (document.getElementById('growthTable')) {
+    window.onload = populateTable;
 }
 
 // Logika 88 Levels
