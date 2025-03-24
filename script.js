@@ -202,19 +202,19 @@ if (document.getElementById('transactionForm')) {
 
 // Logika 88 Levels
 if (document.getElementById('levelTable')) {
-    // Data statis untuk simulasi keuntungan 100% per transaksi
+    // Data statis untuk 88 Levels
     const levelData = [
-        { level: 11, initialBalance: 512.00, volume: 10.00, targetProfitLoss: 500.00, ifProfit: 1012.00, ifLoss: 12.00, nextLevelBalance: 1012.00, color: '#e74c3c' },
-        { level: 10, initialBalance: 256.00, volume: 5.12, targetProfitLoss: 256.00, ifProfit: 512.00, ifLoss: 0.00, nextLevelBalance: 512.00, color: '#2ecc71' },
-        { level: 9, initialBalance: 128.00, volume: 2.56, targetProfitLoss: 128.00, ifProfit: 256.00, ifLoss: 0.00, nextLevelBalance: 256.00, color: '#2ecc71' },
-        { level: 8, initialBalance: 64.00, volume: 1.28, targetProfitLoss: 64.00, ifProfit: 128.00, ifLoss: 0.00, nextLevelBalance: 128.00, color: '#2ecc71' },
-        { level: 7, initialBalance: 32.00, volume: 0.64, targetProfitLoss: 32.00, ifProfit: 64.00, ifLoss: 0.00, nextLevelBalance: 64.00, color: '#2ecc71' },
-        { level: 6, initialBalance: 16.00, volume: 0.32, targetProfitLoss: 16.00, ifProfit: 32.00, ifLoss: 0.00, nextLevelBalance: 32.00, color: '#2ecc71' },
-        { level: 5, initialBalance: 8.00, volume: 0.16, targetProfitLoss: 8.00, ifProfit: 16.00, ifLoss: 0.00, nextLevelBalance: 16.00, color: '#2ecc71' },
-        { level: 4, initialBalance: 4.00, volume: 0.08, targetProfitLoss: 4.00, ifProfit: 8.00, ifLoss: 0.00, nextLevelBalance: 8.00, color: '#2ecc71' },
-        { level: 3, initialBalance: 2.00, volume: 0.04, targetProfitLoss: 2.00, ifProfit: 4.00, ifLoss: 0.00, nextLevelBalance: 4.00, color: '#2ecc71' },
-        { level: 2, initialBalance: 1.00, volume: 0.02, targetProfitLoss: 1.00, ifProfit: 2.00, ifLoss: 0.00, nextLevelBalance: 2.00, color: '#2ecc71' },
-        { level: 1, initialBalance: 0.50, volume: 0.01, targetProfitLoss: 0.50, ifProfit: 1.00, ifLoss: 0.00, nextLevelBalance: 1.00, color: '#3498db' }
+        { level: 88, initialBalance: 100,000.00, volume: 100.00, targetProfitLoss: 10,000.00, ifProfit: 110,000.00, ifLoss: 90,000.00, nextLevelBalance: 110,000.00, color: '#e74c3c' },
+        { level: 87, initialBalance: 256.00, volume: 5.12, targetProfitLoss: 256.00, ifProfit: 512.00, ifLoss: 0.00, nextLevelBalance: 512.00, color: '#2ecc71' },
+        { level: 86, initialBalance: 128.00, volume: 2.56, targetProfitLoss: 128.00, ifProfit: 256.00, ifLoss: 0.00, nextLevelBalance: 256.00, color: '#2ecc71' },
+        { level: 85, initialBalance: 64.00, volume: 1.28, targetProfitLoss: 64.00, ifProfit: 128.00, ifLoss: 0.00, nextLevelBalance: 128.00, color: '#2ecc71' },
+        { level: 84, initialBalance: 32.00, volume: 0.64, targetProfitLoss: 32.00, ifProfit: 64.00, ifLoss: 0.00, nextLevelBalance: 64.00, color: '#2ecc71' },
+        { level: 83, initialBalance: 16.00, volume: 0.32, targetProfitLoss: 16.00, ifProfit: 32.00, ifLoss: 0.00, nextLevelBalance: 32.00, color: '#2ecc71' },
+        { level: 82, initialBalance: 8.00, volume: 0.16, targetProfitLoss: 8.00, ifProfit: 16.00, ifLoss: 0.00, nextLevelBalance: 16.00, color: '#2ecc71' },
+        { level: 81, initialBalance: 4.00, volume: 0.08, targetProfitLoss: 4.00, ifProfit: 8.00, ifLoss: 0.00, nextLevelBalance: 8.00, color: '#2ecc71' },
+        { level: 80, initialBalance: 2.00, volume: 0.04, targetProfitLoss: 2.00, ifProfit: 4.00, ifLoss: 0.00, nextLevelBalance: 4.00, color: '#2ecc71' },
+        { level: 79, initialBalance: 1.00, volume: 0.02, targetProfitLoss: 1.00, ifProfit: 2.00, ifLoss: 0.00, nextLevelBalance: 2.00, color: '#2ecc71' },
+        { level: 78, initialBalance: 0.50, volume: 0.01, targetProfitLoss: 0.50, ifProfit: 1.00, ifLoss: 0.00, nextLevelBalance: 1.00, color: '#3498db' }
     ];
 
     // Fungsi untuk mengisi tabel
