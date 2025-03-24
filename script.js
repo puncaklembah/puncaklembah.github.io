@@ -204,7 +204,7 @@ if (document.getElementById('transactionForm')) {
 if (document.getElementById('levelTable')) {
     // Data statis untuk 88 Levels
     const levelData = [
-        { level: 88, initialBalance: 100,000.00, volume: 100.00, targetProfitLoss: 10,000.00, ifProfit: 110,000.00, ifLoss: 90,000.00, nextLevelBalance: 110,000.00, color: '#e74c3c' },
+        { level: 88, initialBalance: 100000.00, volume: 100.00, targetProfitLoss: 10000.00, ifProfit: 110000.00, ifLoss: 90000.00, nextLevelBalance: 110000.00, color: '#e74c3c' },
         { level: 87, initialBalance: 256.00, volume: 5.12, targetProfitLoss: 256.00, ifProfit: 512.00, ifLoss: 0.00, nextLevelBalance: 512.00, color: '#2ecc71' },
         { level: 86, initialBalance: 128.00, volume: 2.56, targetProfitLoss: 128.00, ifProfit: 256.00, ifLoss: 0.00, nextLevelBalance: 256.00, color: '#2ecc71' },
         { level: 85, initialBalance: 64.00, volume: 1.28, targetProfitLoss: 64.00, ifProfit: 128.00, ifLoss: 0.00, nextLevelBalance: 128.00, color: '#2ecc71' },
