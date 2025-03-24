@@ -205,9 +205,9 @@ if (document.getElementById('levelTable')) {
     // Data statis untuk 88 Levels (tanpa koma di definisi)
     const levelData = [
         { level: 88, initialBalance: 100000.00, volume: 100.00, targetProfitLoss: 10000.00, ifProfit: 110000.00, ifLoss: 90000.00, nextLevelBalance: 110000.00, color: '#e74c3c' },
-        { level: 87, initialBalance: 91000.00, volume: 90.00, targetProfitLoss: 9000.00, ifProfit: 100000.00, ifLoss: 82000.00, nextLevelBalance: 110000.00, color: '#2ecc71' },
-        { level: 86, initialBalance: 128.00, volume: 2.56, targetProfitLoss: 128.00, ifProfit: 256.00, ifLoss: 0.00, nextLevelBalance: 256.00, color: '#2ecc71' },
-        { level: 85, initialBalance: 64.00, volume: 1.28, targetProfitLoss: 64.00, ifProfit: 128.00, ifLoss: 0.00, nextLevelBalance: 128.00, color: '#2ecc71' },
+        { level: 87, initialBalance: 91000.00, volume: 90.00, targetProfitLoss: 9000.00, ifProfit: 100000.00, ifLoss: 82000.00, nextLevelBalance: 100000.00, color: '#2ecc71' },
+        { level: 86, initialBalance: 82000.00, volume: 80.00, targetProfitLoss: 8000.00, ifProfit: 90000.00, ifLoss: 74000.00, nextLevelBalance: 91000.00, color: '#2ecc71' },
+        { level: 85, initialBalance: 74000.00, volume: 70.00, targetProfitLoss: 7000.00, ifProfit: 81000.00, ifLoss: 67000.00, nextLevelBalance: 82000.00, color: '#2ecc71' },
         { level: 84, initialBalance: 32.00, volume: 0.64, targetProfitLoss: 32.00, ifProfit: 64.00, ifLoss: 0.00, nextLevelBalance: 64.00, color: '#2ecc71' },
         { level: 83, initialBalance: 16.00, volume: 0.32, targetProfitLoss: 16.00, ifProfit: 32.00, ifLoss: 0.00, nextLevelBalance: 32.00, color: '#2ecc71' },
         { level: 82, initialBalance: 8.00, volume: 0.16, targetProfitLoss: 8.00, ifProfit: 16.00, ifLoss: 0.00, nextLevelBalance: 16.00, color: '#2ecc71' },
