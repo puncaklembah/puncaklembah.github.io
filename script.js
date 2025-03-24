@@ -135,7 +135,7 @@ if (document.getElementById('transactionForm')) {
         }
     });
 
-    // Simulasi Pertumbuhan
+    // Simulasi Pertumbuhan di Dashboard
     const data = [
         {transaksi: 11, volume: 10.00, targetPoin: 5000, modalAwal: 512.00, keuntungan: 500.00, modalAkhir: 1012.00, color: '#e74c3c'},
         {transaksi: 10, volume: 5.12, targetPoin: 5000, modalAwal: 256.00, keuntungan: 256.00, modalAkhir: 512.00, color: '#2ecc71'},
@@ -166,40 +166,81 @@ if (document.getElementById('transactionForm')) {
         });
     }
 
-    const ctx = document.getElementById('growthChart').getContext('2d');
-    new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: data.map(row => `Transaksi ${row.transaksi}`),
-            datasets: [{
-                label: 'Modal Akhir ($)',
-                data: data.map(row => row.modalAkhir),
-                borderColor: 'rgba(75, 192, 192, 1)',
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                fill: true,
-                tension: 0.1,
-                pointBackgroundColor: data.map(row => row.color),
-                pointRadius: 5
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    title: { display: true, text: 'Modal Akhir ($)' }
-                },
-                x: {
-                    title: { display: true, text: 'Transaksi' }
-                }
+    const ctx = document.getElementById('growthChart')?.getContext('2d');
+    if (ctx) {
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: data.map(row => `Transaksi ${row.transaksi}`),
+                datasets: [{
+                    label: 'Modal Akhir ($)',
+                    data: data.map(row => row.modalAkhir),
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    fill: true,
+                    tension: 0.1,
+                    pointBackgroundColor: data.map(row => row.color),
+                    pointRadius: 5
+                }]
             },
-            plugins: {
-                legend: { display: false },
-                tooltip: { mode: 'index', intersect: false }
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: { beginAtZero: true, title: { display: true, text: 'Modal Akhir ($)' } },
+                    x: { title: { display: true, text: 'Transaksi' } }
+                },
+                plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false } }
             }
-        }
-    });
+        });
+    }
 
-    window.onload = populateTable;
+    window.onload = function() {
+        if (document.getElementById('growthTable')) populateTable();
+    };
+}
+
+// Logika 88 Levels
+if (document.getElementById('levelTable')) {
+    const table = document.getElementById('levelTable');
+    const rows = table.querySelectorAll('tbody tr');
+    const levelData = Array.from(rows).map(row => {
+        const cells = row.querySelectorAll('td');
+        const level = parseInt(cells[0].textContent);
+        const initialBalance = parseFloat(cells[1].textContent.replace('$', '').replace(',', ''));
+        const nextLevelBalance = parseFloat(cells[6].textContent.replace('$', '').replace(',', ''));
+        let color = '#2ecc71'; // Pertumbuhan (default)
+        if (level <= -10) color = '#3498db'; // Level awal
+        if (level >= 80) color = '#e74c3c'; // Level puncak
+        return { level, initialBalance, nextLevelBalance, color };
+    }); // Tanpa reverse(), urutan tetap 88 ke -17
+
+    const ctxEquity = document.getElementById('equityChart')?.getContext('2d');
+    if (ctxEquity) {
+        new Chart(ctxEquity, {
+            type: 'line',
+            data: {
+                labels: levelData.map(row => `Level ${row.level}`),
+                datasets: [{
+                    label: 'Saldo Awal Perdagangan ($)',
+                    data: levelData.map(row => row.initialBalance),
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    fill: true,
+                    tension: 0.1,
+                    pointBackgroundColor: levelData.map(row => row.color),
+                    pointRadius: 5
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: { beginAtZero: true, title: { display: true, text: 'Saldo Awal ($)' } },
+                    x: { title: { display: true, text: 'Level' } }
+                },
+                plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false } }
+            }
+        });
+    }
 }
