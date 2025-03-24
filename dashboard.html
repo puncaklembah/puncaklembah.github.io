@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Sigma Grok</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="88level.html">88 Levels</a></li>
+            <li><a href="https://x.com/i/grok">Contribute</a></li>
+            <li><a href="https://www.mql5.com/en/signals/2268101" target="_blank" rel="noopener noreferrer">MQL5</a></li>
+        </ul>
+        <span id="disableDarkMode" class="theme-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-sun" viewBox="0 0 16 16">
+                <circle cx="8" cy="8" r="3" />
+                <line x1="8" y1="1" x2="8" y2="3" stroke="currentColor" stroke-width="1" />
+                <line x1="8" y1="13" x2="8" y2="15" stroke="currentColor" stroke-width="1" />
+                <line x1="1" y1="8" x2="3" y2="8" stroke="currentColor" stroke-width="1" />
+                <line x1="13" y1="8" x2="15" y2="8" stroke="currentColor" stroke-width="1" />
+                <line x1="3.5" y1="3.5" x2="5" y2="5" stroke="currentColor" stroke-width="1" />
+                <line x1="11" y1="5" x2="12.5" y2="3.5" stroke="currentColor" stroke-width="1" />
+                <line x1="3.5" y1="12.5" x2="5" y2="11" stroke="currentColor" stroke-width="1" />
+                <line x1="11" y1="11" x2="12.5" y2="12.5" stroke="currentColor" stroke-width="1" />
+            </svg>
+        </span>
+    </nav>
+
+    <!-- Konten Utama -->
+    <div class="content">
+        <h1>Sigma Grok Dashboard</h1>
+        <p>Manage your trades and simulate growth</p>
+    </div>
+
+    <!-- Form Container -->
+    <div class="form-container">
+        <h2>Tambah Transaksi</h2>
+        <form id="transactionForm">
+            <label for="asset">Simbol:</label>
+            <input type="text" id="asset" placeholder="EURUSD / XAUUSD / BTC / ETH" required><br>
+            <label for="type">Tipe:</label>
+            <select id="type" required>
+                <option value="buy">Buy</option>
+                <option value="sell">Sell</option>
+            </select><br>
+            <label for="amount">Ukuran:</label>
+            <input type="number" id="amount" step="0.01" min="0" required><br>
+            <label for="entry">Harga Masuk:</label>
+            <input type="number" id="entry" step="0.00001" min="0" required><br>
+            <label for="exit">Harga Keluar (opsional):</label>
+            <input type="number" id="exit" step="0.00001" min="0"><br>
+            <label for="notes">Catatan:</label>
+            <input type="text" id="notes" placeholder="Opsional"><br>
+            <div id="errorMessage" class="error-message"></div>
+            <button type="submit">Proses</button>
+        </form>
+    </div>
+
+    <!-- Table Container -->
+    <div class="table-container">
+        <h2>Daftar Transaksi</h2>
+        <table id="transactionTable">
+            <thead>
+                <tr>
+                    <th>Tanggal</th>
+                    <th>Simbol</th>
+                    <th>Tipe</th>
+                    <th>Ukuran</th>
+                    <th>Harga Masuk</th>
+                    <th>Harga Keluar</th>
+                    <th>Profit/Loss</th>
+                    <th>Catatan</th>
+                </tr>
+            </thead>
+            <tbody id="transactionBody"></tbody>
+        </table>
+    </div>
+
+    <!-- Summary Container -->
+    <div class="summary-container">
+        <h2>Ringkasan</h2>
+        <table id="summaryTable">
+            <caption><a href="https://www.mql5.com/en/signals/2268101" target="_blank">Peta Pertumbuhan Ekuitas</a></caption>
+            <thead>
+                <tr>
+                    <th>Kategori</th>
+                    <th>Nilai</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Total Trades</td><td id="totalTrades">0</td></tr>
+                <tr><td>Total Profit/Loss</td><td id="totalPL">0</td></tr>
+                <tr><td>Rata-rata P/L per Trade</td><td id="avgPL">0</td></tr>
+                <tr><td>Trades BTC</td><td id="btcTrades">0</td></tr>
+                <tr><td>Trades ETH</td><td id="ethTrades">0</td></tr>
+                <tr><td>Trades Forex</td><td id="forexTrades">0</td></tr>
+                <tr><td>Trades XAUUSD</td><td id="xauTrades">0</td></tr>
+            </tbody>
+        </table>
+        <button id="resetButton">Reset Semua</button>
+    </div>
+
+    <!-- Growth Simulation Container -->
+    <div class="growth-container">
+        <h1>Simulasi Keuntungan 100% per Transaksi</h1>
+        <p>Jika modal awal Anda adalah $0.50 dan setiap transaksi memberikan keuntungan 100%, berikut adalah pertumbuhannya:</p>
+        <div class="legend">
+            <div class="legend-item"><div class="legend-color" style="background: #3498db;"></div> Transaksi Awal</div>
+            <div class="legend-item"><div class="legend-color" style="background: #2ecc71;"></div> Transaksi Pertumbuhan</div>
+            <div class="legend-item"><div class="legend-color" style="background: #e74c3c;"></div> Transaksi Puncak</div>
+        </div>
+        <table id="growthTable">
+            <thead>
+                <tr>
+                    <th>Transaksi</th>
+                    <th>Volume</th>
+                    <th>Target Poin</th>
+                    <th>Modal Awal ($)</th>
+                    <th>Keuntungan</th>
+                    <th>Modal Akhir ($)</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <div class="chart-container">
+            <canvas id="growthChart"></canvas>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
