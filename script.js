@@ -289,9 +289,9 @@ if (document.getElementById('levelTable')) {
     { level: 6, initialBalance: 6.00, volume: 0.01, targetProfitLoss: 1.00, ifProfit: 7.00, ifLoss: 5.00, nextLevelBalance: 7.00, color: '#2ecc78' },
     { level: 5, initialBalance: 5.00, volume: 0.01, targetProfitLoss: 1.00, ifProfit: 6.00, ifLoss: 4.00, nextLevelBalance: 6.00, color: '#2ecc78' },
     { level: 4, initialBalance: 4.00, volume: 0.01, targetProfitLoss: 1.00, ifProfit: 5.00, ifLoss: 3.00, nextLevelBalance: 5.00, color: '#2ecc78' },
-    { level: 3, initialBalance: 3.00, volume: 0.01, targetProfitLoss: 1.00, ifProfit: 4.00, ifLoss: 2.00, nextLevelBalance: 4.00, color: '#2ecc78' },
-    { level: 2, initialBalance: 2.00, volume: 0.01, targetProfitLoss: 1.00, ifProfit: 3.00, ifLoss: 1.00, nextLevelBalance: 3.00, color: '#2ecc78' },
-    { level: 1, initialBalance: 1.00, volume: 0.01, targetProfitLoss: 1.00, ifProfit: 2.00, ifLoss: 0.00, nextLevelBalance: 2.00, color: '#2ecc78' }
+    { level: 3, initialBalance: 3.00, volume: 0.01, targetProfitLoss: 1.00, ifProfit: 4.00, ifLoss: 2.00, nextLevelBalance: 4.00, color: '#3498db' },
+    { level: 2, initialBalance: 2.00, volume: 0.01, targetProfitLoss: 1.00, ifProfit: 3.00, ifLoss: 1.00, nextLevelBalance: 3.00, color: '#3498db' },
+    { level: 1, initialBalance: 1.00, volume: 0.01, targetProfitLoss: 1.00, ifProfit: 2.00, ifLoss: 0.00, nextLevelBalance: 2.00, color: '#3498db' }
 ];
 
     // Fungsi untuk mengisi tabel dengan tanda koma
