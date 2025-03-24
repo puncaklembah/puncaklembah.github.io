@@ -202,7 +202,7 @@ if (document.getElementById('transactionForm')) {
 
 // Logika 88 Levels
 if (document.getElementById('levelTable')) {
-    // Data statis untuk 88 Levels
+    // Data statis untuk 88 Levels (tidak diubah, tetap dari besar ke kecil untuk tabel)
     const levelData = [
         { level: 88, initialBalance: 100000.00, volume: 100.00, targetProfitLoss: 10000.00, ifProfit: 110000.00, ifLoss: 90000.00, nextLevelBalance: 110000.00, color: '#e74c3c' },
         { level: 87, initialBalance: 256.00, volume: 5.12, targetProfitLoss: 256.00, ifProfit: 512.00, ifLoss: 0.00, nextLevelBalance: 512.00, color: '#2ecc71' },
@@ -217,14 +217,14 @@ if (document.getElementById('levelTable')) {
         { level: 78, initialBalance: 0.50, volume: 0.01, targetProfitLoss: 0.50, ifProfit: 1.00, ifLoss: 0.00, nextLevelBalance: 1.00, color: '#3498db' }
     ];
 
-    // Fungsi untuk mengisi tabel
+    // Fungsi untuk mengisi tabel (tidak diubah)
     function populateLevelTable() {
         const tableBody = document.querySelector("#levelTable tbody");
         if (!tableBody) {
             console.error('Element #levelTable tbody not found');
             return;
         }
-        tableBody.innerHTML = ''; // Kosongkan tbody terlebih dahulu
+        tableBody.innerHTML = '';
         levelData.forEach(row => {
             const tr = document.createElement('tr');
             tr.innerHTML = `
@@ -243,21 +243,25 @@ if (document.getElementById('levelTable')) {
     // Pastikan tabel terisi saat halaman dimuat
     window.addEventListener('load', populateLevelTable);
 
-    // Grafik
+    // Grafik dengan level kecil di kiri dan besar di kanan
     const ctxEquity = document.getElementById('equityChart')?.getContext('2d');
-    if (ctxEquity) {
+    if (!ctxEquity) {
+        console.error('Canvas #equityChart not found or context not available');
+    } else {
+        // Membalik urutan data untuk grafik
+        const reversedLevelData = [...levelData].reverse();
         new Chart(ctxEquity, {
             type: 'line',
             data: {
-                labels: levelData.map(row => `Level ${row.level}`),
+                labels: reversedLevelData.map(row => `Level ${row.level}`), // Dari Level 78 ke Level 88
                 datasets: [{
                     label: 'Saldo Awal Perdagangan ($)',
-                    data: levelData.map(row => row.initialBalance),
+                    data: reversedLevelData.map(row => row.initialBalance), // Saldo awal sesuai urutan terbalik
                     borderColor: 'rgba(75, 192, 192, 1)',
                     backgroundColor: 'rgba(75, 192, 192, 0.2)',
                     fill: true,
                     tension: 0.1,
-                    pointBackgroundColor: levelData.map(row => row.color),
+                    pointBackgroundColor: reversedLevelData.map(row => row.color), // Warna sesuai urutan terbalik
                     pointRadius: 5
                 }]
             },
@@ -271,7 +275,5 @@ if (document.getElementById('levelTable')) {
                 plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false } }
             }
         });
-    } else {
-        console.error('Canvas #equityChart not found');
     }
 }
