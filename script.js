@@ -217,8 +217,14 @@ if (document.getElementById('levelTable')) {
         { level: 1, initialBalance: 0.50, volume: 0.01, targetProfitLoss: 0.50, ifProfit: 1.00, ifLoss: 0.00, nextLevelBalance: 1.00, color: '#3498db' }
     ];
 
+    // Fungsi untuk mengisi tabel
     function populateLevelTable() {
         const tableBody = document.querySelector("#levelTable tbody");
+        if (!tableBody) {
+            console.error('Element #levelTable tbody not found');
+            return;
+        }
+        tableBody.innerHTML = ''; // Kosongkan tbody terlebih dahulu
         levelData.forEach(row => {
             const tr = document.createElement('tr');
             tr.innerHTML = `
@@ -234,6 +240,10 @@ if (document.getElementById('levelTable')) {
         });
     }
 
+    // Pastikan tabel terisi saat halaman dimuat
+    window.addEventListener('load', populateLevelTable);
+
+    // Grafik
     const ctxEquity = document.getElementById('equityChart')?.getContext('2d');
     if (ctxEquity) {
         new Chart(ctxEquity, {
@@ -261,9 +271,7 @@ if (document.getElementById('levelTable')) {
                 plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false } }
             }
         });
-    }
-
-    if (document.getElementById('levelTable')) {
-        window.onload = populateLevelTable;
+    } else {
+        console.error('Canvas #equityChart not found');
     }
 }
