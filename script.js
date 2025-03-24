@@ -153,9 +153,10 @@ const data = [
 // Data untuk grafik kedua (transaksi 11 di kanan)
 const dataReversed = [...data].reverse();
 
-function populateTable() {
-    const tableBody = document.querySelector("#growthTable tbody");
-    data.forEach(row => {
+function populateTable(tableId, tableData) {
+    const tableBody = document.querySelector(`#${tableId} tbody`);
+    if (!tableBody) return;
+    tableData.forEach(row => {
         const tr = document.createElement('tr');
         tr.innerHTML = `
             <td>${row.transaksi}</td>
@@ -169,7 +170,6 @@ function populateTable() {
     });
 }
 
-// Fungsi untuk membuat grafik
 function createChart(ctx, chartData, title) {
     return new Chart(ctx, {
         type: 'line',
@@ -202,23 +202,18 @@ function createChart(ctx, chartData, title) {
     });
 }
 
-// Inisialisasi grafik pertama (transaksi 11 di kiri)
-const ctx1 = document.getElementById('growthChart')?.getContext('2d');
-if (ctx1) {
-    createChart(ctx1, data, 'Pertumbuhan (Transaksi 11 di Kiri)');
-}
+// Inisialisasi saat halaman dimuat
+window.addEventListener('load', () => {
+    if (document.getElementById('growthTable')) {
+        populateTable('growthTable', data);
+    }
+    const ctx1 = document.getElementById('growthChart')?.getContext('2d');
+    if (ctx1) createChart(ctx1, data, 'Pertumbuhan (Transaksi 11 di Kiri)');
 
-// Inisialisasi grafik kedua (transaksi 11 di kanan)
-const ctx2 = document.getElementById('growthChart2')?.getContext('2d');
-if (ctx2) {
-    createChart(ctx2, dataReversed, 'Pertumbuhan (Transaksi 11 di Kanan)');
-}
-
-// Populate table saat window load
-if (document.getElementById('growthTable')) {
-    window.onload = populateTable;
-}
-
+    const ctx2 = document.getElementById('growthChart2')?.getContext('2d');
+    if (ctx2) createChart(ctx2, dataReversed, 'Pertumbuhan (Transaksi 11 di Kanan)');
+});
+    
 // Logika 88 Levels
 if (document.getElementById('levelTable')) {
     // Data statis untuk 88 Levels (tanpa koma di definisi)
