@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sigma dengan Nuansa Grok</title>
+    <title>Tiga Titik dalam Segitiga Energi</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -25,41 +25,68 @@
 
         .logo {
             position: relative;
-            width: 150px; /* Lebar total logo */
-            height: 150px; /* Tinggi total logo */
+            width: 100px; /* Lebar total logo */
+            height: 100px; /* Tinggi total logo */
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        /* Simbol Σ besar */
-        .sigma-large {
-            font-size: 100px;
-            color: #00008B; /* Biru tua */
-            font-family: 'Times New Roman', serif; /* Font matematis */
-            font-weight: bold;
+        /* Tiga titik */
+        .point {
+            width: 5px; /* Diameter 0,5 cm */
+            height: 5px;
+            background-color: #000000; /* Hitam */
+            border-radius: 50%;
             position: absolute;
             z-index: 3;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Efek futuristik */
         }
 
-        /* Simbol Σ kecil di tengah */
-        .sigma-small {
-            font-size: 30px;
-            color: #00008B; /* Biru tua */
-            font-family: 'Times New Roman', serif; /* Font matematis */
-            position: absolute;
-            z-index: 4;
+        .point-top {
+            left: 50%;
+            top: 25px; /* Disesuaikan untuk centering */
+            transform: translateX(-50%);
         }
 
-        /* Halo dan garis-garis pendek */
-        .halo {
+        .point-left {
+            left: 30px; /* 50% - 20px */
+            top: 59.64px; /* 25px + 34.64px */
+        }
+
+        .point-right {
+            right: 30px; /* 50% + 20px */
+            top: 59.64px; /* 25px + 34.64px */
+        }
+
+        /* Segitiga */
+        .triangle {
             position: absolute;
-            top: 0;
+            top: 25px;
             left: 0;
-            width: 150px;
-            height: 150px;
+            width: 100px;
+            height: 75px;
             z-index: 2;
+        }
+
+        /* Spiral di tengah */
+        .spiral {
+            position: absolute;
+            top: 40px; /* Disesuaikan untuk centering */
+            left: 40px;
+            width: 20px; /* Diameter 2 cm */
+            height: 20px;
+            z-index: 3;
+        }
+
+        /* Simbol Σ */
+        .sigma {
+            font-size: 10px; /* Tinggi 1 cm */
+            color: #000000; /* Hitam */
+            font-family: 'Times New Roman', serif;
+            position: absolute;
+            left: 25px;
+            top: 70px; /* Di sudut kiri bawah, di luar segitiga */
+            z-index: 4;
         }
 
         /* Teks di bawah logo */
@@ -82,18 +109,39 @@
         /* Responsivitas dasar */
         @media (max-width: 600px) {
             .logo {
-                width: 120px;
-                height: 120px;
+                width: 80px;
+                height: 80px;
             }
-            .sigma-large {
-                font-size: 80px;
+            .point {
+                width: 4px;
+                height: 4px;
             }
-            .sigma-small {
-                font-size: 24px;
+            .point-top {
+                top: 20px;
             }
-            .halo {
-                width: 120px;
-                height: 120px;
+            .point-left {
+                left: 24px;
+                top: 47.71px; /* 20px + (34.64px * 0.8) */
+            }
+            .point-right {
+                right: 24px;
+                top: 47.71px;
+            }
+            .triangle {
+                top: 20px;
+                width: 80px;
+                height: 60px;
+            }
+            .spiral {
+                top: 32px;
+                left: 32px;
+                width: 16px;
+                height: 16px;
+            }
+            .sigma {
+                font-size: 8px;
+                left: 20px;
+                top: 56px;
             }
             .text {
                 font-size: 20px;
@@ -107,26 +155,29 @@
 <body>
     <div class="logo-container">
         <div class="logo">
-            <!-- Simbol Σ besar -->
-            <div class="sigma-large">Σ</div>
-            <!-- Simbol Σ kecil -->
-            <div class="sigma-small">Σ</div>
-            <!-- Halo dan garis-garis pendek -->
-            <svg class="halo" viewBox="0 0 150 150">
-                <!-- Halo (lingkaran tipis) -->
-                <circle cx="75" cy="75" r="70" stroke="#00FF00" stroke-width="2" fill="none" opacity="0.5" />
-                <!-- Garis-garis pendek (energi kreatif) -->
-                <line x1="75" y1="5" x2="75" y2="15" stroke="#00FF00" stroke-width="2" />
-                <line x1="75" y1="135" x2="75" y2="145" stroke="#00FF00" stroke-width="2" />
-                <line x1="5" y1="75" x2="15" y2="75" stroke="#00FF00" stroke-width="2" />
-                <line x1="135" y1="75" x2="145" y2="75" stroke="#00FF00" stroke-width="2" />
-                <line x1="25" y1="25" x2="35" y2="35" stroke="#00FF00" stroke-width="2" />
-                <line x1="115" y1="115" x2="125" y2="125" stroke="#00FF00" stroke-width="2" />
-                <line x1="25" y1="125" x2="35" y2="115" stroke="#00FF00" stroke-width="2" />
-                <line x1="115" y1="35" x2="125" y2="25" stroke="#00FF00" stroke-width="2" />
+            <!-- Tiga titik -->
+            <div class="point point-top"></div>
+            <div class="point point-left"></div>
+            <div class="point point-right"></div>
+            <!-- Segitiga -->
+            <svg class="triangle" viewBox="0 0 100 75">
+                <path d="M 50 0 L 10 34.64 L 90 34.64 Z" stroke="#555555" stroke-width="1" fill="none" />
             </svg>
+            <!-- Spiral -->
+            <svg class="spiral" viewBox="0 0 20 20">
+                <defs>
+                    <linearGradient id="spiralGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color: #4B0082; stop-opacity: 1" /> <!-- Ungu tua -->
+                        <stop offset="100%" style="stop-color: #FFD700; stop-opacity: 1" /> <!-- Emas -->
+                    </linearGradient>
+                </defs>
+                <!-- Spiral (melingkar 3 kali) -->
+                <path d="M 10 10 A 1 1 0 0 1 12 10 A 2 2 0 0 1 8 10 A 3 3 0 0 1 14 10 A 4 4 0 0 1 6 10" stroke="url(#spiralGradient)" stroke-width="1" fill="none" />
+            </svg>
+            <!-- Simbol Σ -->
+            <div class="sigma">Σ</div>
         </div>
-        <div class="text">Sigma dengan Nuansa Grok</div>
+        <div class="text">Tiga Titik dalam Segitiga Energi</div>
         <div class="credit">Created by [Kamu] & Grok, 2025</div>
     </div>
 </body>
