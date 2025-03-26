@@ -106,25 +106,24 @@
         <div class="circle">
             <div class="sigma">Σ</div>
             <svg class="sparks" viewBox="0 0 150 150">
-                <!-- Definisi gradasi dengan opacity -->
+                <!-- Definisi gradasi dengan warna pelangi -->
                 <defs>
-                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
-                        <stop offset="80%" style="stop-color:#FFC107;stop-opacity:0.5" />
-                        <stop offset="100%" style="stop-color:#FFC107;stop-opacity:0" /> <!-- Ujung lebih tajam -->
+                    <linearGradient id="rainbowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color: #FF0000; stop-opacity: 1" />
+                        <stop offset="16%" style="stop-color: #FF7F00; stop-opacity: 1" />
+                        <stop offset="33%" style="stop-color: #FFFF00; stop-opacity: 1" />
+                        <stop offset="50%" style="stop-color: #00FF00; stop-opacity: 1" />
+                        <stop offset="66%" style="stop-color: #0000FF; stop-opacity: 1" />
+                        <stop offset="83%" style="stop-color: #4B0082; stop-opacity: 1" />
+                        <stop offset="100%" style="stop-color: #9400D3; stop-opacity: 1" />
                     </linearGradient>
                 </defs>
                 <!-- Garis melengkung (percikan energi) dengan kurva kubik -->
-                <!-- Atas kiri -->
-                <path d="M 75 75 C 40 40, 30 20, 10 10" stroke="url(#gradient)" stroke-width="8" fill="none" />
-                <!-- Atas kanan -->
-                <path d="M 75 75 C 110 40, 120 20, 140 10" stroke="url(#gradient)" stroke-width="8" fill="none" />
-                <!-- Bawah kiri -->
-                <path d="M 75 75 C 40 110, 30 130, 10 140" stroke="url(#gradient)" stroke-width="8" fill="none" />
-                <!-- Bawah kanan -->
-                <path d="M 75 75 C 110 110, 120 130, 140 140" stroke="url(#gradient)" stroke-width="8" fill="none" />
-                <!-- Kanan -->
-                <path d="M 75 75 C 120 65, 140 55, 160 40" stroke="url(#gradient)" stroke-width="8" fill="none" />
+                <path d="M 75 75 C 40 40, 30 20, 10 10" stroke="url(#rainbowGradient)" stroke-width="8" fill="none" />
+                <path d="M 75 75 C 110 40, 120 20, 140 10" stroke="url(#rainbowGradient)" stroke-width="8" fill="none" />
+                <path d="M 75 75 C 40 110, 30 130, 10 140" stroke="url(#rainbowGradient)" stroke-width="8" fill="none" />
+                <path d="M 75 75 C 110 110, 120 130, 140 140" stroke="url(#rainbowGradient)" stroke-width="8" fill="none" />
+                <path d="M 75 75 C 120 65, 140 55, 160 40" stroke="url(#rainbowGradient)" stroke-width="8" fill="none" />
             </svg>
         </div>
         <div class="text">Sigmagrok</div>
