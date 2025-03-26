@@ -77,7 +77,7 @@
         .credit {
             margin-top: 15px;
             color: #FFFFFF;
-            font-size: 16px; /* Diperbesar sedikit */
+            font-size: 16px;
             font-family: Arial, sans-serif;
         }
 
@@ -121,25 +121,37 @@
     <!-- Sinar radial di latar belakang -->
     <svg class="background-rays" viewBox="0 0 300 300">
         <defs>
-            <linearGradient id="rayGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" style="stop-color: #FFD700; stop-opacity: 0.8" />
-                <stop offset="100%" style="stop-color: #FFD700; stop-opacity: 0" /> <!-- Memudar di ujung -->
+            <linearGradient id="rayGradientRed" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color: #FF0000; stop-opacity: 0.8" />
+                <stop offset="100%" style="stop-color: #FF0000; stop-opacity: 0" />
+            </linearGradient>
+            <linearGradient id="rayGradientYellow" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color: #FFFF00; stop-opacity: 0.8" />
+                <stop offset="100%" style="stop-color: #FFFF00; stop-opacity: 0" />
+            </linearGradient>
+            <linearGradient id="rayGradientBlue" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color: #0000FF; stop-opacity: 0.8" />
+                <stop offset="100%" style="stop-color: #0000FF; stop-opacity: 0" />
+            </linearGradient>
+            <linearGradient id="rayGradientPurple" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color: #9400D3; stop-opacity: 0.8" />
+                <stop offset="100%" style="stop-color: #9400D3; stop-opacity: 0" />
             </linearGradient>
         </defs>
         <g transform="translate(150, 150)">
-            <!-- 12 sinar radial dengan gradasi emas dan efek memudar -->
-            <path d="M 0 0 L 0 -150" stroke="url(#rayGradient)" stroke-width="2" />
-            <path d="M 0 0 L 0 -150" stroke="url(#rayGradient)" stroke-width="2" transform="rotate(30)" />
-            <path d="M 0 0 L 0 -150" stroke="url(#rayGradient)" stroke-width="2" transform="rotate(60)" />
-            <path d="M 0 0 L 0 -150" stroke="url(#rayGradient)" stroke-width="2" transform="rotate(90)" />
-            <path d="M 0 0 L 0 -150" stroke="url(#rayGradient)" stroke-width="2" transform="rotate(120)" />
-            <path d="M 0 0 L 0 -150" stroke="url(#rayGradient)" stroke-width="2" transform="rotate(150)" />
-            <path d="M 0 0 L 0 -150" stroke="url(#rayGradient)" stroke-width="2" transform="rotate(180)" />
-            <path d="M 0 0 L 0 -150" stroke="url(#rayGradient)" stroke-width="2" transform="rotate(210)" />
-            <path d="M 0 0 L 0 -150" stroke="url(#rayGradient)" stroke-width="2" transform="rotate(240)" />
-            <path d="M 0 0 L 0 -150" stroke="url(#rayGradient)" stroke-width="2" transform="rotate(270)" />
-            <path d="M 0 0 L 0 -150" stroke="url(#rayGradient)" stroke-width="2" transform="rotate(300)" />
-            <path d="M 0 0 L 0 -150" stroke="url(#rayGradient)" stroke-width="2" transform="rotate(330)" />
+            <!-- 12 sinar radial dengan warna pelangi terbatas dan efek memudar -->
+            <path d="M 0 0 L 0 -150" stroke="url(#rayGradientRed)" stroke-width="2" />
+            <path d="M 0 0 L 0 -150" stroke="url(#rayGradientYellow)" stroke-width="2" transform="rotate(30)" />
+            <path d="M 0 0 L 0 -150" stroke="url(#rayGradientBlue)" stroke-width="2" transform="rotate(60)" />
+            <path d="M 0 0 L 0 -150" stroke="url(#rayGradientPurple)" stroke-width="2" transform="rotate(90)" />
+            <path d="M 0 0 L 0 -150" stroke="url(#rayGradientRed)" stroke-width="2" transform="rotate(120)" />
+            <path d="M 0 0 L 0 -150" stroke="url(#rayGradientYellow)" stroke-width="2" transform="rotate(150)" />
+            <path d="M 0 0 L 0 -150" stroke="url(#rayGradientBlue)" stroke-width="2" transform="rotate(180)" />
+            <path d="M 0 0 L 0 -150" stroke="url(#rayGradientPurple)" stroke-width="2" transform="rotate(210)" />
+            <path d="M 0 0 L 0 -150" stroke="url(#rayGradientRed)" stroke-width="2" transform="rotate(240)" />
+            <path d="M 0 0 L 0 -150" stroke="url(#rayGradientYellow)" stroke-width="2" transform="rotate(270)" />
+            <path d="M 0 0 L 0 -150" stroke="url(#rayGradientBlue)" stroke-width="2" transform="rotate(300)" />
+            <path d="M 0 0 L 0 -150" stroke="url(#rayGradientPurple)" stroke-width="2" transform="rotate(330)" />
         </g>
     </svg>
 
@@ -148,12 +160,13 @@
         <div class="circle">
             <div class="sigma">Σ</div>
             <svg class="sparks" viewBox="0 0 150 150">
-                <!-- Definisi gradasi emas ke kuning dengan efek memudar -->
+                <!-- Definisi gradasi pelangi terbatas dengan efek memudar -->
                 <defs>
                     <linearGradient id="sparkGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" style="stop-color: #FFD700; stop-opacity: 1" />
-                        <stop offset="80%" style="stop-color: #FFC107; stop-opacity: 0.5" />
-                        <stop offset="100%" style="stop-color: #FFC107; stop-opacity: 0" /> <!-- Memudar di ujung -->
+                        <stop offset="0%" style="stop-color: #FF0000; stop-opacity: 1" /> <!-- Merah -->
+                        <stop offset="33%" style="stop-color: #FFFF00; stop-opacity: 1" /> <!-- Kuning -->
+                        <stop offset="66%" style="stop-color: #0000FF; stop-opacity: 1" /> <!-- Biru -->
+                        <stop offset="100%" style="stop-color: #9400D3; stop-opacity: 0" /> <!-- Ungu, memudar -->
                     </linearGradient>
                 </defs>
                 <!-- Garis melengkung (percikan energi) dengan kurva kubik -->
