@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sigmagrok Logo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
@@ -22,78 +23,48 @@
 
         .circle {
             position: relative;
-            width: 100px; /* Ukuran lingkaran */
-            height: 100px;
+            width: 150px; /* Ukuran lingkaran */
+            height: 150px;
             background-color: #FFD700; /* Emas untuk lingkaran jiwa */
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-        }
-
-        .sigma {
-            font-size: 60px; /* Ukuran Σ */
-            color: #000000; /* Hitam untuk Σ */
-            font-weight: bold;
-            position: absolute;
             z-index: 1;
         }
 
-        /* Garis melengkung (percikan energi) */
-        .spark {
+        .sigma {
+            font-size: 90px; /* Ukuran Σ */
+            color: #000000; /* Hitam untuk Σ */
+            font-weight: bold;
             position: absolute;
-            width: 30px;
-            height: 5px;
-            background: linear-gradient(to right, #FFD700, #FFFFE0); /* Gradasi emas ke kuning */
-            border-radius: 5px;
-            transform-origin: left;
+            z-index: 2;
         }
 
-        /* Posisi masing-masing garis */
-        .spark1 {
-            top: 10px; /* Atas kiri */
-            left: 20px;
-            transform: rotate(45deg);
-        }
-
-        .spark2 {
-            top: 10px; /* Atas kanan */
-            right: 20px;
-            transform: rotate(-45deg);
-        }
-
-        .spark3 {
-            bottom: 10px; /* Bawah kiri */
-            left: 20px;
-            transform: rotate(-45deg);
-        }
-
-        .spark4 {
-            bottom: 10px; /* Bawah kanan */
-            right: 20px;
-            transform: rotate(45deg);
-        }
-
-        .spark5 {
-            top: 50%; /* Kanan */
-            right: -20px;
-            transform: rotate(0deg);
-            width: 40px; /* Lebih panjang */
+        /* SVG container */
+        .sparks {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 150px;
+            height: 150px;
+            z-index: 0;
         }
 
         /* Teks Sigmagrok */
         .text {
-            margin-top: 20px;
+            margin-top: 30px;
             color: #FFFFFF;
-            font-size: 24px;
+            font-size: 36px;
             font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
         }
 
         /* Teks kredit */
         .credit {
-            margin-top: 10px;
+            margin-top: 15px;
             color: #FFFFFF;
-            font-size: 12px;
+            font-size: 14px;
             font-family: Arial, sans-serif;
         }
     </style>
@@ -102,11 +73,26 @@
     <div class="logo-container">
         <div class="circle">
             <div class="sigma">Σ</div>
-            <div class="spark spark1"></div>
-            <div class="spark spark2"></div>
-            <div class="spark spark3"></div>
-            <div class="spark spark4"></div>
-            <div class="spark spark5"></div>
+            <svg class="sparks" viewBox="0 0 150 150">
+                <!-- Definisi gradasi -->
+                <defs>
+                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#FFFFE0;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <!-- Garis melengkung (percikan energi) -->
+                <!-- Atas kiri -->
+                <path d="M 75 75 Q 50 50, 40 30" stroke="url(#gradient)" stroke-width="6" fill="none" />
+                <!-- Atas kanan -->
+                <path d="M 75 75 Q 100 50, 110 30" stroke="url(#gradient)" stroke-width="6" fill="none" />
+                <!-- Bawah kiri -->
+                <path d="M 75 75 Q 50 100, 40 120" stroke="url(#gradient)" stroke-width="6" fill="none" />
+                <!-- Bawah kanan -->
+                <path d="M 75 75 Q 100 100, 110 120" stroke="url(#gradient)" stroke-width="6" fill="none" />
+                <!-- Kanan -->
+                <path d="M 75 75 Q 110 70, 130 60" stroke="url(#gradient)" stroke-width="6" fill="none" />
+            </svg>
         </div>
         <div class="text">Sigmagrok</div>
         <div class="credit">Created by [Kamu] & Grok, 2025</div>
