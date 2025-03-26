@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sigmagrok Logo</title>
+    <title>GrokSek Logo</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -31,7 +31,7 @@
             width: 300px;
             height: 300px;
             z-index: 1;
-            animation: rotate 10s linear infinite; /* Dipercepat menjadi 10 detik */
+            animation: rotate 10s linear infinite; /* Animasi rotasi */
         }
 
         .circle {
@@ -46,12 +46,18 @@
             z-index: 3;
         }
 
-        .sigma {
-            font-size: 90px; /* Ukuran Σ */
-            color: #000000; /* Hitam untuk Σ */
+        .sek {
+            font-size: 36px; /* Ukuran disesuaikan agar proporsional */
+            color: #000000; /* Hitam untuk teks */
             font-weight: bold;
             position: absolute;
             z-index: 4;
+            font-family: 'Times New Roman', serif; /* Font matematis */
+        }
+
+        .sek sup {
+            font-size: 0.6em; /* Ukuran superscript lebih kecil */
+            vertical-align: super;
         }
 
         /* SVG container untuk garis melengkung */
@@ -64,13 +70,20 @@
             z-index: 2;
         }
 
-        /* Teks Sigmagrok */
+        /* Teks GrokSek */
         .text {
             margin-top: 30px;
-            color: #FFFFFF;
             font-size: 48px;
             font-family: 'Montserrat', system-ui, -apple-system, sans-serif; /* Fallback font sistem */
             font-weight: 700;
+        }
+
+        .text .grok {
+            color: #FFD700; /* Warna emas untuk "Grok" */
+        }
+
+        .text .sek {
+            color: #FFFFFF; /* Warna putih untuk "Sek" */
         }
 
         /* Teks kredit */
@@ -97,8 +110,8 @@
                 width: 120px;
                 height: 120px;
             }
-            .sigma {
-                font-size: 72px;
+            .sek {
+                font-size: 28px; /* Disesuaikan untuk layar kecil */
             }
             .sparks {
                 width: 120px;
@@ -140,7 +153,7 @@
         </defs>
         <g transform="translate(150, 150)">
             <!-- 12 sinar radial dengan warna pelangi terbatas dan efek memudar -->
-            <path d="M 0 0 L 0 -150" stroke="url(#rayGradientRed)" stroke-width="3" /> <!-- Dipertebal -->
+            <path d="M 0 0 L 0 -150" stroke="url(#rayGradientRed)" stroke-width="3" />
             <path d="M 0 0 L 0 -150" stroke="url(#rayGradientYellow)" stroke-width="3" transform="rotate(30)" />
             <path d="M 0 0 L 0 -150" stroke="url(#rayGradientBlue)" stroke-width="3" transform="rotate(60)" />
             <path d="M 0 0 L 0 -150" stroke="url(#rayGradientPurple)" stroke-width="3" transform="rotate(90)" />
@@ -158,7 +171,7 @@
     <!-- Logo utama -->
     <div class="logo-container">
         <div class="circle">
-            <div class="sigma">Σ</div>
+            <div class="sek">S(Ek<sup>Ek</sup>)=1</div>
             <svg class="sparks" viewBox="0 0 150 150">
                 <!-- Definisi gradasi pelangi terbatas dengan efek memudar -->
                 <defs>
@@ -173,12 +186,37 @@
                 <path d="M 75 75 C 40 40, 30 20, 10 10" stroke="url(#sparkGradient)" stroke-width="8" fill="none" />
                 <path d="M 75 75 C 110 40, 120 20, 140 10" stroke="url(#sparkGradient)" stroke-width="8" fill="none" />
                 <path d="M 75 75 C 40 110, 30 130, 10 140" stroke="url(#sparkGradient)" stroke-width="8" fill="none" />
-                <path d="M 75 75 C 110 110, 120 130, 140 140" stroke="url(#sparkGradient)" stroke-width="8" fill="none" />
-                <path d="M 75 75 C 120 65, 140 55, 160 40" stroke="url(#sparkGradient)" stroke-width="8" fill="none" />
-            </svg>
+                <path d="M 0 0 L 0 -150" stroke="url(#rayGradientYellow)" stroke-width="3" transform="rotate(270)" />
+                <path d="M 0 0 L 0 -150" stroke="url(#rayGradientBlue)" stroke-width="3" transform="rotate(300)" />
+                <path d="M 0 0 L 0 -150" stroke="url(#rayGradientPurple)" stroke-width="3" transform="rotate(330)" />
+            </g>
+        </svg>
+
+        <!-- Logo utama -->
+        <div class="logo-container">
+            <div class="circle">
+                <div class="sek">S(Ek<sup>Ek</sup>)=1</div>
+                <svg class="sparks" viewBox="0 0 150 150">
+                    <!-- Definisi gradasi pelangi terbatas dengan efek memudar -->
+                    <defs>
+                        <linearGradient id="sparkGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color: #FF0000; stop-opacity: 1" /> <!-- Merah -->
+                            <stop offset="33%" style="stop-color: #FFFF00; stop-opacity: 1" /> <!-- Kuning -->
+                            <stop offset="66%" style="stop-color: #0000FF; stop-opacity: 1" /> <!-- Biru -->
+                            <stop offset="100%" style="stop-color: #9400D3; stop-opacity: 0" /> <!-- Ungu, memudar -->
+                        </linearGradient>
+                    </defs>
+                    <!-- Garis melengkung (percikan energi) dengan kurva kubik -->
+                    <path d="M 75 75 C 40 40, 30 20, 10 10" stroke="url(#sparkGradient)" stroke-width="8" fill="none" />
+                    <path d="M 75 75 C 110 40, 120 20, 140 10" stroke="url(#sparkGradient)" stroke-width="8" fill="none" />
+                    <path d="M 75 75 C 40 110, 30 130, 10 140" stroke="url(#sparkGradient)" stroke-width="8" fill="none" />
+                    <path d="M 75 75 C 110 110, 120 130, 140 140" stroke="url(#sparkGradient)" stroke-width="8" fill="none" />
+                    <path d="M 75 75 C 120 65, 140 55, 160 40" stroke="url(#sparkGradient)" stroke-width="8" fill="none" />
+                </svg>
+            </div>
+            <div class="text"><span class="sek">Sek</span><span class="grok">Grok</span></div>
+            <div class="credit">Created by [Kamu] & Grok, 2025</div>
         </div>
-        <div class="text">Sigmagrok</div>
-        <div class="credit">Created by [Kamu] & Grok, 2025</div>
     </div>
 </body>
 </html>
