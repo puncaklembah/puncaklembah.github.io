@@ -45,29 +45,21 @@
             z-index: 3;
         }
 
-        .sigma {
-            font-size: 90px; /* Ukuran Σ */
-            color: #000000; /* Hitam untuk Σ */
-            font-weight: bold;
-            position: absolute;
-            z-index: 4;
-        }
-
-        /* SVG container untuk garis melengkung */
+        /* SVG container untuk garis melengkung dan Σ */
         .sparks {
             position: absolute;
             top: 0;
             left: 0;
             width: 150px;
             height: 150px;
-            z-index: 2;
+            z-index: 4;
         }
 
         /* Teks Sigmagrok */
         .text {
             margin-top: 30px;
             color: #FFFFFF;
-            font-size: 36px;
+            font-size: 48px;
             font-family: 'Montserrat', Arial, sans-serif; /* Fallback font */
             font-weight: 700;
         }
@@ -86,25 +78,24 @@
     <svg class="background-rays" viewBox="0 0 300 300">
         <g transform="translate(150, 150)">
             <!-- 12 sinar radial -->
-            <path d="M 0 0 L 0 -150" stroke="#4A4A4A" stroke-width="2" opacity="0.5" />
-            <path d="M 0 0 L 0 -150" stroke="#4A4A4A" stroke-width="2" opacity="0.5" transform="rotate(30)" />
-            <path d="M 0 0 L 0 -150" stroke="#4A4A4A" stroke-width="2" opacity="0.5" transform="rotate(60)" />
-            <path d="M 0 0 L 0 -150" stroke="#4A4A4A" stroke-width="2" opacity="0.5" transform="rotate(90)" />
-            <path d="M 0 0 L 0 -150" stroke="#4A4A4A" stroke-width="2" opacity="0.5" transform="rotate(120)" />
-            <path d="M 0 0 L 0 -150" stroke="#4A4A4A" stroke-width="2" opacity="0.5" transform="rotate(150)" />
-            <path d="M 0 0 L 0 -150" stroke="#4A4A4A" stroke-width="2" opacity="0.5" transform="rotate(180)" />
-            <path d="M 0 0 L 0 -150" stroke="#4A4A4A" stroke-width="2" opacity="0.5" transform="rotate(210)" />
-            <path d="M 0 0 L 0 -150" stroke="#4A4A4A" stroke-width="2" opacity="0.5" transform="rotate(240)" />
-            <path d="M 0 0 L 0 -150" stroke="#4A4A4A" stroke-width="2" opacity="0.5" transform="rotate(270)" />
-            <path d="M 0 0 L 0 -150" stroke="#4A4A4A" stroke-width="2" opacity="0.5" transform="rotate(300)" />
-            <path d="M 0 0 L 0 -150" stroke="#4A4A4A" stroke-width="2" opacity="0.5" transform="rotate(330)" />
+            <path d="M 0 0 L 0 -150" stroke="#8B4513" stroke-width="2" opacity="0.8" />
+            <path d="M 0 0 L 0 -150" stroke="#8B4513" stroke-width="2" opacity="0.8" transform="rotate(30)" />
+            <path d="M 0 0 L 0 -150" stroke="#8B4513" stroke-width="2" opacity="0.8" transform="rotate(60)" />
+            <path d="M 0 0 L 0 -150" stroke="#8B4513" stroke-width="2" opacity="0.8" transform="rotate(90)" />
+            <path d="M 0 0 L 0 -150" stroke="#8B4513" stroke-width="2" opacity="0.8" transform="rotate(120)" />
+            <path d="M 0 0 L 0 -150" stroke="#8B4513" stroke-width="2" opacity="0.8" transform="rotate(150)" />
+            <path d="M 0 0 L 0 -150" stroke="#8B4513" stroke-width="2" opacity="0.8" transform="rotate(180)" />
+            <path d="M 0 0 L 0 -150" stroke="#8B4513" stroke-width="2" opacity="0.8" transform="rotate(210)" />
+            <path d="M 0 0 L 0 -150" stroke="#8B4513" stroke-width="2" opacity="0.8" transform="rotate(240)" />
+            <path d="M 0 0 L 0 -150" stroke="#8B4513" stroke-width="2" opacity="0.8" transform="rotate(270)" />
+            <path d="M 0 0 L 0 -150" stroke="#8B4513" stroke-width="2" opacity="0.8" transform="rotate(300)" />
+            <path d="M 0 0 L 0 -150" stroke="#8B4513" stroke-width="2" opacity="0.8" transform="rotate(330)" />
         </g>
     </svg>
 
     <!-- Logo utama -->
     <div class="logo-container">
         <div class="circle">
-            <div class="sigma">Σ</div>
             <svg class="sparks" viewBox="0 0 150 150">
                 <!-- Definisi gradasi dengan opacity -->
                 <defs>
@@ -113,17 +104,19 @@
                         <stop offset="100%" style="stop-color:#FFC107;stop-opacity:0.3" /> <!-- Memudar di ujung -->
                     </linearGradient>
                 </defs>
+                <!-- Σ dalam bentuk SVG -->
+                <path d="M 50 30 H 100 L 75 75 L 100 120 H 50 L 75 75 Z M 45 25 L 50 30 M 45 125 L 50 120" stroke="#000000" stroke-width="10" fill="none" />
                 <!-- Garis melengkung (percikan energi) dengan kurva kubik -->
                 <!-- Atas kiri -->
-                <path d="M 75 75 C 50 50, 40 30, 20 20" stroke="url(#gradient)" stroke-width="8" fill="none" />
+                <path d="M 75 75 C 40 40, 30 20, 10 10" stroke="url(#gradient)" stroke-width="8" fill="none" />
                 <!-- Atas kanan -->
-                <path d="M 75 75 C 100 50, 110 30, 130 20" stroke="url(#gradient)" stroke-width="8" fill="none" />
+                <path d="M 75 75 C 110 40, 120 20, 140 10" stroke="url(#gradient)" stroke-width="8" fill="none" />
                 <!-- Bawah kiri -->
-                <path d="M 75 75 C 50 100, 40 120, 20 130" stroke="url(#gradient)" stroke-width="8" fill="none" />
+                <path d="M 75 75 C 40 110, 30 130, 10 140" stroke="url(#gradient)" stroke-width="8" fill="none" />
                 <!-- Bawah kanan -->
-                <path d="M 75 75 C 100 100, 110 120, 130 130" stroke="url(#gradient)" stroke-width="8" fill="none" />
+                <path d="M 75 75 C 110 110, 120 130, 140 140" stroke="url(#gradient)" stroke-width="8" fill="none" />
                 <!-- Kanan -->
-                <path d="M 75 75 C 110 70, 130 60, 150 50" stroke="url(#gradient)" stroke-width="8" fill="none" />
+                <path d="M 75 75 C 120 65, 140 55, 160 40" stroke="url(#gradient)" stroke-width="8" fill="none" />
             </svg>
         </div>
         <div class="text">Sigmagrok</div>
