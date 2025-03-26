@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GrokSek Logo</title>
+    <title>Dua Elemen Menyatu dengan Jiwa</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -23,106 +23,99 @@
             z-index: 2;
         }
 
-        .background-rays {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 300px;
-            height: 300px;
-            z-index: 1;
-            animation: rotate 10s linear infinite; /* Animasi rotasi */
+        .logo {
+            position: relative;
+            width: 200px; /* Lebar total logo */
+            height: 100px; /* Tinggi total logo */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .circle {
-            position: relative;
-            width: 150px; /* Ukuran lingkaran */
-            height: 150px;
-            background-color: #FFD700; /* Emas untuk lingkaran jiwa */
+        /* Dua lingkaran awal */
+        .circle-a {
+            width: 50px;
+            height: 50px;
+            background-color: #0000FF; /* Biru */
             border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            position: absolute;
+            left: 0;
+            top: 25px;
             z-index: 3;
         }
 
-        .sek {
-            font-size: 36px; /* Ukuran disesuaikan agar proporsional */
-            color: #000000; /* Hitam untuk teks */
-            font-weight: bold;
+        .circle-b {
+            width: 50px;
+            height: 50px;
+            background-color: #FF0000; /* Merah */
+            border-radius: 50%;
             position: absolute;
-            z-index: 4;
-            font-family: 'Times New Roman', serif; /* Font matematis */
+            right: 0;
+            top: 25px;
+            z-index: 3;
         }
 
-        .sek sup {
-            font-size: 0.6em; /* Ukuran superscript lebih kecil */
-            vertical-align: super;
+        /* Lingkaran jiwa */
+        .circle-soul {
+            width: 30px;
+            height: 30px;
+            background-color: #FFFF00; /* Kuning (cahaya kreatif) */
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
         }
 
-        /* SVG container untuk garis melengkung */
-        .sparks {
+        /* SVG untuk garis melengkung (aliran energi) */
+        .energy-flow {
             position: absolute;
             top: 0;
             left: 0;
-            width: 150px;
-            height: 150px;
+            width: 200px;
+            height: 100px;
             z-index: 2;
         }
 
-        /* Teks GrokSek */
+        /* Teks di bawah logo */
         .text {
-            margin-top: 30px;
-            font-size: 48px;
-            font-family: 'Montserrat', system-ui, -apple-system, sans-serif; /* Fallback font sistem */
+            margin-top: 20px;
+            color: #FFFFFF;
+            font-size: 24px;
+            font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
             font-weight: 700;
-        }
-
-        .text .grok {
-            color: #FFD700; /* Warna emas untuk "Grok" */
-        }
-
-        .text .sek {
-            color: #FFFFFF; /* Warna putih untuk "Sek" */
         }
 
         /* Teks kredit */
         .credit {
-            margin-top: 15px;
+            margin-top: 10px;
             color: #FFFFFF;
-            font-size: 16px;
+            font-size: 14px;
             font-family: Arial, sans-serif;
-        }
-
-        /* Animasi rotasi untuk sinar radial */
-        @keyframes rotate {
-            from {
-                transform: translate(-50%, -50%) rotate(0deg);
-            }
-            to {
-                transform: translate(-50%, -50%) rotate(360deg);
-            }
         }
 
         /* Responsivitas dasar */
         @media (max-width: 600px) {
-            .circle {
-                width: 120px;
-                height: 120px;
+            .logo {
+                width: 160px;
+                height: 80px;
             }
-            .sek {
-                font-size: 28px; /* Disesuaikan untuk layar kecil */
+            .circle-a, .circle-b {
+                width: 40px;
+                height: 40px;
+                top: 20px;
             }
-            .sparks {
-                width: 120px;
-                height: 120px;
+            .circle-soul {
+                width: 24px;
+                height: 24px;
             }
-            .background-rays {
-                width: 240px;
-                height: 240px;
+            .energy-flow {
+                width: 160px;
+                height: 80px;
             }
             .text {
-                font-size: 36px;
+                font-size: 20px;
             }
             .credit {
                 font-size: 12px;
@@ -131,92 +124,28 @@
     </style>
 </head>
 <body>
-    <!-- Sinar radial di latar belakang -->
-    <svg class="background-rays" viewBox="0 0 300 300">
-        <defs>
-            <linearGradient id="rayGradientRed" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" style="stop-color: #FF0000; stop-opacity: 0.8" />
-                <stop offset="100%" style="stop-color: #FF0000; stop-opacity: 0" />
-            </linearGradient>
-            <linearGradient id="rayGradientYellow" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" style="stop-color: #FFFF00; stop-opacity: 0.8" />
-                <stop offset="100%" style="stop-color: #FFFF00; stop-opacity: 0" />
-            </linearGradient>
-            <linearGradient id="rayGradientBlue" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" style="stop-color: #0000FF; stop-opacity: 0.8" />
-                <stop offset="100%" style="stop-color: #0000FF; stop-opacity: 0" />
-            </linearGradient>
-            <linearGradient id="rayGradientPurple" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" style="stop-color: #9400D3; stop-opacity: 0.8" />
-                <stop offset="100%" style="stop-color: #9400D3; stop-opacity: 0" />
-            </linearGradient>
-        </defs>
-        <g transform="translate(150, 150)">
-            <!-- 12 sinar radial dengan warna pelangi terbatas dan efek memudar -->
-            <path d="M 0 0 L 0 -150" stroke="url(#rayGradientRed)" stroke-width="3" />
-            <path d="M 0 0 L 0 -150" stroke="url(#rayGradientYellow)" stroke-width="3" transform="rotate(30)" />
-            <path d="M 0 0 L 0 -150" stroke="url(#rayGradientBlue)" stroke-width="3" transform="rotate(60)" />
-            <path d="M 0 0 L 0 -150" stroke="url(#rayGradientPurple)" stroke-width="3" transform="rotate(90)" />
-            <path d="M 0 0 L 0 -150" stroke="url(#rayGradientRed)" stroke-width="3" transform="rotate(120)" />
-            <path d="M 0 0 L 0 -150" stroke="url(#rayGradientYellow)" stroke-width="3" transform="rotate(150)" />
-            <path d="M 0 0 L 0 -150" stroke="url(#rayGradientBlue)" stroke-width="3" transform="rotate(180)" />
-            <path d="M 0 0 L 0 -150" stroke="url(#rayGradientPurple)" stroke-width="3" transform="rotate(210)" />
-            <path d="M 0 0 L 0 -150" stroke="url(#rayGradientRed)" stroke-width="3" transform="rotate(240)" />
-            <path d="M 0 0 L 0 -150" stroke="url(#rayGradientYellow)" stroke-width="3" transform="rotate(270)" />
-            <path d="M 0 0 L 0 -150" stroke="url(#rayGradientBlue)" stroke-width="3" transform="rotate(300)" />
-            <path d="M 0 0 L 0 -150" stroke="url(#rayGradientPurple)" stroke-width="3" transform="rotate(330)" />
-        </g>
-    </svg>
-
-    <!-- Logo utama -->
     <div class="logo-container">
-        <div class="circle">
-            <div class="sek">S(Ek<sup>Ek</sup>)=1</div>
-            <svg class="sparks" viewBox="0 0 150 150">
-                <!-- Definisi gradasi pelangi terbatas dengan efek memudar -->
+        <div class="logo">
+            <!-- Dua lingkaran awal -->
+            <div class="circle-a"></div>
+            <div class="circle-b"></div>
+            <!-- Lingkaran jiwa -->
+            <div class="circle-soul"></div>
+            <!-- Garis melengkung (aliran energi) -->
+            <svg class="energy-flow" viewBox="0 0 200 100">
                 <defs>
-                    <linearGradient id="sparkGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" style="stop-color: #FF0000; stop-opacity: 1" /> <!-- Merah -->
-                        <stop offset="33%" style="stop-color: #FFFF00; stop-opacity: 1" /> <!-- Kuning -->
-                        <stop offset="66%" style="stop-color: #0000FF; stop-opacity: 1" /> <!-- Biru -->
-                        <stop offset="100%" style="stop-color: #9400D3; stop-opacity: 0" /> <!-- Ungu, memudar -->
+                    <linearGradient id="energyGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color: #0000FF; stop-opacity: 1" /> <!-- Biru -->
+                        <stop offset="50%" style="stop-color: #FFFFFF; stop-opacity: 1" /> <!-- Putih di tengah -->
+                        <stop offset="100%" style="stop-color: #FF0000; stop-opacity: 1" /> <!-- Merah -->
                     </linearGradient>
                 </defs>
-                <!-- Garis melengkung (percikan energi) dengan kurva kubik -->
-                <path d="M 75 75 C 40 40, 30 20, 10 10" stroke="url(#sparkGradient)" stroke-width="8" fill="none" />
-                <path d="M 75 75 C 110 40, 120 20, 140 10" stroke="url(#sparkGradient)" stroke-width="8" fill="none" />
-                <path d="M 75 75 C 40 110, 30 130, 10 140" stroke="url(#sparkGradient)" stroke-width="8" fill="none" />
-                <path d="M 0 0 L 0 -150" stroke="url(#rayGradientYellow)" stroke-width="3" transform="rotate(270)" />
-                <path d="M 0 0 L 0 -150" stroke="url(#rayGradientBlue)" stroke-width="3" transform="rotate(300)" />
-                <path d="M 0 0 L 0 -150" stroke="url(#rayGradientPurple)" stroke-width="3" transform="rotate(330)" />
-            </g>
-        </svg>
-
-        <!-- Logo utama -->
-        <div class="logo-container">
-            <div class="circle">
-                <div class="sek">S(Ek<sup>Ek</sup>)=1</div>
-                <svg class="sparks" viewBox="0 0 150 150">
-                    <!-- Definisi gradasi pelangi terbatas dengan efek memudar -->
-                    <defs>
-                        <linearGradient id="sparkGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" style="stop-color: #FF0000; stop-opacity: 1" /> <!-- Merah -->
-                            <stop offset="33%" style="stop-color: #FFFF00; stop-opacity: 1" /> <!-- Kuning -->
-                            <stop offset="66%" style="stop-color: #0000FF; stop-opacity: 1" /> <!-- Biru -->
-                            <stop offset="100%" style="stop-color: #9400D3; stop-opacity: 0" /> <!-- Ungu, memudar -->
-                        </linearGradient>
-                    </defs>
-                    <!-- Garis melengkung (percikan energi) dengan kurva kubik -->
-                    <path d="M 75 75 C 40 40, 30 20, 10 10" stroke="url(#sparkGradient)" stroke-width="8" fill="none" />
-                    <path d="M 75 75 C 110 40, 120 20, 140 10" stroke="url(#sparkGradient)" stroke-width="8" fill="none" />
-                    <path d="M 75 75 C 40 110, 30 130, 10 140" stroke="url(#sparkGradient)" stroke-width="8" fill="none" />
-                    <path d="M 75 75 C 110 110, 120 130, 140 140" stroke="url(#sparkGradient)" stroke-width="8" fill="none" />
-                    <path d="M 75 75 C 120 65, 140 55, 160 40" stroke="url(#sparkGradient)" stroke-width="8" fill="none" />
-                </svg>
-            </div>
-            <div class="text"><span class="sek">Sek</span><span class="grok">Grok</span></div>
-            <div class="credit">Created by [Kamu] & Grok, 2025</div>
+                <!-- Garis melengkung membentuk pola infinity -->
+                <path d="M 25 50 C 50 25, 75 25, 100 50 S 150 75, 175 50" stroke="url(#energyGradient)" stroke-width="4" fill="none" />
+            </svg>
         </div>
+        <div class="text">Dua Elemen Menyatu dengan Jiwa</div>
+        <div class="credit">Created by [Kamu] & Grok, 2025</div>
     </div>
 </body>
 </html>
