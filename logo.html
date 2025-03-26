@@ -45,14 +45,22 @@
             z-index: 3;
         }
 
-        /* SVG container untuk garis melengkung dan Σ */
+        .sigma {
+            font-size: 90px; /* Ukuran Σ */
+            color: #000000; /* Hitam untuk Σ */
+            font-weight: bold;
+            position: absolute;
+            z-index: 4;
+        }
+
+        /* SVG container untuk garis melengkung */
         .sparks {
             position: absolute;
             top: 0;
             left: 0;
             width: 150px;
             height: 150px;
-            z-index: 4;
+            z-index: 2;
         }
 
         /* Teks Sigmagrok */
@@ -96,6 +104,7 @@
     <!-- Logo utama -->
     <div class="logo-container">
         <div class="circle">
+            <div class="sigma">Σ</div>
             <svg class="sparks" viewBox="0 0 150 150">
                 <!-- Definisi gradasi dengan opacity -->
                 <defs>
@@ -105,8 +114,6 @@
                         <stop offset="100%" style="stop-color:#FFC107;stop-opacity:0" /> <!-- Ujung lebih tajam -->
                     </linearGradient>
                 </defs>
-                <!-- Σ dalam bentuk SVG yang diperbaiki -->
-                <path d="M 40 30 H 100 M 40 30 L 75 75 M 40 120 L 75 75 M 40 120 H 100 M 35 25 L 40 30 M 35 125 L 40 120" stroke="#000000" stroke-width="12" fill="none" />
                 <!-- Garis melengkung (percikan energi) dengan kurva kubik -->
                 <!-- Atas kiri -->
                 <path d="M 75 75 C 40 40, 30 20, 10 10" stroke="url(#gradient)" stroke-width="8" fill="none" />
