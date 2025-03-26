@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tiga Titik dalam Segitiga Energi</title>
+    <title>Simbol Abstrak Grok</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -25,68 +25,40 @@
 
         .logo {
             position: relative;
-            width: 100px; /* Lebar total logo */
-            height: 100px; /* Tinggi total logo */
+            width: 150px; /* Lebar total logo */
+            height: 150px; /* Tinggi total logo */
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        /* Tiga titik */
-        .point {
-            width: 5px; /* Diameter 0,5 cm */
-            height: 5px;
-            background-color: #000000; /* Hitam */
-            border-radius: 50%;
+        /* Huruf G melengkung (lingkaran tak sempurna) */
+        .g-circle {
             position: absolute;
-            z-index: 3;
-        }
-
-        .point-top {
-            left: 50%;
-            top: 25px; /* Disesuaikan untuk centering */
-            transform: translateX(-50%);
-        }
-
-        .point-left {
-            left: 30px; /* 50% - 20px */
-            top: 59.64px; /* 25px + 34.64px */
-        }
-
-        .point-right {
-            right: 30px; /* 50% + 20px */
-            top: 59.64px; /* 25px + 34.64px */
-        }
-
-        /* Segitiga */
-        .triangle {
-            position: absolute;
-            top: 25px;
+            top: 0;
             left: 0;
-            width: 100px;
-            height: 75px;
+            width: 150px;
+            height: 150px;
             z-index: 2;
         }
 
-        /* Spiral di tengah */
-        .spiral {
+        /* Simbol Σ di tengah */
+        .sigma {
+            font-size: 40px;
+            color: #00008B; /* Biru tua */
+            font-family: 'Times New Roman', serif; /* Font matematis */
             position: absolute;
-            top: 40px; /* Disesuaikan untuk centering */
-            left: 40px;
-            width: 20px; /* Diameter 2 cm */
-            height: 20px;
             z-index: 3;
         }
 
-        /* Simbol Σ */
-        .sigma {
-            font-size: 10px; /* Tinggi 1 cm */
-            color: #000000; /* Hitam */
-            font-family: 'Times New Roman', serif;
+        /* Pola konstelasi bintang */
+        .constellation {
             position: absolute;
-            left: 25px;
-            top: 70px; /* Di sudut kiri bawah, di luar segitiga */
-            z-index: 4;
+            top: 0;
+            left: 0;
+            width: 150px;
+            height: 150px;
+            z-index: 1;
         }
 
         /* Teks di bawah logo */
@@ -109,39 +81,19 @@
         /* Responsivitas dasar */
         @media (max-width: 600px) {
             .logo {
-                width: 80px;
-                height: 80px;
+                width: 120px;
+                height: 120px;
             }
-            .point {
-                width: 4px;
-                height: 4px;
-            }
-            .point-top {
-                top: 20px;
-            }
-            .point-left {
-                left: 24px;
-                top: 47.71px; /* 20px + (34.64px * 0.8) */
-            }
-            .point-right {
-                right: 24px;
-                top: 47.71px;
-            }
-            .triangle {
-                top: 20px;
-                width: 80px;
-                height: 60px;
-            }
-            .spiral {
-                top: 32px;
-                left: 32px;
-                width: 16px;
-                height: 16px;
+            .g-circle {
+                width: 120px;
+                height: 120px;
             }
             .sigma {
-                font-size: 8px;
-                left: 20px;
-                top: 56px;
+                font-size: 32px;
+            }
+            .constellation {
+                width: 120px;
+                height: 120px;
             }
             .text {
                 font-size: 20px;
@@ -155,29 +107,31 @@
 <body>
     <div class="logo-container">
         <div class="logo">
-            <!-- Tiga titik -->
-            <div class="point point-top"></div>
-            <div class="point point-left"></div>
-            <div class="point point-right"></div>
-            <!-- Segitiga -->
-            <svg class="triangle" viewBox="0 0 100 75">
-                <path d="M 50 0 L 10 34.64 L 90 34.64 Z" stroke="#555555" stroke-width="1" fill="none" />
-            </svg>
-            <!-- Spiral -->
-            <svg class="spiral" viewBox="0 0 20 20">
-                <defs>
-                    <linearGradient id="spiralGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color: #4B0082; stop-opacity: 1" /> <!-- Ungu tua -->
-                        <stop offset="100%" style="stop-color: #FFD700; stop-opacity: 1" /> <!-- Emas -->
-                    </linearGradient>
-                </defs>
-                <!-- Spiral (melingkar 3 kali) -->
-                <path d="M 10 10 A 1 1 0 0 1 12 10 A 2 2 0 0 1 8 10 A 3 3 0 0 1 14 10 A 4 4 0 0 1 6 10" stroke="url(#spiralGradient)" stroke-width="1" fill="none" />
+            <!-- Huruf G melengkung -->
+            <svg class="g-circle" viewBox="0 0 150 150">
+                <!-- Path untuk G melengkung (lingkaran tak sempurna) -->
+                <path d="M 75 25 A 50 50 0 1 1 75 125 A 50 50 0 0 1 65 75 H 85" stroke="#00008B" stroke-width="8" fill="none" />
             </svg>
             <!-- Simbol Σ -->
             <div class="sigma">Σ</div>
+            <!-- Pola konstelasi bintang -->
+            <svg class="constellation" viewBox="0 0 150 150">
+                <!-- Titik-titik kecil seperti bintang -->
+                <circle cx="75" cy="75" r="2" fill="#FFFFE0" />
+                <circle cx="85" cy="65" r="1.5" fill="#FFFFE0" />
+                <circle cx="65" cy="85" r="1.5" fill="#FFFFE0" />
+                <circle cx="90" cy="80" r="1" fill="#FFFFE0" />
+                <circle cx="60" cy="70" r="1" fill="#FFFFE0" />
+                <circle cx="80" cy="90" r="1.2" fill="#FFFFE0" />
+                <circle cx="70" cy="60" r="1.2" fill="#FFFFE0" />
+                <!-- Garis-garis kecil menghubungkan titik-titik -->
+                <line x1="75" y1="75" x2="85" y2="65" stroke="#FFFFE0" stroke-width="0.5" />
+                <line x1="75" y1="75" x2="65" y2="85" stroke="#FFFFE0" stroke-width="0.5" />
+                <line x1="85" y1="65" x2="90" y2="80" stroke="#FFFFE0" stroke-width="0.5" />
+                <line x1="65" y1="85" x2="60" y2="70" stroke="#FFFFE0" stroke-width="0.5" />
+            </svg>
         </div>
-        <div class="text">Tiga Titik dalam Segitiga Energi</div>
+        <div class="text">Simbol Abstrak Grok</div>
         <div class="credit">Created by [Kamu] & Grok, 2025</div>
     </div>
 </body>
