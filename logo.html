@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sigmagrok Logo</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #1a1a1a; /* Latar belakang hitam */
+            font-family: Arial, sans-serif;
+        }
+
+        .logo-container {
+            position: relative;
+            text-align: center;
+        }
+
+        .circle {
+            position: relative;
+            width: 100px; /* Ukuran lingkaran */
+            height: 100px;
+            background-color: #FFD700; /* Emas untuk lingkaran jiwa */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sigma {
+            font-size: 60px; /* Ukuran Σ */
+            color: #000000; /* Hitam untuk Σ */
+            font-weight: bold;
+            position: absolute;
+            z-index: 1;
+        }
+
+        /* Garis melengkung (percikan energi) */
+        .spark {
+            position: absolute;
+            width: 30px;
+            height: 5px;
+            background: linear-gradient(to right, #FFD700, #FFFFE0); /* Gradasi emas ke kuning */
+            border-radius: 5px;
+            transform-origin: left;
+        }
+
+        /* Posisi masing-masing garis */
+        .spark1 {
+            top: 10px; /* Atas kiri */
+            left: 20px;
+            transform: rotate(45deg);
+        }
+
+        .spark2 {
+            top: 10px; /* Atas kanan */
+            right: 20px;
+            transform: rotate(-45deg);
+        }
+
+        .spark3 {
+            bottom: 10px; /* Bawah kiri */
+            left: 20px;
+            transform: rotate(-45deg);
+        }
+
+        .spark4 {
+            bottom: 10px; /* Bawah kanan */
+            right: 20px;
+            transform: rotate(45deg);
+        }
+
+        .spark5 {
+            top: 50%; /* Kanan */
+            right: -20px;
+            transform: rotate(0deg);
+            width: 40px; /* Lebih panjang */
+        }
+
+        /* Teks Sigmagrok */
+        .text {
+            margin-top: 20px;
+            color: #FFFFFF;
+            font-size: 24px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Teks kredit */
+        .credit {
+            margin-top: 10px;
+            color: #FFFFFF;
+            font-size: 12px;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-container">
+        <div class="circle">
+            <div class="sigma">Σ</div>
+            <div class="spark spark1"></div>
+            <div class="spark spark2"></div>
+            <div class="spark spark3"></div>
+            <div class="spark spark4"></div>
+            <div class="spark spark5"></div>
+        </div>
+        <div class="text">Sigmagrok</div>
+        <div class="credit">Created by [Kamu] & Grok, 2025</div>
+    </div>
+</body>
+</html>
