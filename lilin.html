@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo Candlestick (Hijau dengan Detail)</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .logo-container {
+            width: 200px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-container">
+        <svg width="200" height="300" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+            <!-- Bayangan lilin -->
+            <ellipse cx="100" cy="240" rx="30" ry="10" fill="rgba(0, 0, 0, 0.2)"/>
+
+            <!-- Badan lilin (hijau) -->
+            <rect x="80" y="80" width="40" height="150" rx="10" ry="10" fill="#32CD32" stroke="#000" stroke-width="2"/>
+
+            <!-- Efek tekstur pada lilin (garis-garis tipis) -->
+            <line x1="85" y1="90" x2="85" y2="220" stroke="rgba(255, 255, 255, 0.3)" stroke-width="1"/>
+            <line x1="95" y1="100" x2="95" y2="210" stroke="rgba(255, 255, 255, 0.3)" stroke-width="1"/>
+            <line x1="105" y1="90" x2="105" y2="220" stroke="rgba(255, 255, 255, 0.3)" stroke-width="1"/>
+            <line x1="115" y1="100" x2="115" y2="210" stroke="rgba(255, 255, 255, 0.3)" stroke-width="1"/>
+
+            <!-- Tetesan lilin (meleleh di sisi kanan) -->
+            <path d="M 120 120 Q 130 140, 125 160 Q 120 150, 120 120" fill="#32CD32" stroke="#000" stroke-width="1"/>
+            <path d="M 120 180 Q 130 200, 125 220 Q 120 210, 120 180" fill="#32CD32" stroke="#000" stroke-width="1"/>
+
+            <!-- Sumbu lilin -->
+            <line x1="100" y1="80" x2="100" y2="50" stroke="#000" stroke-width="3"/>
+
+            <!-- Api -->
+            <path d="M 100 50 Q 90 30, 100 20 Q 110 30, 100 50" fill="#FF4500" stroke="#FF8C00" stroke-width="2"/>
+            <path d="M 100 45 Q 95 35, 100 30 Q 105 35, 100 45" fill="#FFFF00" stroke="#FFA500" stroke-width="1"/> <!-- Bagian dalam api -->
+
+            <!-- Efek cahaya dari api -->
+            <ellipse cx="100" cy="50" rx="30" ry="20" fill="rgba(255, 165, 0, 0.3)" />
+        </svg>
+    </div>
+</body>
+</html>
