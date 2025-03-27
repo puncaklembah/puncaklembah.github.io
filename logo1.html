@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logo Ikan dan Kuda</title>
+    <title>Logo Candlestick</title>
     <style>
         body {
             display: flex;
@@ -14,25 +14,26 @@
             background-color: #f0f0f0;
         }
         .logo-container {
-            width: 300px;
+            width: 200px;
             height: 300px;
         }
     </style>
 </head>
 <body>
     <div class="logo-container">
-        <svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-            <!-- Ikan (bentuk melengkung dengan ekor dan mata) -->
-            <path d="M 150 200 Q 100 250, 50 200 Q 70 150, 150 150 Q 230 150, 250 200 Q 200 250, 150 200" 
-                  fill="#1E90FF" stroke="#000" stroke-width="2"/>
-            <circle cx="140" cy="170" r="5" fill="#000"/> <!-- Mata ikan -->
-
-            <!-- Kuda (kepala dan garis tubuh sederhana) -->
-            <path d="M 150 100 Q 120 50, 100 80 Q 90 110, 110 130 L 130 140 Q 150 150, 170 140 L 190 130 Q 210 110, 200 80 Q 180 50, 150 100" 
-                  fill="#8B4513" stroke="#000" stroke-width="2"/> <!-- Kepala kuda -->
-            <path d="M 150 140 L 150 80" stroke="#8B4513" stroke-width="4"/> <!-- Leher kuda -->
-            <path d="M 150 80 Q 140 60, 130 80" stroke="#000" stroke-width="2"/> <!-- Telinga kiri -->
-            <path d="M 150 80 Q 160 60, 170 80" stroke="#000" stroke-width="2"/> <!-- Telinga kanan -->
+        <svg width="200" height="300" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+            <!-- Badan lilin -->
+            <rect x="80" y="80" width="40" height="150" rx="10" ry="10" fill="#FFD700" stroke="#000" stroke-width="2"/>
+            
+            <!-- Sumbu lilin -->
+            <line x1="100" y1="80" x2="100" y2="50" stroke="#000" stroke-width="3"/>
+            
+            <!-- Api -->
+            <path d="M 100 50 Q 90 30, 100 20 Q 110 30, 100 50" fill="#FF4500" stroke="#FF8C00" stroke-width="2"/>
+            <path d="M 100 45 Q 95 35, 100 30 Q 105 35, 100 45" fill="#FFFF00" stroke="#FFA500" stroke-width="1"/> <!-- Bagian dalam api -->
+            
+            <!-- Bayangan lilin (opsional) -->
+            <ellipse cx="100" cy="240" rx="30" ry="10" fill="rgba(0, 0, 0, 0.2)"/>
         </svg>
     </div>
 </body>
