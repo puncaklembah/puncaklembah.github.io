@@ -29,17 +29,29 @@
             height: 100%;
         }
 
-        .sigma-svg path {
+        .sigma-text {
+            font-size: 110px;
+            font-weight: bold;
+            fill: #003087;
+            text-anchor: middle;
+            dominant-baseline: middle;
             transition: transform 0.3s ease-in-out, fill 0.3s ease-in-out;
         }
 
-        .logo-container:hover .sigma {
+        .logo-container:hover .sigma-text {
             fill: #f5c107;
             transform: scale(1.1);
         }
 
-        .logo-container:hover .lines {
-            stroke-opacity: 1;
+        .market-lines {
+            stroke-opacity: 0.6;
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0% { stroke-opacity: 0.6; }
+            50% { stroke-opacity: 1; }
+            100% { stroke-opacity: 0.6; }
         }
     </style>
 </head>
@@ -47,12 +59,11 @@
     <div class="logo-container">
         <svg class="sigma-svg" viewBox="0 0 200 200">
             <circle cx="100" cy="100" r="90" fill="rgba(0, 48, 135, 0.1)" />
-            <path class="sigma" d="M 50 50 L 140 50 L 110 100 L 140 150 L 50 150" 
-                  fill="#003087" stroke="#003087" stroke-width="5" stroke-linejoin="round" />
-            <path class="lines" d="M 20 180 L 60 140 L 100 160 L 140 120 L 180 140" 
-                  stroke="#f5c107" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.7" />
-            <path class="lines" d="M 20 160 L 60 120 L 100 140 L 140 100 L 180 120" 
-                  stroke="#f5c107" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.7" />
+            <text x="100" y="105" class="sigma-text">Σ</text>
+            <path class="market-lines" d="M 20 180 L 60 140 L 100 160 L 140 120 L 180 140" 
+                  stroke="#f5c107" stroke-width="3" fill="none" stroke-linecap="round" />
+            <path class="market-lines" d="M 20 160 L 60 120 L 100 140 L 140 100 L 180 120" 
+                  stroke="#f5c107" stroke-width="3" fill="none" stroke-linecap="round" />
         </svg>
     </div>
 </body>
