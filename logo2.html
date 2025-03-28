@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sigma Finance Logo - Variant 3</title>
+    <title>Sigma Finance Logo - Variant 4</title>
     <style>
         body {
             margin: 0;
@@ -11,7 +11,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #f4f7fa; /* Latar belakang abu-abu sangat muda */
+            background-color: #1e2a38; /* Latar belakang biru tua gelap */
             font-family: 'Arial', sans-serif;
         }
 
@@ -26,40 +26,41 @@
 
         .sigma-text {
             font-size: 100px;
-            color: #0a2b4e; /* Biru tua keuangan */
+            color: #ffffff; /* Putih untuk kontras */
             font-weight: bold;
             position: absolute;
             z-index: 3;
             transform: translateY(25px); /* Menurunkan Σ sebanyak 25px */
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Bayangan halus */
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.5); /* Cahaya emas halus */
         }
 
-        .circle-outer {
+        .hexagon {
             position: absolute;
-            width: 180px;
-            height: 180px;
-            border: 2px solid #e6b800; /* Emas keuangan */
-            border-radius: 50%;
+            width: 160px;
+            height: 160px;
+            background: linear-gradient(135deg, #ffd700, #b8860b); /* Gradasi emas */
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            opacity: 0.3;
             z-index: 1;
-            opacity: 0.6;
         }
 
-        .circle-inner {
-            position: absolute;
-            width: 140px;
-            height: 140px;
-            border: 2px solid #0a2b4e; /* Biru tua */
-            border-radius: 50%;
-            z-index: 1;
-            opacity: 0.8;
-        }
-
-        /* SVG untuk grafik batang */
-        .bar-chart {
+        /* SVG untuk garis tren */
+        .trend-lines {
             position: absolute;
             width: 200px;
             height: 200px;
             z-index: 2;
+        }
+
+        /* Animasi untuk garis */
+        @keyframes glow {
+            0% { stroke-opacity: 0.6; }
+            50% { stroke-opacity: 1; }
+            100% { stroke-opacity: 0.6; }
+        }
+
+        .trend-lines path {
+            animation: glow 1.5s infinite ease-in-out;
         }
 
         /* Responsivitas */
@@ -70,17 +71,13 @@
             }
             .sigma-text {
                 font-size: 75px;
-                transform: translateY(18px); /* Sesuaikan penurunan untuk layar kecil */
+                transform: translateY(18px); /* Sesuaikan penurunan */
             }
-            .circle-outer {
-                width: 135px;
-                height: 135px;
+            .hexagon {
+                width: 120px;
+                height: 120px;
             }
-            .circle-inner {
-                width: 105px;
-                height: 105px;
-            }
-            .bar-chart {
+            .trend-lines {
                 width: 150px;
                 height: 150px;
             }
@@ -89,28 +86,23 @@
 </head>
 <body>
     <div class="logo-container">
-        <!-- Lingkaran luar -->
-        <div class="circle-outer"></div>
-
-        <!-- Lingkaran dalam -->
-        <div class="circle-inner"></div>
+        <!-- Heksagon latar belakang -->
+        <div class="hexagon"></div>
 
         <!-- Simbol Sigma -->
         <div class="sigma-text">Σ</div>
 
-        <!-- Grafik batang menggunakan SVG -->
-        <svg class="bar-chart" viewBox="0 0 200 200">
+        <!-- Garis tren menggunakan SVG -->
+        <svg class="trend-lines" viewBox="0 0 200 200">
             <defs>
-                <linearGradient id="barGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" style="stop-color: #0a2b4e; stop-opacity: 0.9" />
-                    <stop offset="100%" style="stop-color: #e6b800; stop-opacity: 0.6" />
+                <linearGradient id="trendGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color: #ffffff; stop-opacity: 0.8" />
+                    <stop offset="100%" style="stop-color: #ffd700; stop-opacity: 0.5" />
                 </linearGradient>
             </defs>
-            <!-- Batang-batang vertikal -->
-            <rect x="50" y="120" width="20" height="60" fill="url(#barGradient)" />
-            <rect x="80" y="100" width="20" height="80" fill="url(#barGradient)" />
-            <rect x="110" y="130" width="20" height="50" fill="url(#barGradient)" />
-            <rect x="140" y="110" width="20" height="70" fill="url(#barGradient)" />
+            <!-- Garis diagonal tren -->
+            <path d="M 40 160 L 160 40" stroke="url(#trendGradient)" stroke-width="3" fill="none" />
+            <path d="M 60 180 L 180 60" stroke="url(#trendGradient)" stroke-width="2" fill="none" />
         </svg>
     </div>
 </body>
