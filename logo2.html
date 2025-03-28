@@ -24,27 +24,46 @@
             align-items: center;
         }
 
+        /* Lingkaran belakang untuk efek elegan */
+        .circle-bg {
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            background: radial-gradient(circle, rgba(0, 48, 135, 0.2), transparent);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
         .sigma-text {
             font-size: 110px;
             color: #003087;
             font-weight: bold;
             position: absolute;
             z-index: 3;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            transform: translateY(35px); /* Disesuaikan agar lebih proporsional */
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25); /* Efek 3D */
+            transform: translateY(35px);
+            transition: transform 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
         }
 
+        /* Animasi hover pada Sigma */
+        .sigma-text:hover {
+            transform: translateY(30px) scale(1.05);
+            text-shadow: 3px 3px 12px rgba(0, 48, 135, 0.5);
+        }
+
+        /* Efek segitiga background */
         .triangle-bg {
             position: absolute;
             width: 0;
             height: 0;
             border-left: 100px solid transparent;
             border-right: 100px solid transparent;
-            border-bottom: 140px solid rgba(245, 193, 7, 0.4); /* Opacity ditingkatkan */
+            border-bottom: 140px solid rgba(245, 193, 7, 0.4);
             z-index: 1;
-            transform: translateY(25px); /* Disesuaikan */
+            transform: translateY(25px);
         }
 
+        /* SVG untuk grafik pasar */
         .market-lines {
             position: absolute;
             width: 200px;
@@ -68,6 +87,10 @@
                 width: 150px;
                 height: 150px;
             }
+            .circle-bg {
+                width: 140px;
+                height: 140px;
+            }
             .sigma-text {
                 font-size: 80px;
                 transform: translateY(25px);
@@ -87,6 +110,7 @@
 </head>
 <body>
     <div class="logo-container">
+        <div class="circle-bg"></div>
         <div class="triangle-bg"></div>
         <div class="sigma-text">Σ</div>
         <svg class="market-lines" viewBox="0 0 200 200">
