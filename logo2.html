@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sigma Finance Logo</title>
+    <title>Sigma Logo - Modern Version</title>
     <style>
         body {
             margin: 0;
@@ -16,120 +16,43 @@
         }
 
         .logo-container {
-            position: relative;
             width: 200px;
             height: 200px;
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative;
         }
 
-        /* Lingkaran belakang untuk efek elegan */
-        .circle-bg {
-            position: absolute;
-            width: 180px;
-            height: 180px;
-            background: radial-gradient(circle, rgba(0, 48, 135, 0.2), transparent);
-            border-radius: 50%;
-            z-index: 1;
+        .sigma-svg {
+            width: 100%;
+            height: 100%;
         }
 
-        .sigma-text {
-            font-size: 110px;
-            color: #003087;
-            font-weight: bold;
-            position: absolute;
-            z-index: 3;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25); /* Efek 3D */
-            transform: translateY(35px);
-            transition: transform 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+        .sigma-svg path {
+            transition: transform 0.3s ease-in-out, fill 0.3s ease-in-out;
         }
 
-        /* Animasi hover pada Sigma */
-        .sigma-text:hover {
-            transform: translateY(30px) scale(1.05);
-            text-shadow: 3px 3px 12px rgba(0, 48, 135, 0.5);
+        .logo-container:hover .sigma {
+            fill: #f5c107;
+            transform: scale(1.1);
         }
 
-        /* Efek segitiga background */
-        .triangle-bg {
-            position: absolute;
-            width: 0;
-            height: 0;
-            border-left: 100px solid transparent;
-            border-right: 100px solid transparent;
-            border-bottom: 140px solid rgba(245, 193, 7, 0.4);
-            z-index: 1;
-            transform: translateY(25px);
-        }
-
-        /* SVG untuk grafik pasar */
-        .market-lines {
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            z-index: 2;
-        }
-
-        @keyframes pulse {
-            0% { stroke-opacity: 0.6; }
-            50% { stroke-opacity: 1; }
-            100% { stroke-opacity: 0.6; }
-        }
-
-        .market-lines path {
-            animation: pulse 2.5s infinite ease-in-out;
-        }
-
-        /* Responsif */
-        @media (max-width: 400px) {
-            .logo-container {
-                width: 150px;
-                height: 150px;
-            }
-            .circle-bg {
-                width: 140px;
-                height: 140px;
-            }
-            .sigma-text {
-                font-size: 80px;
-                transform: translateY(25px);
-            }
-            .triangle-bg {
-                border-left: 75px solid transparent;
-                border-right: 75px solid transparent;
-                border-bottom: 105px solid rgba(245, 193, 7, 0.4);
-                transform: translateY(18px);
-            }
-            .market-lines {
-                width: 150px;
-                height: 150px;
-            }
+        .logo-container:hover .lines {
+            stroke-opacity: 1;
         }
     </style>
 </head>
 <body>
     <div class="logo-container">
-        <div class="circle-bg"></div>
-        <div class="triangle-bg"></div>
-        <div class="sigma-text">Σ</div>
-        <svg class="market-lines" viewBox="0 0 200 200">
-            <defs>
-                <linearGradient id="marketGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" style="stop-color: #003087; stop-opacity: 1" />
-                    <stop offset="100%" style="stop-color: #f5c107; stop-opacity: 0.8" />
-                </linearGradient>
-            </defs>
-            <path d="M 20 180 L 60 140 L 100 160 L 140 120 L 180 140" 
-                  stroke="url(#marketGradient)" 
-                  stroke-width="3" 
-                  fill="none" 
-                  stroke-linecap="round" />
-            <path d="M 20 160 L 60 120 L 100 140 L 140 100 L 180 120" 
-                  stroke="url(#marketGradient)" 
-                  stroke-width="3" 
-                  fill="none" 
-                  stroke-linecap="round" />
+        <svg class="sigma-svg" viewBox="0 0 200 200">
+            <circle cx="100" cy="100" r="90" fill="rgba(0, 48, 135, 0.1)" />
+            <path class="sigma" d="M 50 50 L 140 50 L 110 100 L 140 150 L 50 150" 
+                  fill="#003087" stroke="#003087" stroke-width="5" stroke-linejoin="round" />
+            <path class="lines" d="M 20 180 L 60 140 L 100 160 L 140 120 L 180 140" 
+                  stroke="#f5c107" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.7" />
+            <path class="lines" d="M 20 160 L 60 120 L 100 140 L 140 100 L 180 120" 
+                  stroke="#f5c107" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.7" />
         </svg>
     </div>
 </body>
