@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sigma Finance Logo - Variant 2 (Adjusted Further)</title>
+    <title>Sigma Finance Logo</title>
     <style>
         body {
             margin: 0;
@@ -11,7 +11,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #ffffff; /* Latar belakang putih bersih */
+            background-color: #ffffff;
             font-family: 'Arial', sans-serif;
         }
 
@@ -26,12 +26,12 @@
 
         .sigma-text {
             font-size: 110px;
-            color: #003087; /* Biru tua korporat */
+            color: #003087;
             font-weight: bold;
             position: absolute;
             z-index: 3;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); /* Bayangan lebih tajam */
-            transform: translateY(40px); /* Menurunkan Σ sebanyak 40px */
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transform: translateY(35px); /* Disesuaikan agar lebih proporsional */
         }
 
         .triangle-bg {
@@ -40,13 +40,11 @@
             height: 0;
             border-left: 100px solid transparent;
             border-right: 100px solid transparent;
-            border-bottom: 140px solid #f5c107; /* Kuning emas keuangan */
-            opacity: 0.25;
+            border-bottom: 140px solid rgba(245, 193, 7, 0.4); /* Opacity ditingkatkan */
             z-index: 1;
-            transform: translateY(20px); /* Geser sedikit ke bawah */
+            transform: translateY(25px); /* Disesuaikan */
         }
 
-        /* SVG untuk garis-garis pasar */
         .market-lines {
             position: absolute;
             width: 200px;
@@ -54,18 +52,17 @@
             z-index: 2;
         }
 
-        /* Animasi halus untuk garis */
         @keyframes pulse {
-            0% { stroke-opacity: 0.5; }
+            0% { stroke-opacity: 0.6; }
             50% { stroke-opacity: 1; }
-            100% { stroke-opacity: 0.5; }
+            100% { stroke-opacity: 0.6; }
         }
 
         .market-lines path {
-            animation: pulse 2s infinite ease-in-out;
+            animation: pulse 2.5s infinite ease-in-out;
         }
 
-        /* Responsivitas */
+        /* Responsif */
         @media (max-width: 400px) {
             .logo-container {
                 width: 150px;
@@ -73,12 +70,13 @@
             }
             .sigma-text {
                 font-size: 80px;
-                transform: translateY(30px); /* Sesuaikan penurunan untuk layar kecil */
+                transform: translateY(25px);
             }
             .triangle-bg {
                 border-left: 75px solid transparent;
                 border-right: 75px solid transparent;
-                border-bottom: 105px solid #f5c107;
+                border-bottom: 105px solid rgba(245, 193, 7, 0.4);
+                transform: translateY(18px);
             }
             .market-lines {
                 width: 150px;
@@ -89,29 +87,23 @@
 </head>
 <body>
     <div class="logo-container">
-        <!-- Segitiga latar belakang -->
         <div class="triangle-bg"></div>
-
-        <!-- Simbol Sigma -->
         <div class="sigma-text">Σ</div>
-
-        <!-- Garis-garis pasar menggunakan SVG -->
         <svg class="market-lines" viewBox="0 0 200 200">
             <defs>
                 <linearGradient id="marketGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" style="stop-color: #003087; stop-opacity: 1" />
-                    <stop offset="100%" style="stop-color: #f5c107; stop-opacity: 0.7" />
+                    <stop offset="100%" style="stop-color: #f5c107; stop-opacity: 0.8" />
                 </linearGradient>
             </defs>
-            <!-- Garis-garis tajam menyerupai grafik pasar -->
             <path d="M 20 180 L 60 140 L 100 160 L 140 120 L 180 140" 
                   stroke="url(#marketGradient)" 
-                  stroke-width="2.5" 
+                  stroke-width="3" 
                   fill="none" 
                   stroke-linecap="round" />
             <path d="M 20 160 L 60 120 L 100 140 L 140 100 L 180 120" 
                   stroke="url(#marketGradient)" 
-                  stroke-width="2.5" 
+                  stroke-width="3" 
                   fill="none" 
                   stroke-linecap="round" />
         </svg>
