@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sigma Finance Logo - Variant 2 (Flower Shape)</title>
+    <title>Sigmagrok Finance Logo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
@@ -11,27 +12,31 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #ffffff; /* Latar belakang putih bersih */
+            background-color: #1e2a38; /* Biru tua gelap untuk nuansa keuangan modern */
             font-family: 'Arial', sans-serif;
+            position: relative;
         }
 
         .logo-container {
             position: relative;
-            width: 200px;
-            height: 200px;
+            width: 250px;
+            height: 300px; /* Diperpanjang untuk teks */
             display: flex;
             justify-content: center;
             align-items: center;
+            text-align: center;
+            z-index: 2;
         }
 
-        .sigma-text {
-            font-size: 110px;
-            color: #003087; /* Biru tua korporat */
-            font-weight: bold;
+        .background-rays {
             position: absolute;
-            z-index: 3;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); /* Bayangan lebih tajam */
-            transform: translateY(40px); /* Menurunkan Σ sebanyak 40px */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            z-index: 0;
+            animation: rotate 12s linear infinite; /* Rotasi sinar */
         }
 
         .flower-bg {
@@ -41,90 +46,155 @@
             z-index: 1;
         }
 
-        /* SVG untuk garis-garis pasar */
-        .market-lines {
+        .circle {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            background-color: #ffd700; /* Emas untuk lingkaran */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 3;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5); /* Cahaya emas */
+        }
+
+        .sigma {
+            font-size: 90px;
+            color: #003087; /* Biru tua korporat */
+            font-weight: bold;
             position: absolute;
-            width: 200px;
-            height: 200px;
+            z-index: 4;
+            transform: translateY(20px); /* Menurunkan Σ dalam lingkaran */
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .sparks {
+            position: absolute;
+            width: 150px;
+            height: 150px;
             z-index: 2;
         }
 
-        /* Animasi halus untuk garis */
-        @keyframes pulse {
-            0% { stroke-opacity: 0.5; }
-            50% { stroke-opacity: 1; }
-            100% { stroke-opacity: 0.5; }
+        .text {
+            margin-top: 160px; /* Jarak dari lingkaran */
+            color: #ffffff;
+            font-size: 48px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            z-index: 3;
         }
 
-        .market-lines path {
-            animation: pulse 2s infinite ease-in-out;
+        /* Animasi rotasi untuk sinar */
+        @keyframes rotate {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
         }
 
         /* Responsivitas */
-        @media (max-width: 400px) {
+        @media (max-width: 600px) {
             .logo-container {
-                width: 150px;
-                height: 150px;
+                width: 200px;
+                height: 250px;
             }
-            .sigma-text {
-                font-size: 80px;
-                transform: translateY(30px); /* Sesuaikan penurunan untuk layar kecil */
+            .circle {
+                width: 120px;
+                height: 120px;
+            }
+            .sigma {
+                font-size: 72px;
+                transform: translateY(15px);
+            }
+            .sparks {
+                width: 120px;
+                height: 120px;
             }
             .flower-bg {
-                width: 150px;
-                height: 150px;
+                width: 160px;
+                height: 160px;
             }
-            .market-lines {
-                width: 150px;
-                height: 150px;
+            .background-rays {
+                width: 240px;
+                height: 240px;
+            }
+            .text {
+                margin-top: 130px;
+                font-size: 36px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Sinar radial di latar belakang -->
+    <svg class="background-rays" viewBox="0 0 300 300">
+        <defs>
+            <linearGradient id="rayGradientBlue" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color: #003087; stop-opacity: 0.6" />
+                <stop offset="100%" style="stop-color: #003087; stop-opacity: 0" />
+            </linearGradient>
+            <linearGradient id="rayGradientGold" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color: #ffd700; stop-opacity: 0.6" />
+                <stop offset="100%" style="stop-color: #ffd700; stop-opacity: 0" />
+            </linearGradient>
+        </defs>
+        <g transform="translate(150, 150)">
+            <path d="M 0 0 L 0 -150" stroke="url(#rayGradientBlue)" stroke-width="3" />
+            <path d="M 0 0 L 0 -150" stroke="url(#rayGradientGold)" stroke-width="3" transform="rotate(30)" />
+            <path d="M 0 0 L 0 -150" stroke="url(#rayGradientBlue)" stroke-width="3" transform="rotate(60)" />
+            <path d="M 0 0 L 0 -150" stroke="url(#rayGradientGold)" stroke-width="3" transform="rotate(90)" />
+            <path d="M 0 0 L 0 -150" stroke="url(#rayGradientBlue)" stroke-width="3" transform="rotate(120)" />
+            <path d="M 0 0 L 0 -150" stroke="url(#rayGradientGold)" stroke-width="3" transform="rotate(150)" />
+            <path d="M 0 0 L 0 -150" stroke="url(#rayGradientBlue)" stroke-width="3" transform="rotate(180)" />
+            <path d="M 0 0 L 0 -150" stroke="url(#rayGradientGold)" stroke-width="3" transform="rotate(210)" />
+            <path d="M 0 0 L 0 -150" stroke="url(#rayGradientBlue)" stroke-width="3" transform="rotate(240)" />
+            <path d="M 0 0 L 0 -150" stroke="url(#rayGradientGold)" stroke-width="3" transform="rotate(270)" />
+            <path d="M 0 0 L 0 -150" stroke="url(#rayGradientBlue)" stroke-width="3" transform="rotate(300)" />
+            <path d="M 0 0 L 0 -150" stroke="url(#rayGradientGold)" stroke-width="3" transform="rotate(330)" />
+        </g>
+    </svg>
+
+    <!-- Logo utama -->
     <div class="logo-container">
-        <!-- Bentuk bunga menggunakan SVG -->
+        <!-- Bentuk bunga -->
         <svg class="flower-bg" viewBox="0 0 200 200">
             <defs>
                 <radialGradient id="flowerGradient" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" style="stop-color: #f5c107; stop-opacity: 0.5" />
+                    <stop offset="0%" style="stop-color: #f5c107; stop-opacity: 0.4" />
                     <stop offset="100%" style="stop-color: #f5c107; stop-opacity: 0" />
                 </radialGradient>
             </defs>
-            <!-- Kelopak bunga (6 kelopak sederhana) -->
             <ellipse cx="100" cy="60" rx="30" ry="50" fill="url(#flowerGradient)" transform="rotate(-60 100 100)" />
             <ellipse cx="100" cy="60" rx="30" ry="50" fill="url(#flowerGradient)" transform="rotate(0 100 100)" />
             <ellipse cx="100" cy="60" rx="30" ry="50" fill="url(#flowerGradient)" transform="rotate(60 100 100)" />
             <ellipse cx="100" cy="140" rx="30" ry="50" fill="url(#flowerGradient)" transform="rotate(-60 100 100)" />
             <ellipse cx="100" cy="140" rx="30" ry="50" fill="url(#flowerGradient)" transform="rotate(0 100 100)" />
             <ellipse cx="100" cy="140" rx="30" ry="50" fill="url(#flowerGradient)" transform="rotate(60 100 100)" />
-            <!-- Pusat bunga -->
-            <circle cx="100" cy="100" r="20" fill="#f5c107" opacity="0.3" />
+            <circle cx="100" cy="100" r="20" fill="#f5c107" opacity="0.2" />
         </svg>
 
-        <!-- Simbol Sigma -->
-        <div class="sigma-text">Σ</div>
+        <!-- Lingkaran dan elemen utama -->
+        <div class="circle">
+            <div class="sigma">Σ</div>
+            <svg class="sparks" viewBox="0 0 150 150">
+                <defs>
+                    <linearGradient id="sparkGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color: #003087; stop-opacity: 0.8" />
+                        <stop offset="100%" style="stop-color: #ffd700; stop-opacity: 0.5" />
+                    </linearGradient>
+                </defs>
+                <path d="M 75 75 C 40 40, 30 20, 10 10" stroke="url(#sparkGradient)" stroke-width="6" fill="none" />
+                <path d="M 75 75 C 110 40, 120 20, 140 10" stroke="url(#sparkGradient)" stroke-width="6" fill="none" />
+                <path d="M 75 75 C 40 110, 30 130, 10 140" stroke="url(#sparkGradient)" stroke-width="6" fill="none" />
+                <path d="M 75 75 C 110 110, 120 130, 140 140" stroke="url(#sparkGradient)" stroke-width="6" fill="none" />
+            </svg>
+        </div>
 
-        <!-- Garis-garis pasar menggunakan SVG -->
-        <svg class="market-lines" viewBox="0 0 200 200">
-            <defs>
-                <linearGradient id="marketGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" style="stop-color: #003087; stop-opacity: 1" />
-                    <stop offset="100%" style="stop-color: #f5c107; stop-opacity: 0.7" />
-                </linearGradient>
-            </defs>
-            <!-- Garis-garis tajam menyerupai grafik pasar -->
-            <path d="M 20 180 L 60 140 L 100 160 L 140 120 L 180 140" 
-                  stroke="url(#marketGradient)" 
-                  stroke-width="2.5" 
-                  fill="none" 
-                  stroke-linecap="round" />
-            <path d="M 20 160 L 60 120 L 100 140 L 140 100 L 180 120" 
-                  stroke="url(#marketGradient)" 
-                  stroke-width="2.5" 
-                  fill="none" 
-                  stroke-linecap="round" />
-        </svg>
+        <!-- Teks Sigmagrok -->
+        <div class="text">Sigmagrok</div>
     </div>
 </body>
 </html>
