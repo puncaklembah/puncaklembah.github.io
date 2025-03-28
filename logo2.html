@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sigma Logo - Modern Version</title>
+    <title>Sigma Logo - Modern Version (Improved)</title>
     <style>
         body {
             margin: 0;
@@ -11,7 +11,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #ffffff;
+            background-color: #f4f7fa; /* Latar belakang abu-abu muda untuk kesan profesional */
             font-family: 'Arial', sans-serif;
         }
 
@@ -22,6 +22,7 @@
             justify-content: center;
             align-items: center;
             position: relative;
+            transition: transform 0.3s ease-in-out; /* Animasi container saat hover */
         }
 
         .sigma-svg {
@@ -32,45 +33,78 @@
         .sigma-text {
             font-size: 110px;
             font-weight: bold;
-            fill: #003087;
+            fill: #003087; /* Biru tua korporat */
             text-anchor: middle;
             dominant-baseline: middle;
+            transform: translateY(10px); /* Menurunkan Σ sedikit */
             transition: transform 0.3s ease-in-out, fill 0.3s ease-in-out;
         }
 
         .logo-container:hover .sigma-text {
-            fill: #f5c107;
-            transform: scale(1.1);
+            fill: #f5c107; /* Emas saat hover */
+            transform: translateY(10px) scale(1.1); /* Skala dengan posisi tetap */
         }
 
         .market-line-red {
-            stroke: red;
+            stroke: #ff4d4d; /* Merah lembut */
             stroke-opacity: 0.6;
+            stroke-width: 3;
+            fill: none;
+            stroke-linecap: round;
             animation: pulse 2s infinite ease-in-out;
         }
 
         .market-line-green {
-            stroke: green;
+            stroke: #00cc66; /* Hijau modern */
             stroke-opacity: 0.6;
-            animation: pulse 2s infinite ease-in-out;
+            stroke-width: 3;
+            fill: none;
+            stroke-linecap: round;
+            animation: pulse 2s infinite ease-in-out 0.5s; /* Delay untuk variasi */
         }
 
+        .circle-bg {
+            fill: rgba(0, 48, 135, 0.1);
+            transition: fill 0.3s ease-in-out;
+        }
+
+        .logo-container:hover .circle-bg {
+            fill: rgba(245, 193, 7, 0.2); /* Gradasi emas saat hover */
+        }
+
+        /* Animasi pulse */
         @keyframes pulse {
             0% { stroke-opacity: 0.6; }
             50% { stroke-opacity: 1; }
             100% { stroke-opacity: 0.6; }
+        }
+
+        /* Responsivitas */
+        @media (max-width: 400px) {
+            .logo-container {
+                width: 150px;
+                height: 150px;
+            }
+            .sigma-text {
+                font-size: 80px;
+                transform: translateY(8px); /* Sesuaikan penurunan */
+            }
+            .logo-container:hover .sigma-text {
+                transform: translateY(8px) scale(1.1);
+            }
         }
     </style>
 </head>
 <body>
     <div class="logo-container">
         <svg class="sigma-svg" viewBox="0 0 200 200">
-            <circle cx="100" cy="100" r="90" fill="rgba(0, 48, 135, 0.1)" />
-            <text x="100" y="110" class="sigma-text">Σ</text>
-            <path class="market-line-red" d="M 25 160 L 50 130 L 75 145 L 100 115 L 125 130 L 150 100 L 175 90" 
-                  stroke-width="3" fill="none" stroke-linecap="round" />
-            <path class="market-line-green" d="M 25 140 L 50 110 L 75 125 L 100 95 L 125 110 L 150 80 L 175 70" 
-                  stroke-width="3" fill="none" stroke-linecap="round" />
+            <!-- Lingkaran latar belakang -->
+            <circle class="circle-bg" cx="100" cy="100" r="90" />
+            <!-- Garis pasar -->
+            <path class="market-line-red" d="M 25 160 L 50 130 L 75 145 L 100 115 L 125 130 L 150 100 L 175 90" />
+            <path class="market-line-green" d="M 25 140 L 50 110 L 75 125 L 100 95 L 125 110 L 150 80 L 175 70" />
+            <!-- Simbol Sigma -->
+            <text x="100" y="100" class="sigma-text">Σ</text>
         </svg>
     </div>
 </body>
