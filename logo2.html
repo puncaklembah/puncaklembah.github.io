@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ethereum Logo - Modern Version</title>
+    <title>Ethereum Logo - Geometric Version</title>
     <style>
         body {
             margin: 0;
@@ -11,7 +11,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #f4f7fa; /* Latar belakang abu-abu muda */
+            background-color: #f4f7fa;
             font-family: 'Arial', sans-serif;
         }
 
@@ -30,19 +30,14 @@
             height: 100%;
         }
 
-        .ethereum-text {
-            font-size: 120px;
-            font-weight: bold;
-            fill: #3c3c3d; /* Abu-abu gelap, warna resmi Ethereum */
-            text-anchor: middle;
-            dominant-baseline: middle;
-            transform: translateY(10px); /* Menurunkan sedikit */
-            transition: transform 0.3s ease-in-out, fill 0.3s ease-in-out;
+        .ethereum-symbol {
+            fill: #3c3c3d; /* Abu-abu gelap */
+            transition: fill 0.3s ease-in-out, transform 0.3s ease-in-out;
         }
 
-        .logo-container:hover .ethereum-text {
-            fill: #627eea; /* Biru Ethereum saat hover */
-            transform: translateY(10px) scale(1.1);
+        .logo-container:hover .ethereum-symbol {
+            fill: #627eea; /* Biru Ethereum */
+            transform: scale(1.1);
         }
 
         .market-line-red {
@@ -64,12 +59,12 @@
         }
 
         .circle-bg {
-            fill: rgba(60, 60, 61, 0.1); /* Abu-abu gelap transparan */
+            fill: rgba(60, 60, 61, 0.1);
             transition: fill 0.3s ease-in-out;
         }
 
         .logo-container:hover .circle-bg {
-            fill: rgba(98, 126, 234, 0.2); /* Biru Ethereum transparan saat hover */
+            fill: rgba(98, 126, 234, 0.2);
         }
 
         @keyframes pulse {
@@ -78,18 +73,16 @@
             100% { stroke-opacity: 0.6; }
         }
 
-        /* Responsivitas */
         @media (max-width: 400px) {
             .logo-container {
                 width: 150px;
                 height: 150px;
             }
-            .ethereum-text {
-                font-size: 90px;
-                transform: translateY(8px);
+            .ethereum-symbol {
+                transform: scale(0.75);
             }
-            .logo-container:hover .ethereum-text {
-                transform: translateY(8px) scale(1.1);
+            .logo-container:hover .ethereum-symbol {
+                transform: scale(0.825);
             }
         }
     </style>
@@ -102,8 +95,8 @@
             <!-- Garis pasar -->
             <path class="market-line-red" d="M 25 160 L 50 130 L 75 145 L 100 115 L 125 130 L 150 100 L 175 90" />
             <path class="market-line-green" d="M 25 140 L 50 110 L 75 125 L 100 95 L 125 110 L 150 80 L 175 70" />
-            <!-- Simbol Ethereum (Ξ) -->
-            <text x="100" y="100" class="ethereum-text">Ξ</text>
+            <!-- Simbol Ethereum geometris -->
+            <path class="ethereum-symbol" d="M 100 30 L 130 90 L 100 150 L 70 90 Z M 100 150 L 130 110 L 100 170 L 70 110 Z" />
         </svg>
     </div>
 </body>
