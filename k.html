@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Calendar - March 2025</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+        }
+        .calendar-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .calendar-header h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+        }
+        .calendar-day {
+            background-color: #2a2a2a;
+            border-radius: 5px;
+            padding: 10px;
+            min-height: 120px;
+            position: relative;
+            font-size: 14px;
+        }
+        .calendar-day.empty {
+            background-color: #1a1a1a;
+            color: #666;
+        }
+        .calendar-day.header {
+            background-color: transparent;
+            text-align: center;
+            font-weight: bold;
+            padding: 5px;
+        }
+        .day-number {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            font-size: 12px;
+            color: #888;
+        }
+        .trade-info {
+            margin-top: 15px;
+        }
+        .trade-info p {
+            margin: 2px 0;
+        }
+        .win {
+            color: #00cc00;
+        }
+        .loss {
+            color: #ff3333;
+        }
+        .trade-count {
+            color: #888;
+            font-size: 12px;
+        }
+        .followed-rules {
+            display: flex;
+            align-items: center;
+        }
+        .followed-rules input {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calendar-container">
+        <div class="calendar-header">
+            <h2>March 2025</h2>
+            <button style="background: #333; color: #fff; border: none; padding: 5px 10px; border-radius: 3px;">Open</button>
+        </div>
+        <div class="calendar">
+            <!-- Header Days -->
+            <div class="calendar-day header">Sun</div>
+            <div class="calendar-day header">Mon</div>
+            <div class="calendar-day header">Tue</div>
+            <div class="calendar-day header">Wed</div>
+            <div class="calendar-day header">Thu</div>
+            <div class="calendar-day header">Fri</div>
+            <div class="calendar-day header">Sat</div>
+
+            <!-- Days before March 1 -->
+            <div class="calendar-day empty"><span class="day-number">23</span></div>
+            <div class="calendar-day empty"><span class="day-number">24</span></div>
+            <div class="calendar-day">
+                <span class="day-number">25</span>
+                <div class="trade-info">
+                    <p>NQ, YM</p>
+                    <p class="followed-rules"><input type="checkbox" checked disabled> Followed Rules</p>
+                    <p class="win">Win</p>
+                    <p class="win">$3,000.00</p>
+                    <p class="trade-count">2 trades</p>
+                </div>
+            </div>
+            <div class="calendar-day">
+                <span class="day-number">26</span>
+                <div class="trade-info">
+                    <p>NQ</p>
+                    <p class="followed-rules"><input type="checkbox" checked disabled> Followed Rules</p>
+                    <p class="win">Win</p>
+                    <p class="win">$240.00</p>
+                    <p class="trade-count">3 trades</p>
+                </div>
+            </div>
+            <div class="calendar-day">
+                <span class="day-number">27</span>
+                <div class="trade-info">
+                    <p>CL, YM</p>
+                    <p class="followed-rules"><input type="checkbox" checked disabled> Followed Rules</p>
+                    <p class="loss">Loss</p>
+                    <p class="loss">-$1,730.00</p>
+                    <p class="trade-count">3 trades</p>
+                </div>
+            </div>
+            <div class="calendar-day empty"><span class="day-number">28</span></div>
+            <div class="calendar-day empty"><span class="day-number">1</span></div>
+
+            <!-- March 2 - 8 -->
+            <div class="calendar-day">
+                <span class="day-number">2</span>
+                <div class="trade-info">
+                    <p>PL</p>
+                    <p class="followed-rules"><input type="checkbox" checked disabled> Followed Rules</p>
+                    <p class="win">Win</p>
+                    <p class="win">$1,500.00</p>
+                    <p class="trade-count">1 trade</p>
+                </div>
+            </div>
+            <div class="calendar-day empty"><span class="day-number">3</span></div>
+            <div class="calendar-day">
+                <span class="day-number">4</span>
+                <div class="trade-info">
+                    <p>PL, CL</p>
+                    <p class="followed-rules"><input type="checkbox" checked disabled> Followed Rules</p>
+                    <p class="loss">Loss</p>
+                    <p class="loss">-$2,000.00</p>
+                    <p class="trade-count">3 trades</p>
+                </div>
+            </div>
+            <div class="calendar-day">
+                <span class="day-number">5</span>
+                <div class="trade-info">
+                    <p>CL</p>
+                    <p class="followed-rules"><input type="checkbox" checked disabled> Followed Rules</p>
+                    <p class="win">Win</p>
+                    <p class="win">$1,500.00</p>
+                    <p class="trade-count">1 trade</p>
+                </div>
+            </div>
+            <div class="calendar-day">
+                <span class="day-number">6</span>
+                <div class="trade-info">
+                    <p>PL</p>
+                    <p class="followed-rules"><input type="checkbox" checked disabled> Followed Rules</p>
+                    <p class="win">Win</p>
+                    <p class="win">$1,730.00</p>
+                    <p class="trade-count">2 trades</p>
+                </div>
+            </div>
+            <div class="calendar-day empty"><span class="day-number">7</span></div>
+            <div class="calendar-day empty"><span class="day-number">8</span></div>
+
+            <!-- March 9 - 15 -->
+            <div class="calendar-day">
+                <span class="day-number">9</span>
+                <div class="trade-info">
+                    <p>CL</p>
+                    <p class="followed-rules"><input type="checkbox" checked disabled> Followed Rules</p>
+                    <p class="win">Win</p>
+                    <p class="win">$150.00</p>
+                    <p class="trade-count">1 trade</p>
+                </div>
+            </div>
+            <div class="calendar-day">
+                <span class="day-number">10</span>
+                <div class="trade-info">
+                    <p>SI</p>
+                    <p class="followed-rules"><input type="checkbox" checked disabled> Followed Rules</p>
+                    <p class="win">Win</p>
+                    <p class="win">$2,475.00</p>
+                    <p class="trade-count">1 trade</p>
+                </div>
+            </div>
+            <div class="calendar-day">
+                <span class="day-number">11</span>
+                <div class="trade-info">
+                    <p>PL, GC</p>
+                    <p class="followed-rules"><input type="checkbox" checked disabled> Followed Rules</p>
+                    <p class="win">Win</p>
+                    <p class="win">$4,240.00</p>
+                    <p class="trade-count">6 trades</p>
+                </div>
+            </div>
+            <div class="calendar-day">
+                <span class="day-number">12</span>
+                <div class="trade-info">
+                    <p>SI, PL, CL</p>
+                    <p class="followed-rules"><input type="checkbox" checked disabled> Followed Rules</p>
+                    <p class="win">Win</p>
+                    <p class="win">$935.00</p>
+                    <p class="trade-count">4 trades</p>
+                </div>
+            </div>
+            <div class="calendar-day">
+                <span class="day-number">13</span>
+                <div class="trade-info">
+                    <p>CL, PL</p>
+                    <p class="followed-rules"><input type="checkbox" checked disabled> Followed Rules</p>
+                    <p class="win">Win</p>
+                    <p class="win">$1,495.00</p>
+                    <p class="trade-count">2 trades</p>
+                </div>
+            </div>
+            <div class="calendar-day empty"><span class="day-number">14</span></div>
+            <div class="calendar-day empty"><span class="day-number">15</span></div>
+
+            <!-- March 16 - 22 -->
+            <div class="calendar-day empty"><span class="day-number">16</span></div>
+            <div class="calendar-day empty"><span class="day-number">17</span></div>
+            <div class="calendar-day empty"><span class="day-number">18</span></div>
+            <div class="calendar-day empty"><span class="day-number">19</span></div>
+            <div class="calendar-day empty"><span class="day-number">20</span></div>
+            <div class="calendar-day empty"><span class="day-number">21</span></div>
+            <div class="calendar-day empty"><span class="day-number">22</span></div>
+        </div>
+    </div>
+</body>
+</html>
