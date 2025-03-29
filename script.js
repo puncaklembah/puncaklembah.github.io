@@ -22,15 +22,8 @@ if (document.getElementById('transactionForm')) {
     const validSymbols = ['EURUSD', 'XAUUSD', 'BTC', 'ETH'];
     let transactions = JSON.parse(localStorage.getItem('transactions')) || [];
 
-    // Fungsi untuk memperbarui semua elemen
-    function updateAll() {
-        updateTable();
-        updateSummary();
-        updateTransactionGrowthChart();
-    }
-
-    // Panggil saat pertama kali dimuat
-    updateAll();
+    updateTable();
+    updateSummary();
 
     document.getElementById('transactionForm').addEventListener('submit', function(e) {
         e.preventDefault();
@@ -84,7 +77,8 @@ if (document.getElementById('transactionForm')) {
             transactions.push(transaction);
             localStorage.setItem('transactions', JSON.stringify(transactions));
             this.reset();
-            updateAll();
+            updateTable();
+            updateSummary();
         } catch (error) {
             errorMessage.textContent = error.message;
             errorMessage.style.display = 'block';
@@ -139,7 +133,8 @@ if (document.getElementById('transactionForm')) {
         if (confirm('Apakah Anda yakin ingin mereset semua data transaksi?')) {
             transactions = [];
             localStorage.removeItem('transactions');
-            updateAll();
+            updateTable();
+            updateSummary();
         }
     });
 
@@ -160,25 +155,25 @@ if (document.getElementById('transactionForm')) {
 
     function populateTable() {
         const tableBody = document.querySelector("#growthTable tbody");
-        if (tableBody) {
-            data.forEach(row => {
-                const tr = document.createElement('tr');
-                tr.innerHTML = `
-                    <td>${row.transaksi}</td>
-                    <td>${row.volume.toFixed(2)}</td>
-                    <td>${row.targetPoin}</td>
-                    <td>${row.modalAwal.toFixed(2)}</td>
-                    <td>${row.keuntungan.toFixed(2)}</td>
-                    <td>${row.modalAkhir.toFixed(2)}</td>
-                `;
-                tableBody.appendChild(tr);
-            });
-        }
+        data.forEach(row => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${row.transaksi}</td>
+                <td>${row.volume.toFixed(2)}</td>
+                <td>${row.targetPoin}</td>
+                <td>${row.modalAwal.toFixed(2)}</td>
+                <td>${row.keuntungan.toFixed(2)}</td>
+                <td>${row.modalAkhir.toFixed(2)}</td>
+            `;
+            tableBody.appendChild(tr);
+        });
     }
 
     const ctx = document.getElementById('growthChart')?.getContext('2d');
-    if (ctx) {
-        const reversedData = [...data].reverse();
+    if (!ctx) {
+        console.error('Canvas #growthChart not found or context not available');
+    } else {
+        const reversedData = [...data].reverse(); // Membalikkan urutan data
         new Chart(ctx, {
             type: 'line',
             data: {
@@ -206,82 +201,8 @@ if (document.getElementById('transactionForm')) {
         });
     }
 
-    // Fungsi untuk grafik simulasi keuntungan 100% berdasarkan transaksi
-    function updateTransactionGrowthChart() {
-        const ctx2 = document.getElementById('growthChart2')?.getContext('2d');
-        if (!ctx2) {
-            console.error('Canvas #growthChart2 not found or context not available');
-            return;
-        }
-
-        if (transactions.length === 0) {
-            new Chart(ctx2, {
-                type: 'line',
-                data: {
-                    labels: ['Tidak ada data'],
-                    datasets: [{
-                        label: 'Modal Akhir ($)',
-                        data: [0],
-                        borderColor: 'rgba(75, 192, 192, 1)',
-                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                        fill: true
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: { beginAtZero: true, title: { display: true, text: 'Modal Akhir ($)' } },
-                        x: { title: { display: true, text: 'Transaksi' } }
-                    },
-                    plugins: { legend: { display: false } }
-                }
-            });
-            return;
-        }
-
-        let modalAwal = 0.50; // Modal awal default
-        const growthData = transactions.map((t, index) => {
-            const keuntungan = modalAwal;
-            const modalAkhir = modalAwal + keuntungan;
-            const dataPoint = {
-                transaksi: index + 1,
-                modalAwal: modalAwal,
-                keuntungan: keuntungan,
-                modalAkhir: modalAkhir,
-                color: index === 0 ? '#3498db' : (index === transactions.length - 1 ? '#e74c3c' : '#2ecc71')
-            };
-            modalAwal = modalAkhir;
-            return dataPoint;
-        });
-
-        const reversedGrowthData = [...growthData].reverse();
-
-        new Chart(ctx2, {
-            type: 'line',
-            data: {
-                labels: reversedGrowthData.map(row => `Transaksi ${row.transaksi}`),
-                datasets: [{
-                    label: 'Modal Akhir ($)',
-                    data: reversedGrowthData.map(row => row.modalAkhir),
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    fill: true,
-                    tension: 0.1,
-                    pointBackgroundColor: reversedGrowthData.map(row => row.color),
-                    pointRadius: 5
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    y: { beginAtZero: true, title: { display: true, text: 'Modal Akhir ($)' } },
-                    x: { title: { display: true, text: 'Transaksi' } }
-                },
-                plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false } }
-            }
-        });
+    if (document.getElementById('growthTable')) {
+        window.onload = populateTable;
     }
 }
 
