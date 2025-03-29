@@ -76,7 +76,7 @@
 
         .content h1 {
             font-size: 48px;
-            margin-bottom: 20px;
+            margin-bottom: 10px; /* Kurangi margin bawah untuk logo */
             color: #f5c107;
         }
 
@@ -126,14 +126,14 @@
 
         /* CSS untuk logo Sigma */
         .logo-container {
-            width: 200px;
-            height: 200px;
+            width: 150px; /* Kurangi ukuran logo agar proporsional di bawah h1 */
+            height: 150px;
             display: flex;
             justify-content: center;
             align-items: center;
             position: relative;
             transition: transform 0.3s ease-in-out;
-            margin: 40px auto;
+            margin: 10px auto 20px auto; /* Jarak atas dan bawah */
         }
 
         .sigma-svg {
@@ -142,18 +142,18 @@
         }
 
         .sigma-text {
-            font-size: 120px;
+            font-size: 90px; /* Sesuaikan ukuran teks Sigma */
             font-weight: bold;
             fill: #003087; /* Biru tua korporat */
             text-anchor: middle;
             dominant-baseline: middle;
-            transform: translateY(10px); /* Menurunkan sedikit */
+            transform: translateY(8px); /* Menurunkan sedikit */
             transition: transform 0.3s ease-in-out, fill 0.3s ease-in-out;
         }
 
         .logo-container:hover .sigma-text {
             fill: #f5c107; /* Emas saat hover */
-            transform: translateY(10px) scale(1.1);
+            transform: translateY(8px) scale(1.1);
         }
 
         .market-line-red {
@@ -192,15 +192,15 @@
         /* Responsivitas untuk logo */
         @media (max-width: 400px) {
             .logo-container {
-                width: 150px;
-                height: 150px;
+                width: 120px;
+                height: 120px;
             }
             .sigma-text {
-                font-size: 90px;
-                transform: translateY(8px);
+                font-size: 70px;
+                transform: translateY(6px);
             }
             .logo-container:hover .sigma-text {
-                transform: translateY(8px) scale(1.1);
+                transform: translateY(6px) scale(1.1);
             }
         }
 
@@ -225,6 +225,14 @@
             .buttons button {
                 display: block;
                 margin: 10px auto;
+            }
+            .logo-container {
+                width: 120px;
+                height: 120px;
+            }
+            .sigma-text {
+                font-size: 70px;
+                transform: translateY(6px);
             }
         }
     </style>
@@ -257,15 +265,7 @@
     <!-- Konten Utama -->
     <div class="content">
         <h1>Sigma Grok</h1>
-        <p>Mengapa Menggunakan Sigma Grok? Cerita panjangnya: Biaya perdagangan lebih rendah + Keuntungan yang signifikan</p>
-        <p class="highlight">Short story even shorter: Enhance your trading resilience with Sigma Grok's innovative tools. You'll easy money</p>
-        <div class="buttons">
-            <button onclick="location.href='dashboard.html'">Go to Dashboard</button>
-            <button onclick="location.href='88level.html'">View 88 Levels</button>
-        </div>
-        <a href="#" class="learn-more">Learn More</a>
-
-        <!-- Logo Sigma -->
+        <!-- Logo Sigma diletakkan di bawah h1 -->
         <div class="logo-container">
             <svg class="sigma-svg" viewBox="0 0 200 200">
                 <!-- Lingkaran latar belakang -->
@@ -277,6 +277,13 @@
                 <text x="100" y="100" class="sigma-text">Σ</text>
             </svg>
         </div>
+        <p>Mengapa Menggunakan Sigma Grok? Cerita panjangnya: Biaya perdagangan lebih rendah + Keuntungan yang signifikan</p>
+        <p class="highlight">Short story even shorter: Enhance your trading resilience with Sigma Grok's innovative tools. You'll easy money</p>
+        <div class="buttons">
+            <button onclick="location.href='dashboard.html'">Go to Dashboard</button>
+            <button onclick="location.href='88level.html'">View 88 Levels</button>
+        </div>
+        <a href="#" class="learn-more">Learn More</a>
     </div>
 
     <script src="script.js"></script>
