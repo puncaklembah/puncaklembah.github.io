@@ -6,6 +6,8 @@
     <title>Diversify Now - Sigma Grok</title>
     <link rel="icon" type="image/png" href="logo.svg">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Tambahkan kembali link ke styles.css -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Navbar -->
@@ -17,9 +19,11 @@
             <li><a href="https://x.com/i/grok">Contribute</a></li>
             <li><a href="https://www.mql5.com/en/signals/2268101" target="_blank" rel="noopener noreferrer">MQL5</a></li>
         </ul>
-        <span id="disableDarkMode" class="theme-icon">
+        <!-- Ganti <span> dengan <button> untuk aksesibilitas -->
+        <button id="disableDarkMode" class="theme-icon" aria-label="Toggle dark mode">
             <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-sun" viewBox="0 0 16 16">
-                <circle cx="8" cy="8" r="3" />
+                <!-- Tambahkan fill pada circle -->
+                <circle cx="8" cy="8" r="3" fill="currentColor" />
                 <line x1="8" y1="1" x2="8" y2="3" stroke="currentColor" stroke-width="1" />
                 <line x1="8" y1="13" x2="8" y2="15" stroke="currentColor" stroke-width="1" />
                 <line x1="1" y1="8" x2="3" y2="8" stroke="currentColor" stroke-width="1" />
@@ -29,14 +33,15 @@
                 <line x1="3.5" y1="12.5" x2="5" y2="11" stroke="currentColor" stroke-width="1" />
                 <line x1="11" y1="11" x2="12.5" y2="12.5" stroke="currentColor" stroke-width="1" />
             </svg>
-        </span>
+        </button>
     </nav>
 
     <!-- Konten Utama -->
     <div class="content">
         <h1>Sigma Grok</h1>
         <p>Mengapa Menggunakan Sigma Grok? Cerita panjangnya: Biaya perdagangan lebih rendah + Keuntungan yang signifikan</p>
-        <p class="highlight">Short story even shorter: Enhance your trading resilience with Sigma Grok's innovative tools. You'll easy money</p>
+        <!-- Perbaiki gramatikal -->
+        <p class="highlight">Short story even shorter: Enhance your trading resilience with Sigma Grok's innovative tools. You'll make easy money</p>
         <div class="buttons">
             <button onclick="location.href='dashboard.html'">Go to Dashboard</button>
             <button onclick="location.href='88level.html'">View 88 Levels</button>
