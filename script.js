@@ -22,8 +22,15 @@ if (document.getElementById('transactionForm')) {
     const validSymbols = ['EURUSD', 'XAUUSD', 'BTC', 'ETH'];
     let transactions = JSON.parse(localStorage.getItem('transactions')) || [];
 
-    updateTable();
-    updateSummary();
+    // Fungsi untuk memperbarui semua elemen
+    function updateAll() {
+        updateTable();
+        updateSummary();
+        updateTransactionChart();
+    }
+
+    // Panggil saat pertama kali dimuat
+    updateAll();
 
     document.getElementById('transactionForm').addEventListener('submit', function(e) {
         e.preventDefault();
@@ -77,8 +84,7 @@ if (document.getElementById('transactionForm')) {
             transactions.push(transaction);
             localStorage.setItem('transactions', JSON.stringify(transactions));
             this.reset();
-            updateTable();
-            updateSummary();
+            updateAll();
         } catch (error) {
             errorMessage.textContent = error.message;
             errorMessage.style.display = 'block';
@@ -133,10 +139,70 @@ if (document.getElementById('transactionForm')) {
         if (confirm('Apakah Anda yakin ingin mereset semua data transaksi?')) {
             transactions = [];
             localStorage.removeItem('transactions');
-            updateTable();
-            updateSummary();
+            updateAll();
         }
     });
+
+    // Fungsi untuk menggambar grafik transaksi
+    function updateTransactionChart() {
+        const ctx = document.getElementById('transactionChart')?.getContext('2d');
+        if (!ctx) {
+            console.error('Canvas #transactionChart not found or context not available');
+            return;
+        }
+
+        // Hitung profit/loss kumulatif
+        const cumulativePL = [];
+        let runningTotal = 0;
+        transactions.forEach((t, index) => {
+            runningTotal += t.profitLoss || 0;
+            cumulativePL.push({
+                date: t.date,
+                profitLoss: runningTotal,
+                color: t.profitLoss > 0 ? '#2ecc71' : (t.profitLoss < 0 ? '#e74c3c' : '#3498db')
+            });
+        });
+
+        // Hancurkan grafik sebelumnya jika ada
+        if (window.transactionChart instanceof Chart) {
+            window.transactionChart.destroy();
+        }
+
+        // Buat grafik baru
+        window.transactionChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: cumulativePL.map((entry, index) => `Transaksi ${index + 1} (${entry.date})`),
+                datasets: [{
+                    label: 'Profit/Loss Kumulatif ($)',
+                    data: cumulativePL.map(entry => entry.profitLoss),
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    fill: true,
+                    tension: 0.1,
+                    pointBackgroundColor: cumulativePL.map(entry => entry.color),
+                    pointRadius: 5
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: { 
+                        beginAtZero: false, 
+                        title: { display: true, text: 'Profit/Loss Kumulatif ($)' },
+                        suggestedMin: Math.min(...cumulativePL.map(entry => entry.profitLoss)) - 10,
+                        suggestedMax: Math.max(...cumulativePL.map(entry => entry.profitLoss)) + 10
+                    },
+                    x: { title: { display: true, text: 'Transaksi' } }
+                },
+                plugins: { 
+                    legend: { display: false }, 
+                    tooltip: { mode: 'index', intersect: false } 
+                }
+            }
+        });
+    }
 
     // Simulasi Pertumbuhan di Dashboard
     const data = [
@@ -155,26 +221,28 @@ if (document.getElementById('transactionForm')) {
 
     function populateTable() {
         const tableBody = document.querySelector("#growthTable tbody");
-        data.forEach(row => {
-            const tr = document.createElement('tr');
-            tr.innerHTML = `
-                <td>${row.transaksi}</td>
-                <td>${row.volume.toFixed(2)}</td>
-                <td>${row.targetPoin}</td>
-                <td>${row.modalAwal.toFixed(2)}</td>
-                <td>${row.keuntungan.toFixed(2)}</td>
-                <td>${row.modalAkhir.toFixed(2)}</td>
-            `;
-            tableBody.appendChild(tr);
-        });
+        if (tableBody) {
+            data.forEach(row => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${row.transaksi}</td>
+                    <td>${row.volume.toFixed(2)}</td>
+                    <td>${row.targetPoin}</td>
+                    <td>${row.modalAwal.toFixed(2)}</td>
+                    <td>${row.keuntungan.toFixed(2)}</td>
+                    <td>${row.modalAkhir.toFixed(2)}</td>
+                `;
+                tableBody.appendChild(tr);
+            });
+        }
     }
 
-    const ctx = document.getElementById('growthChart')?.getContext('2d');
-    if (!ctx) {
+    const ctxGrowth = document.getElementById('growthChart')?.getContext('2d');
+    if (!ctxGrowth) {
         console.error('Canvas #growthChart not found or context not available');
     } else {
-        const reversedData = [...data].reverse(); // Membalikkan urutan data
-        new Chart(ctx, {
+        const reversedData = [...data].reverse();
+        new Chart(ctxGrowth, {
             type: 'line',
             data: {
                 labels: reversedData.map(row => `Transaksi ${row.transaksi}`),
@@ -202,7 +270,10 @@ if (document.getElementById('transactionForm')) {
     }
 
     if (document.getElementById('growthTable')) {
-        window.onload = populateTable;
+        window.onload = function() {
+            populateTable();
+            updateAll();
+        };
     }
 }
 
