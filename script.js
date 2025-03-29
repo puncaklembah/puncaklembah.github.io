@@ -143,23 +143,90 @@ if (document.getElementById('transactionForm')) {
         }
     });
 
-    // Fungsi untuk menggambar grafik transaksi (versi tes sederhana)
+    // Fungsi untuk menggambar grafik transaksi berdasarkan profit/loss
     function updateTransactionChart() {
         const ctx = document.getElementById('transactionChart')?.getContext('2d');
         if (!ctx) {
             console.error('Canvas #transactionChart not found');
             return;
         }
-        new Chart(ctx, {
+
+        // Hitung profit/loss kumulatif
+        const cumulativePL = [];
+        let runningTotal = 0;
+        transactions.forEach((t, index) => {
+            runningTotal += t.profitLoss || 0; // Jika profitLoss null, tambahkan 0
+            cumulativePL.push({
+                date: t.date,
+                profitLoss: runningTotal,
+                color: t.profitLoss > 0 ? '#2ecc71' : (t.profitLoss < 0 ? '#e74c3c' : '#3498db')
+            });
+        });
+
+        // Hancurkan grafik sebelumnya jika ada
+        if (window.transactionChart instanceof Chart) {
+            window.transactionChart.destroy();
+        }
+
+        // Jika tidak ada transaksi, tampilkan grafik kosong
+        if (cumulativePL.length === 0) {
+            window.transactionChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Tidak ada data'],
+                    datasets: [{
+                        label: 'Profit/Loss Kumulatif ($)',
+                        data: [0],
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: { beginAtZero: true, title: { display: true, text: 'Profit/Loss Kumulatif ($)' } },
+                        x: { title: { display: true, text: 'Transaksi' } }
+                    },
+                    plugins: { legend: { display: false } }
+                }
+            });
+            return;
+        }
+
+        // Buat grafik baru dengan data transaksi
+        window.transactionChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ['Test 1', 'Test 2'],
+                labels: cumulativePL.map((entry, index) => `Transaksi ${index + 1} (${entry.date})`),
                 datasets: [{
-                    label: 'Test',
-                    data: [10, 20],
-                    borderColor: 'red',
-                    fill: false
+                    label: 'Profit/Loss Kumulatif ($)',
+                    data: cumulativePL.map(entry => entry.profitLoss),
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    fill: true,
+                    tension: 0.1,
+                    pointBackgroundColor: cumulativePL.map(entry => entry.color),
+                    pointRadius: 5
                 }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: { 
+                        beginAtZero: false, 
+                        title: { display: true, text: 'Profit/Loss Kumulatif ($)' },
+                        suggestedMin: Math.min(...cumulativePL.map(entry => entry.profitLoss)) - 10,
+                        suggestedMax: Math.max(...cumulativePL.map(entry => entry.profitLoss)) + 10
+                    },
+                    x: { title: { display: true, text: 'Transaksi' } }
+                },
+                plugins: { 
+                    legend: { display: false }, 
+                    tooltip: { mode: 'index', intersect: false } 
+                }
             }
         });
     }
