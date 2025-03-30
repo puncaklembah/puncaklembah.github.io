@@ -38,7 +38,7 @@
         .sun-rays {
             stroke: #FFCA28;
             stroke-width: 3;
-            transition: transform 0.4s ease-in-out, stroke 0.4s ease-in-out;
+            transition: stroke 0.4s ease-in-out;
         }
 
         .mountain-peaks {
@@ -54,7 +54,7 @@
 
         .logo-container:hover .sun-rays {
             stroke: #F57C00; /* Oranye saat hover untuk sinar */
-            transform: translateY(-15px) scale(1.1);
+            transform: scale(1.1); /* Menghindari pergeseran sinar */
         }
 
         .logo-container:hover .mountain-peaks {
