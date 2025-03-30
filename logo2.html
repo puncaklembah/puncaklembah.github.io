@@ -22,7 +22,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: transform 0.4s ease-in-out;
+            transition: transform 0.4s ease-in-out, opacity 0.3s ease-in-out;
         }
 
         .mountain-svg {
@@ -48,11 +48,12 @@
 
         .logo-container:hover .sun {
             fill: #F57C00; /* Oranye saat hover untuk efek matahari terbenam */
-            transform: translateY(-15px);
+            transform: translateY(-15px) rotate(10deg); /* Matahari sedikit bergerak */
         }
 
         .logo-container:hover .mountain-peaks {
             fill: #4CAF50; /* Hijau lebih cerah saat hover */
+            transform: translateY(-10px); /* Pegunungan sedikit naik */
         }
 
         .logo-container:hover .valley-shadows {
@@ -60,7 +61,8 @@
         }
 
         .logo-container:hover {
-            transform: scale(1.05); /* Sedikit membesar saat hover */
+            transform: scale(1.1); /* Logo sedikit membesar saat hover */
+            opacity: 0.9; /* Menambahkan efek transparansi saat hover */
         }
 
         /* Responsivitas */
