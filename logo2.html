@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Puncak Lembah - Minimalist Version</title>
+    <title>Puncak Lembah - Dynamic Peaks</title>
     <style>
         body {
             margin: 0;
@@ -16,8 +16,8 @@
         }
 
         .logo-container {
-            width: 250px;
-            height: 250px;
+            width: 300px;
+            height: 300px;
             position: relative;
             display: flex;
             justify-content: center;
@@ -35,28 +35,28 @@
             transition: transform 0.4s ease-in-out, fill 0.4s ease-in-out;
         }
 
-        .mountain-peak {
+        .mountain-peaks {
             fill: #388E3C; /* Hijau tua untuk puncak */
             transition: fill 0.4s ease-in-out;
         }
 
-        .valley-shadow {
+        .valley-shadows {
             fill: #6D4C41; /* Cokelat tua untuk bayangan lembah */
-            opacity: 0.8;
+            opacity: 0.7;
             transition: opacity 0.4s ease-in-out;
         }
 
         .logo-container:hover .sun {
             fill: #F57C00; /* Oranye saat hover untuk efek matahari terbenam */
-            transform: translateY(-10px);
+            transform: translateY(-15px);
         }
 
-        .logo-container:hover .mountain-peak {
+        .logo-container:hover .mountain-peaks {
             fill: #4CAF50; /* Hijau lebih cerah saat hover */
         }
 
-        .logo-container:hover .valley-shadow {
-            opacity: 1; /* Bayangan lebih jelas saat hover */
+        .logo-container:hover .valley-shadows {
+            opacity: 0.9; /* Bayangan lebih jelas saat hover */
         }
 
         .logo-container:hover {
@@ -66,23 +66,23 @@
         /* Responsivitas */
         @media (max-width: 400px) {
             .logo-container {
-                width: 180px;
-                height: 180px;
+                width: 200px;
+                height: 200px;
             }
         }
     </style>
 </head>
 <body>
     <div class="logo-container">
-        <svg class="mountain-svg" viewBox="0 0 250 250">
+        <svg class="mountain-svg" viewBox="0 0 300 300">
             <!-- Matahari di atas puncak -->
-            <circle class="sun" cx="125" cy="50" r="20" />
-            <!-- Siluet gunung (puncak) -->
-            <path class="mountain-peak" d="M 50 200 L 125 100 L 200 200 Z" />
+            <circle class="sun" cx="150" cy="60" r="25" />
+            <!-- Siluet pegunungan dengan naik turun -->
+            <path class="mountain-peaks" d="M 30 250 L 80 150 L 120 200 L 170 120 L 220 180 L 270 230 Z" />
             <!-- Bayangan lembah -->
-            <path class="valley-shadow" d="M 50 200 L 125 150 L 200 200 Z" />
+            <path class="valley-shadows" d="M 30 250 L 80 180 L 120 220 L 170 150 L 220 200 L 270 250 Z" />
             <!-- Garis horizon dasar -->
-            <line x1="0" y1="200" x2="250" y2="200" stroke="#8D6E63" stroke-width="2" />
+            <line x1="0" y1="250" x2="300" y2="250" stroke="#8D6E63" stroke-width="2" />
         </svg>
     </div>
 </body>
