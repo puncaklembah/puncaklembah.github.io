@@ -38,7 +38,7 @@
         .sun-rays {
             stroke: #FFCA28;
             stroke-width: 3;
-            transition: transform 0.4s ease-in-out, stroke 0.4s ease-in-out;
+            transition: stroke 0.4s ease-in-out;
         }
 
         .mountain-peaks {
@@ -46,14 +46,15 @@
             transition: fill 0.4s ease-in-out;
         }
 
+        /* Efek Hover Matahari dan Gunung */
         .logo-container:hover .sun {
             fill: #F57C00; /* Oranye saat hover untuk efek matahari terbenam */
-            transform: translateY(-15px);
+            transform: translateY(-15px) scale(1.1);
         }
 
         .logo-container:hover .sun-rays {
             stroke: #F57C00; /* Oranye saat hover untuk sinar */
-            transform: translateY(-15px);
+            transform: scale(1.1); /* Menghindari pergeseran sinar */
         }
 
         .logo-container:hover .mountain-peaks {
@@ -71,6 +72,26 @@
                 height: 200px;
             }
         }
+
+        /* Animasi sinar matahari */
+        @keyframes sun-ray-animation {
+            0% {
+                transform: scale(0.8);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(0.8);
+                opacity: 0.5;
+            }
+        }
+
+        .sun-rays {
+            animation: sun-ray-animation 2s infinite ease-in-out;
+        }
     </style>
 </head>
 <body>
@@ -78,7 +99,7 @@
         <svg class="mountain-svg" viewBox="0 0 300 300">
             <!-- Matahari di atas puncak -->
             <g transform="translate(150, 40)">
-                <circle class="sun" cx="0" cy="0" r="15" />
+                <circle class="sun" cx="0" cy="0" r="18" />
                 <!-- Sinar matahari -->
                 <line class="sun-rays" x1="0" y1="-30" x2="0" y2="-25" />
                 <line class="sun-rays" x1="0" y1="25" x2="0" y2="30" />
