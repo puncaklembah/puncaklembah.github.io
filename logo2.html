@@ -49,12 +49,14 @@
         .market-line-green {
             stroke: #4CAF50; /* Hijau untuk garis pasar */
             stroke-width: 4;
+            fill: none; /* Pastikan tidak ada isi pada path */
             transition: stroke 0.4s ease-in-out;
         }
 
         .market-line-red {
             stroke: #F44336; /* Merah untuk garis pasar */
             stroke-width: 4;
+            fill: none; /* Pastikan tidak ada isi pada path */
             transition: stroke 0.4s ease-in-out;
         }
 
@@ -124,10 +126,10 @@
             </g>
             <!-- Siluet pegunungan dengan lengkungan alami di bawah -->
             <path class="mountain-peaks" d="M 0 300 C 50 180 90 160 130 120 C 150 80 170 100 180 130 C 210 160 250 180 300 300 C 250 200 200 240 150 210 C 100 180 50 210 0 300 Z" />
-            <!-- Garis pasar hijau -->
-            <line class="market-line-green" x1="50" y1="260" x2="250" y2="240" />
-            <!-- Garis pasar merah -->
-            <line class="market-line-red" x1="50" y1="280" x2="250" y2="260" />
+            <!-- Garis pasar hijau bergelombang -->
+            <path class="market-line-green" d="M 50 260 Q 100 230, 150 260 T 250 240" />
+            <!-- Garis pasar merah bergelombang -->
+            <path class="market-line-red" d="M 50 280 Q 100 250, 150 280 T 250 260" />
         </svg>
     </div>
 </body>
