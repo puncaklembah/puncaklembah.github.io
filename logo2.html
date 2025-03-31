@@ -46,6 +46,18 @@
             transition: fill 0.4s ease-in-out;
         }
 
+        .market-line-green {
+            stroke: #4CAF50; /* Hijau untuk garis pasar */
+            stroke-width: 4;
+            transition: stroke 0.4s ease-in-out;
+        }
+
+        .market-line-red {
+            stroke: #F44336; /* Merah untuk garis pasar */
+            stroke-width: 4;
+            transition: stroke 0.4s ease-in-out;
+        }
+
         /* Efek Hover Matahari dan Gunung */
         .logo-container:hover .sun {
             fill: #F57C00; /* Oranye saat hover untuk efek matahari terbenam */
@@ -112,6 +124,10 @@
             </g>
             <!-- Siluet pegunungan dengan lengkungan alami di bawah -->
             <path class="mountain-peaks" d="M 0 300 C 50 180 90 160 130 120 C 150 80 170 100 180 130 C 210 160 250 180 300 300 C 250 200 200 240 150 210 C 100 180 50 210 0 300 Z" />
+            <!-- Garis pasar hijau -->
+            <line class="market-line-green" x1="50" y1="260" x2="250" y2="240" />
+            <!-- Garis pasar merah -->
+            <line class="market-line-red" x1="50" y1="280" x2="250" y2="260" />
         </svg>
     </div>
 </body>
