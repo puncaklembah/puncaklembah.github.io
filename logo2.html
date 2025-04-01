@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Puncak Lembah - Dynamic Peaks</title>
+    <link rel="icon" type="image/png" href="logo.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -13,12 +15,13 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="dashboard.html">Dashboard</a></li>
             <li><a href="88level.html">88 Levels</a></li>
-            <li><a href="https://x.com/i/grok?focus=1">Contribute</a></li>
+            <li><a href="https://x.com/i/grok">Contribute</a></li>
             <li><a href="https://www.mql5.com/en/signals/2268101" target="_blank" rel="noopener noreferrer">MQL5</a></li>
         </ul>
-        <span id="disableDarkMode" class="theme-icon">
+        <!-- Menggunakan button untuk aksesibilitas -->
+        <button id="disableDarkMode" class="theme-icon" aria-label="Toggle dark mode">
             <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-sun" viewBox="0 0 16 16">
-                <circle cx="8" cy="8" r="3" />
+                <circle cx="8" cy="8" r="3" fill="currentColor" />
                 <line x1="8" y1="1" x2="8" y2="3" stroke="currentColor" stroke-width="1" />
                 <line x1="8" y1="13" x2="8" y2="15" stroke="currentColor" stroke-width="1" />
                 <line x1="1" y1="8" x2="3" y2="8" stroke="currentColor" stroke-width="1" />
@@ -28,8 +31,20 @@
                 <line x1="3.5" y1="12.5" x2="5" y2="11" stroke="currentColor" stroke-width="1" />
                 <line x1="11" y1="11" x2="12.5" y2="12.5" stroke="currentColor" stroke-width="1" />
             </svg>
-        </span>
+        </button>
     </nav>
+
+    <!-- Konten Utama -->
+    <div class="content">
+        <h1>Puncak Lembah</h1>
+        <p>Mengapa Menggunakan Pelayanan Puncak Lembah? Cerita panjangnya: Biaya investasi dan transaksi lebih rendah + Keuntungan yang signifikan</p>
+        <p class="highlight">Short story even shorter: You'll make easy money</p>
+        <div class="buttons">
+            <button onclick="location.href='dashboard.html'">Go to Dashboard</button>
+            <button onclick="location.href='88level.html'">View 88 Levels</button>
+        </div>
+        <a href="#" class="learn-more">Learn More</a>
+    </div>
 
     <!-- Logo Container -->
     <div class="logo-container">
@@ -55,5 +70,7 @@
             <path class="market-line-red" d="M 50 280 Q 100 250, 150 280 T 250 260" />
         </svg>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
