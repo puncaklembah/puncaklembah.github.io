@@ -18,7 +18,6 @@
             <li><a href="https://x.com/i/grok">Contribute</a></li>
             <li><a href="https://www.mql5.com/en/signals/2268101" target="_blank" rel="noopener noreferrer">MQL5</a></li>
         </ul>
-        <!-- Menggunakan span untuk aksesibilitas -->
         <span id="disableDarkMode" class="theme-icon" aria-label="Toggle dark mode">
             <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-sun" viewBox="0 0 16 16">
                 <circle cx="8" cy="8" r="3" fill="currentColor" />
@@ -36,6 +35,25 @@
 
     <!-- Konten Utama -->
     <div class="content">
+        <!-- Logo Container dipindah ke sini -->
+        <div class="logo-container">
+            <svg class="mountain-svg" viewBox="0 0 300 300">
+                <g transform="translate(150, 60)">
+                    <circle class="sun" cx="0" cy="0" r="15" />
+                    <line class="sun-rays" x1="0" y1="-30" x2="0" y2="-25" />
+                    <line class="sun-rays" x1="0" y1="25" x2="0" y2="30" />
+                    <line class="sun-rays" x1="-30" y1="0" x2="-25" y2="0" />
+                    <line class="sun-rays" x1="25" y1="0" x2="30" y2="0" />
+                    <line class="sun-rays" x1="-21" y1="-21" x2="-15" y2="-18" transform="rotate(45)" />
+                    <line class="sun-rays" x1="21" y1="21" x2="15" y2="15" transform="rotate(45)" />
+                    <line class="sun-rays" x1="-21" y1="21" x2="-15" y2="15" transform="rotate(-45)" />
+                    <line class="sun-rays" x1="21" y1="-21" x2="15" y2="-15" transform="rotate(-45)" />
+                </g>
+                <path class="mountain-peaks" d="M 0 300 C 50 180 90 160 130 120 C 150 80 170 100 180 130 C 210 160 250 180 300 300 C 250 200 200 240 150 210 C 100 180 50 210 0 300 Z" />
+                <path class="market-line-green" d="M 50 260 Q 100 230, 150 260 T 250 240" />
+                <path class="market-line-red" d="M 50 280 Q 100 250, 150 280 T 250 260" />
+            </svg>
+        </div>
         <h1>Puncak Lembah</h1>
         <p>Mengapa Menggunakan Pelayanan Puncak Lembah? Cerita panjangnya: Biaya investasi dan transaksi lebih rendah + Keuntungan yang signifikan</p>
         <p class="highlight">Short story even shorter: You'll make easy money</p>
@@ -44,31 +62,6 @@
             <button onclick="location.href='88level.html'">View 88 Levels</button>
         </div>
         <a href="#" class="learn-more">Learn More</a>
-    </div>
-
-    <!-- Logo Container -->
-    <div class="logo-container">
-        <svg class="mountain-svg" viewBox="0 0 300 300">
-            <!-- Matahari di atas puncak -->
-            <g transform="translate(150, 60)">
-                <circle class="sun" cx="0" cy="0" r="15" />
-                <!-- Sinar matahari -->
-                <line class="sun-rays" x1="0" y1="-30" x2="0" y2="-25" />
-                <line class="sun-rays" x1="0" y1="25" x2="0" y2="30" />
-                <line class="sun-rays" x1="-30" y1="0" x2="-25" y2="0" />
-                <line class="sun-rays" x1="25" y1="0" x2="30" y2="0" />
-                <line class="sun-rays" x1="-21" y1="-21" x2="-15" y2="-18" transform="rotate(45)" />
-                <line class="sun-rays" x1="21" y1="21" x2="15" y2="15" transform="rotate(45)" />
-                <line class="sun-rays" x1="-21" y1="21" x2="-15" y2="15" transform="rotate(-45)" />
-                <line class="sun-rays" x1="21" y1="-21" x2="15" y2="-15" transform="rotate(-45)" />
-            </g>
-            <!-- Siluet pegunungan -->
-            <path class="mountain-peaks" d="M 0 300 C 50 180 90 160 130 120 C 150 80 170 100 180 130 C 210 160 250 180 300 300 C 250 200 200 240 150 210 C 100 180 50 210 0 300 Z" />
-            <!-- Garis pasar hijau -->
-            <path class="market-line-green" d="M 50 260 Q 100 230, 150 260 T 250 240" />
-            <!-- Garis pasar merah -->
-            <path class="market-line-red" d="M 50 280 Q 100 250, 150 280 T 250 260" />
-        </svg>
     </div>
 
     <script src="script.js"></script>
