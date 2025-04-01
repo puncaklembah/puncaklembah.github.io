@@ -138,12 +138,12 @@ body.light-mode .content .highlight {
     border-radius: 25px;
     cursor: pointer;
     transition: all 0.3s ease;
-    background-color: white; /* Gaya default seperti Go to Dashboard */
+    background-color: white;
     color: #1a2526;
 }
 
 body.light-mode .buttons button {
-    background-color: #1a2526; /* Mode terang */
+    background-color: #1a2526;
     color: white;
 }
 
@@ -160,13 +160,14 @@ body.light-mode .buttons button:hover {
 }
 
 .buttons .whatsapp-btn {
-    display: inline-block; /* Agar seperti tombol */
+    display: inline-block;
     background-color: #25D366;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 30px; /* Samakan dengan tombol lain */
     cursor: pointer;
-    text-decoration: none; /* Hilangkan garis bawah */
+    text-decoration: none;
+    border-radius: 25px;
 }
 
 .buttons .whatsapp-btn:hover {
