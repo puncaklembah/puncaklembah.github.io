@@ -89,7 +89,7 @@ body.light-mode nav ul li a {
 
 .content h1 {
     font-size: 64px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     font-weight: 700;
     letter-spacing: 0.5px;
     background: linear-gradient(90deg, #ff6f61, #ffcc5c);
@@ -103,20 +103,26 @@ body.light-mode .content h1 {
     -webkit-text-fill-color: transparent;
 }
 
-.content p {
+.content h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.content h3 {
     font-size: 20px;
+    margin-bottom: 20px;
     line-height: 1.6;
-    margin-bottom: 15px;
     opacity: 0.8;
 }
 
-body.light-mode .content p {
+body.light-mode .content h3 {
     color: #1a2526;
 }
 
 .content .highlight {
     font-style: italic;
     color: #ffcc5c;
+    margin-bottom: 30px;
 }
 
 body.light-mode .content .highlight {
@@ -126,9 +132,10 @@ body.light-mode .content .highlight {
 /* Tombol */
 .buttons {
     display: flex;
-    gap: 20px;
+    gap: 30px;
     justify-content: center;
-    margin-bottom: 30px;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .buttons button {
@@ -164,7 +171,7 @@ body.light-mode .buttons button:hover {
     background-color: #25D366;
     color: white;
     border: none;
-    padding: 12px 30px; /* Samakan dengan tombol lain */
+    padding: 12px 30px;
     cursor: pointer;
     text-decoration: none;
     border-radius: 25px;
@@ -185,6 +192,7 @@ body.light-mode .buttons button:hover {
     opacity: 0.8;
     justify-content: center;
     transition: opacity 0.3s, color 0.3s;
+    margin-top: 20px;
 }
 
 body.light-mode .learn-more {
@@ -577,10 +585,35 @@ body.light-mode .growth-container p {
 
 /* Media Queries */
 @media (max-width: 768px) {
-    .content h1 { font-size: 40px; }
-    .content p { font-size: 16px; }
-    .buttons { flex-direction: column; gap: 10px; }
-    .form-container, .table-container, .summary-container, .growth-container { width: 100%; padding: 0 10px; }
+    .content h1 { 
+        font-size: 40px; 
+        margin-bottom: 20px; 
+    }
+    .content h2 { 
+        font-size: 24px; 
+        margin-bottom: 15px; 
+    }
+    .content h3 { 
+        font-size: 16px; 
+        margin-bottom: 15px; 
+    }
+    .content .highlight { 
+        font-size: 20px; 
+        margin-bottom: 20px; 
+    }
+    .buttons { 
+        flex-direction: column; 
+        gap: 15px; 
+        margin-top: 30px; 
+        margin-bottom: 30px; 
+    }
+    .learn-more { 
+        margin-top: 15px; 
+    }
+    .form-container, .table-container, .summary-container, .growth-container { 
+        width: 100%; 
+        padding: 0 10px; 
+    }
     nav ul { gap: 10px; }
     nav ul li a { font-size: 14px; }
     .theme-icon { right: 20px; top: 15px; }
