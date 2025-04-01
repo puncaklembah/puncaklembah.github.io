@@ -184,6 +184,18 @@ body.light-mode .buttons button:last-child:hover {
     border: 2px solid #e0e0e0;
 }
 
+.buttons a button {
+    background-color: #25D366; /* Warna hijau WhatsApp */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.buttons a button:hover {
+    background-color: #20b858; /* Hover effect */
+}
+
 /* Tautan Learn More */
 .learn-more {
     color: #ffcc5c;
