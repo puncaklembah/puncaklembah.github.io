@@ -6,20 +6,14 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #161c30;
+    background-color: #161c30; /* Template awal */
     color: white;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 80px 20px 20px;
+    padding: 80px 20px 20px; /* Padding awal untuk navigasi tetap */
     transition: background-color 0.3s, color 0.3s;
-    margin: 0;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-    background-color: #F5F6F5; /* Latar belakang abu-abu sangat muda */
-    font-family: 'Arial', sans-serif;
 }
 
 body.light-mode {
@@ -686,41 +680,41 @@ body.light-mode .growth-container tbody tr:nth-child(even) {
 }
 
 .mountain-peaks {
-    fill: #1877F2; /* Biru Facebook untuk puncak gunung */
+    fill: #1877F2; /* Biru untuk puncak gunung */
     transition: fill 0.4s ease-in-out;
 }
 
 .market-line-green {
     stroke: #4CAF50; /* Hijau untuk garis pasar */
     stroke-width: 4;
-    fill: none; /* Pastikan tidak ada isi pada path */
+    fill: none;
     transition: stroke 0.4s ease-in-out;
 }
 
 .market-line-red {
     stroke: #F44336; /* Merah untuk garis pasar */
     stroke-width: 4;
-    fill: none; /* Pastikan tidak ada isi pada path */
+    fill: none;
     transition: stroke 0.4s ease-in-out;
 }
 
-/* Efek Hover Matahari dan Gunung */
+/* Efek Hover */
 .logo-container:hover .sun {
-    fill: #F57C00; /* Oranye saat hover untuk efek matahari terbenam */
+    fill: #F57C00;
     transform: translateY(-15px);
 }
 
 .logo-container:hover .sun-rays {
-    stroke: #F57C00; /* Oranye saat hover untuk sinar */
+    stroke: #F57C00;
     transform: translateY(-15px);
 }
 
 .logo-container:hover .mountain-peaks {
-    fill: #4CAF50; /* Hijau lebih cerah saat hover */
+    fill: #4CAF50;
 }
 
 .logo-container:hover {
-    transform: scale(1.05); /* Sedikit membesar saat hover */
+    transform: scale(1.05);
 }
 
 /* Animasi sinar matahari */
