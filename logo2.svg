@@ -15,53 +15,137 @@
     </circle>
   </g>
 
-  <!-- Gunung dengan transformasi matrix -->
-  <g transform="matrix(1, 0, 0, 1, 100, 100)" opacity="0.9">
-    <path fill="rgb(38, 70, 83)" fill-opacity="1" d="M0,200 L100,0 L200,200 Z">
-      <animateTransform
-        attributeName="transform"
-        type="matrix"
-        from="1 0 0 1 100 100"
-        to="1.05 0.1 -0.1 1.05 110 110"
-        dur="3s"
-        repeatCount="indefinite"
-        direction="alternate"/>
-    </path>
-  </g>
+  <!-- Gunung sederhana di tengah -->
+  <path d="M 100 300 L 200 150 L 300 300 Z" fill="#264653" opacity="0.9">
+    <animateTransform
+      attributeName="transform"
+      type="matrix"
+      from="1 0 0 1 0 0"
+      to="1.05 0 0 1.05 5 5"
+      dur="2s"
+      repeatCount="indefinite"
+      direction="alternate"/>
+  </path>
 
-  <!-- Sungai di lembah dengan transformasi matrix -->
-  <g transform="matrix(0.9, 0.1, -0.1, 0.9, 150, 300)" opacity="1">
-    <path fill="none" stroke="rgb(33, 158, 188)" stroke-opacity="1" stroke-width="5" d="M-50,0 Q0,-50 50,0">
+  <!-- Kotak 1 (kiri atas) -->
+  <g transform="matrix(1, 0, 0, 1, 50, 50)">
+    <rect x="0" y="0" width="50" height="50" fill="#000000"/>
+    <!-- Huruf "a" -->
+    <text x="10" y="25" font-family="Arial" font-size="16" fill="#219EBC">
+      a
       <animateTransform
         attributeName="transform"
         type="matrix"
-        from="0.9 0.1 -0.1 0.9 150 300"
-        to="0.9 0.1 -0.1 0.9 160 310"
+        from="1 0 0 1 0 0"
+        to="1 0 0 1 20 0"
         dur="2s"
         repeatCount="indefinite"
         direction="alternate"/>
-    </path>
-  </g>
-
-  <!-- Matahari/bintang kecil dengan transformasi matrix -->
-  <g transform="matrix(0.866, 0.5, -0.5, 0.866, 200, 50)" opacity="1">
-    <path fill="rgb(244, 162, 97)" fill-opacity="1" d="M0,0 A20,20 0 1,1 0,-0.01 Z">
+    </text>
+    <!-- Huruf "b" -->
+    <text x="30" y="25" font-family="Arial" font-size="16" fill="#F4A261">
+      b
       <animateTransform
         attributeName="transform"
         type="matrix"
-        from="0.866 0.5 -0.5 0.866 200 50"
-        to="0.866 0.5 -0.5 0.866 210 40"
-        dur="4s"
+        from="1 0 0 1 0 0"
+        to="1 0 0 1 -20 0"
+        dur="2s"
         repeatCount="indefinite"
         direction="alternate"/>
-    </path>
-  </g>
-
-  <!-- Teks "Puncak Lembah" dengan animasi fade-in -->
-  <g transform="matrix(1, 0, 0, 1, 0, 0)" opacity="0">
-    <text x="200" y="380" font-family="Arial" font-size="24" fill="#264653" text-anchor="middle">
-      Puncak Lembah
-      <animate attributeName="opacity" from="0" to="1" dur="2s" fill="freeze"/>
     </text>
   </g>
+
+  <!-- Kotak 2 (kanan atas) -->
+  <g transform="matrix(0.9, 0.1, -0.1, 0.9, 250, 50)">
+    <rect x="0" y="0" width="50" height="50" fill="#000000"/>
+    <!-- Huruf "a" -->
+    <text x="10" y="25" font-family="Arial" font-size="16" fill="#219EBC">
+      a
+      <animateTransform
+        attributeName="transform"
+        type="matrix"
+        from="1 0 0 1 0 0"
+        to="1 0 0 1 20 0"
+        dur="2s"
+        repeatCount="indefinite"
+        direction="alternate"/>
+    </text>
+    <!-- Huruf "b" -->
+    <text x="30" y="25" font-family="Arial" font-size="16" fill="#F4A261">
+      b
+      <animateTransform
+        attributeName="transform"
+        type="matrix"
+        from="1 0 0 1 0 0"
+        to="1 0 0 1 -20 0"
+        dur="2s"
+        repeatCount="indefinite"
+        direction="alternate"/>
+    </text>
+  </g>
+
+  <!-- Kotak 3 (kiri bawah) -->
+  <g transform="matrix(0.8, 0.2, -0.2, 0.8, 50, 250)">
+    <rect x="0" y="0" width="50" height="50" fill="#000000"/>
+    <!-- Huruf "a" -->
+    <text x="10" y="25" font-family="Arial" font-size="16" fill="#219EBC">
+      a
+      <animateTransform
+        attributeName="transform"
+        type="matrix"
+        from="1 0 0 1 0 0"
+        to="1 0 0 1 20 0"
+        dur="2s"
+        repeatCount="indefinite"
+        direction="alternate"/>
+    </text>
+    <!-- Huruf "b" -->
+    <text x="30" y="25" font-family="Arial" font-size="16" fill="#F4A261">
+      b
+      <animateTransform
+        attributeName="transform"
+        type="matrix"
+        from="1 0 0 1 0 0"
+        to="1 0 0 1 -20 0"
+        dur="2s"
+        repeatCount="indefinite"
+        direction="alternate"/>
+    </text>
+  </g>
+
+  <!-- Kotak 4 (kanan bawah) -->
+  <g transform="matrix(0.7, 0.3, -0.3, 0.7, 250, 250)">
+    <rect x="0" y="0" width="50" height="50" fill="#000000"/>
+    <!-- Huruf "a" -->
+    <text x="10" y="25" font-family="Arial" font-size="16" fill="#219EBC">
+      a
+      <animateTransform
+        attributeName="transform"
+        type="matrix"
+        from="1 0 0 1 0 0"
+        to="1 0 0 1 20 0"
+        dur="2s"
+        repeatCount="indefinite"
+        direction="alternate"/>
+    </text>
+    <!-- Huruf "b" -->
+    <text x="30" y="25" font-family="Arial" font-size="16" fill="#F4A261">
+      b
+      <animateTransform
+        attributeName="transform"
+        type="matrix"
+        from="1 0 0 1 0 0"
+        to="1 0 0 1 -20 0"
+        dur="2s"
+        repeatCount="indefinite"
+        direction="alternate"/>
+    </text>
+  </g>
+
+  <!-- Teks "Puncak Lembah" -->
+  <text x="200" y="380" font-family="Arial" font-size="24" fill="#264653" text-anchor="middle" opacity="0">
+    Puncak Lembah
+    <animate attributeName="opacity" from="0" to="1" dur="2s" fill="freeze"/>
+  </text>
 </svg>
