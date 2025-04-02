@@ -15,17 +15,31 @@
     </circle>
   </g>
 
-  <!-- Gunung sederhana di tengah dengan animasi skala -->
+  <!-- Gunung sederhana di tengah dengan animasi matrix -->
   <path d="M 100 300 L 200 150 L 300 300 Z" fill="#264653" opacity="0.9">
-    <animateTransform attributeName="transform" type="scale" from="1" to="1.05" dur="2s" repeatCount="indefinite" direction="alternate"/>
+    <animateTransform
+      attributeName="transform"
+      type="matrix"
+      from="1 0 0 1 0 0"
+      to="1.05 0 0 1.05 5 5"
+      dur="2s"
+      repeatCount="indefinite"
+      direction="alternate"/>
   </path>
 
-  <!-- Elemen kotak dengan animasi rotasi -->
+  <!-- Elemen kotak dengan animasi transformasi matrix -->
   <g>
     <!-- Kotak 1 -->
-    <g transform="matrix(1, 0, 0, 1, 50, 50)">
+    <g>
       <rect x="0" y="0" width="50" height="50" fill="#000000">
-        <animateTransform attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="5s" repeatCount="indefinite"/>
+        <animateTransform
+          attributeName="transform"
+          type="matrix"
+          from="1 0 0 1 50 50"
+          to="0.9 0.1 -0.1 0.9 60 60"
+          dur="5s"
+          repeatCount="indefinite"
+          direction="alternate"/>
       </rect>
       <circle cx="15" cy="15" r="10" fill="#219EBC"/>
       <circle cx="35" cy="15" r="10" fill="#F4A261"/>
@@ -34,9 +48,16 @@
     </g>
 
     <!-- Kotak 2 -->
-    <g transform="matrix(0.9, 0.1, -0.1, 0.9, 250, 50)">
+    <g>
       <rect x="0" y="0" width="50" height="50" fill="#000000">
-        <animateTransform attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="5s" repeatCount="indefinite"/>
+        <animateTransform
+          attributeName="transform"
+          type="matrix"
+          from="0.9 0.1 -0.1 0.9 250 50"
+          to="1 0 0 1 240 40"
+          dur="5s"
+          repeatCount="indefinite"
+          direction="alternate"/>
       </rect>
       <circle cx="15" cy="15" r="10" fill="#219EBC"/>
       <circle cx="35" cy="15" r="10" fill="#F4A261"/>
@@ -45,9 +66,16 @@
     </g>
 
     <!-- Kotak 3 -->
-    <g transform="matrix(0.8, 0.2, -0.2, 0.8, 50, 250)">
+    <g>
       <rect x="0" y="0" width="50" height="50" fill="#000000">
-        <animateTransform attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="5s" repeatCount="indefinite"/>
+        <animateTransform
+          attributeName="transform"
+          type="matrix"
+          from="0.8 0.2 -0.2 0.8 50 250"
+          to="0.9 0.1 -0.1 0.9 60 260"
+          dur="5s"
+          repeatCount="indefinite"
+          direction="alternate"/>
       </rect>
       <circle cx="15" cy="15" r="10" fill="#219EBC"/>
       <circle cx="35" cy="15" r="10" fill="#F4A261"/>
@@ -56,9 +84,16 @@
     </g>
 
     <!-- Kotak 4 -->
-    <g transform="matrix(0.7, 0.3, -0.3, 0.7, 250, 250)">
+    <g>
       <rect x="0" y="0" width="50" height="50" fill="#000000">
-        <animateTransform attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="5s" repeatCount="indefinite"/>
+        <animateTransform
+          attributeName="transform"
+          type="matrix"
+          from="0.7 0.3 -0.3 0.7 250 250"
+          to="0.8 0.2 -0.2 0.8 240 240"
+          dur="5s"
+          repeatCount="indefinite"
+          direction="alternate"/>
       </rect>
       <circle cx="15" cy="15" r="10" fill="#219EBC"/>
       <circle cx="35" cy="15" r="10" fill="#F4A261"/>
