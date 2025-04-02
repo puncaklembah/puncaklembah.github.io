@@ -1,0 +1,24 @@
+<svg width="400px" height="400px" xmlns="http://www.w3.org/2000/svg">
+  <!-- Latar belakang -->
+  <rect width="400" height="400" fill="#E6F0FA"/>
+
+  <!-- Matahari terbenam/terbit -->
+  <circle cx="200" cy="300" r="80" fill="#F4A261"/>
+
+  <!-- Gunung kiri -->
+  <path d="M 50 350 L 200 150 L 350 350 Z" fill="#2A9D8F" opacity="0.9"/>
+
+  <!-- Gunung kanan (sedikit lebih kecil dan tumpang tindih) -->
+  <path d="M 200 350 L 300 200 L 400 350 Z" fill="#264653" opacity="0.9"/>
+
+  <!-- Sungai di lembah -->
+  <path d="M 200 350 Q 250 300 300 350 Q 350 400 400 350" fill="none" stroke="#219EBC" stroke-width="5"/>
+
+  <!-- Titik-titik dekoratif (bintang atau elemen kecil) -->
+  <circle cx="100" cy="50" r="5" fill="#F4A261"/>
+  <circle cx="150" cy="80" r="5" fill="#F4A261"/>
+  <circle cx="300" cy="60" r="5" fill="#F4A261"/>
+
+  <!-- Teks "Puncak Lembah" di bawah -->
+  <text x="200" y="380" font-family="Arial" font-size="24" fill="#264653" text-anchor="middle">Puncak Lembah</text>
+</svg>
