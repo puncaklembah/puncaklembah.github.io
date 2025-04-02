@@ -32,7 +32,7 @@
   </g>
 
   <!-- Angka 1: Mulai di Kotak 1, bergerak ke Kotak 2 -->
-  <text x="0" y="0" font-family="Arial" font-size="24" fill="#FFFFFF" text-anchor="middle">
+  <text x="0" y="0" font-family="Arial" font-size="24" fill="#000000" text-anchor="middle">
     1
     <animateMotion dur="4s" repeatCount="indefinite" path="M75,75 H275"/>
   </text>
@@ -44,13 +44,13 @@
   </text>
 
   <!-- Angka 3: Mulai di Kotak 3, bergerak ke Kotak 1 -->
-  <text x="0" y="0" font-family="Arial" font-size="24" fill="#FFFFFF" text-anchor="middle">
+  <text x="0" y="0" font-family="Arial" font-size="24" fill="#000000" text-anchor="middle">
     3
     <animateMotion dur="4s" repeatCount="indefinite" path="M75,275 V75"/>
   </text>
 
   <!-- Angka 4: Mulai di Kotak 4, bergerak ke Kotak 3 -->
-  <text x="0" y="0" font-family="Arial" font-size="24" fill="#FFFFFF" text-anchor="middle">
+  <text x="0" y="0" font-family="Arial" font-size="24" fill="#000000" text-anchor="middle">
     4
     <animateMotion dur="4s" repeatCount="indefinite" path="M275,275 H75"/>
   </text>
