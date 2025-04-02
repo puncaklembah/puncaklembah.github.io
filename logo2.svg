@@ -22,4 +22,19 @@
     <rect x="0" y="0" width="50" height="50" fill="#2A9D8F"/>
     <text x="25" y="35" font-family="Arial" font-size="24" fill="#FFFFFF" text-anchor="middle">4</text>
   </g>
+
+  <!-- Garis putus-putus menghubungkan kotak -->
+  <g>
+    <!-- Garis dari Kotak 1 ke Kotak 2 (kiri atas ke kanan atas) -->
+    <path d="M75,75 H275" fill="none" stroke="#000000" stroke-width="2" stroke-dasharray="5,5"/>
+
+    <!-- Garis dari Kotak 2 ke Kotak 4 (kanan atas ke kanan bawah) -->
+    <path d="M275,75 V275" fill="none" stroke="#000000" stroke-width="2" stroke-dasharray="5,5"/>
+
+    <!-- Garis dari Kotak 4 ke Kotak 3 (kanan bawah ke kiri bawah) -->
+    <path d="M275,275 H75" fill="none" stroke="#000000" stroke-width="2" stroke-dasharray="5,5"/>
+
+    <!-- Garis dari Kotak 3 ke Kotak 1 (kiri bawah ke kiri atas) -->
+    <path d="M75,275 V75" fill="none" stroke="#000000" stroke-width="2" stroke-dasharray="5,5"/>
+  </g>
 </svg>
