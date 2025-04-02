@@ -1,151 +1,25 @@
 <svg width="400px" height="400px" xmlns="http://www.w3.org/2000/svg">
-  <!-- Latar belakang lingkaran berwarna -->
-  <g>
-    <circle cx="150" cy="150" r="120" fill="#219EBC" opacity="0.7">
-      <animate attributeName="cy" from="150" to="160" dur="3s" repeatCount="indefinite" direction="alternate"/>
-    </circle>
-    <circle cx="250" cy="150" r="120" fill="#F4A261" opacity="0.7">
-      <animate attributeName="cy" from="150" to="140" dur="3s" repeatCount="indefinite" direction="alternate"/>
-    </circle>
-    <circle cx="150" cy="250" r="120" fill="#9B59B6" opacity="0.7">
-      <animate attributeName="cx" from="150" to="160" dur="3s" repeatCount="indefinite" direction="alternate"/>
-    </circle>
-    <circle cx="250" cy="250" r="120" fill="#2A9D8F" opacity="0.7">
-      <animate attributeName="cx" from="250" to="240" dur="3s" repeatCount="indefinite" direction="alternate"/>
-    </circle>
-  </g>
-
-  <!-- Gunung sederhana di tengah -->
-  <path d="M 100 300 L 200 150 L 300 300 Z" fill="#264653" opacity="0.9">
-    <animateTransform
-      attributeName="transform"
-      type="matrix"
-      from="1 0 0 1 0 0"
-      to="1.05 0 0 1.05 5 5"
-      dur="2s"
-      repeatCount="indefinite"
-      direction="alternate"/>
-  </path>
-
-  <!-- Kotak 1 (kiri atas) -->
+  <!-- Kotak 1: Biru dengan angka 1 (kiri atas) -->
   <g transform="matrix(1, 0, 0, 1, 50, 50)">
-    <rect x="0" y="0" width="50" height="50" fill="#000000"/>
-    <!-- Huruf "a" -->
-    <text x="10" y="25" font-family="Arial" font-size="16" fill="#219EBC">
-      a
-      <animateTransform
-        attributeName="transform"
-        type="matrix"
-        from="1 0 0 1 0 0"
-        to="1 0 0 1 20 0"
-        dur="2s"
-        repeatCount="indefinite"
-        direction="alternate"/>
-    </text>
-    <!-- Huruf "b" -->
-    <text x="30" y="25" font-family="Arial" font-size="16" fill="#F4A261">
-      b
-      <animateTransform
-        attributeName="transform"
-        type="matrix"
-        from="1 0 0 1 0 0"
-        to="1 0 0 1 -20 0"
-        dur="2s"
-        repeatCount="indefinite"
-        direction="alternate"/>
-    </text>
+    <rect x="0" y="0" width="50" height="50" fill="#219EBC"/>
+    <text x="25" y="35" font-family="Arial" font-size="24" fill="#FFFFFF" text-anchor="middle">1</text>
   </g>
 
-  <!-- Kotak 2 (kanan atas) -->
-  <g transform="matrix(0.9, 0.1, -0.1, 0.9, 250, 50)">
-    <rect x="0" y="0" width="50" height="50" fill="#000000"/>
-    <!-- Huruf "a" -->
-    <text x="10" y="25" font-family="Arial" font-size="16" fill="#219EBC">
-      a
-      <animateTransform
-        attributeName="transform"
-        type="matrix"
-        from="1 0 0 1 0 0"
-        to="1 0 0 1 20 0"
-        dur="2s"
-        repeatCount="indefinite"
-        direction="alternate"/>
-    </text>
-    <!-- Huruf "b" -->
-    <text x="30" y="25" font-family="Arial" font-size="16" fill="#F4A261">
-      b
-      <animateTransform
-        attributeName="transform"
-        type="matrix"
-        from="1 0 0 1 0 0"
-        to="1 0 0 1 -20 0"
-        dur="2s"
-        repeatCount="indefinite"
-        direction="alternate"/>
-    </text>
+  <!-- Kotak 2: Kuning dengan angka 2 (kanan atas) -->
+  <g transform="matrix(1, 0, 0, 1, 250, 50)">
+    <rect x="0" y="0" width="50" height="50" fill="#F4A261"/>
+    <text x="25" y="35" font-family="Arial" font-size="24" fill="#000000" text-anchor="middle">2</text>
   </g>
 
-  <!-- Kotak 3 (kiri bawah) -->
-  <g transform="matrix(0.8, 0.2, -0.2, 0.8, 50, 250)">
-    <rect x="0" y="0" width="50" height="50" fill="#000000"/>
-    <!-- Huruf "a" -->
-    <text x="10" y="25" font-family="Arial" font-size="16" fill="#219EBC">
-      a
-      <animateTransform
-        attributeName="transform"
-        type="matrix"
-        from="1 0 0 1 0 0"
-        to="1 0 0 1 20 0"
-        dur="2s"
-        repeatCount="indefinite"
-        direction="alternate"/>
-    </text>
-    <!-- Huruf "b" -->
-    <text x="30" y="25" font-family="Arial" font-size="16" fill="#F4A261">
-      b
-      <animateTransform
-        attributeName="transform"
-        type="matrix"
-        from="1 0 0 1 0 0"
-        to="1 0 0 1 -20 0"
-        dur="2s"
-        repeatCount="indefinite"
-        direction="alternate"/>
-    </text>
+  <!-- Kotak 3: Cokelat dengan angka 3 (kiri bawah) -->
+  <g transform="matrix(1, 0, 0, 1, 50, 250)">
+    <rect x="0" y="0" width="50" height="50" fill="#8B4513"/>
+    <text x="25" y="35" font-family="Arial" font-size="24" fill="#FFFFFF" text-anchor="middle">3</text>
   </g>
 
-  <!-- Kotak 4 (kanan bawah) -->
-  <g transform="matrix(0.7, 0.3, -0.3, 0.7, 250, 250)">
-    <rect x="0" y="0" width="50" height="50" fill="#000000"/>
-    <!-- Huruf "a" -->
-    <text x="10" y="25" font-family="Arial" font-size="16" fill="#219EBC">
-      a
-      <animateTransform
-        attributeName="transform"
-        type="matrix"
-        from="1 0 0 1 0 0"
-        to="1 0 0 1 20 0"
-        dur="2s"
-        repeatCount="indefinite"
-        direction="alternate"/>
-    </text>
-    <!-- Huruf "b" -->
-    <text x="30" y="25" font-family="Arial" font-size="16" fill="#F4A261">
-      b
-      <animateTransform
-        attributeName="transform"
-        type="matrix"
-        from="1 0 0 1 0 0"
-        to="1 0 0 1 -20 0"
-        dur="2s"
-        repeatCount="indefinite"
-        direction="alternate"/>
-    </text>
+  <!-- Kotak 4: Hijau dengan angka 4 (kanan bawah) -->
+  <g transform="matrix(1, 0, 0, 1, 250, 250)">
+    <rect x="0" y="0" width="50" height="50" fill="#2A9D8F"/>
+    <text x="25" y="35" font-family="Arial" font-size="24" fill="#FFFFFF" text-anchor="middle">4</text>
   </g>
-
-  <!-- Teks "Puncak Lembah" -->
-  <text x="200" y="380" font-family="Arial" font-size="24" fill="#264653" text-anchor="middle" opacity="0">
-    Puncak Lembah
-    <animate attributeName="opacity" from="0" to="1" dur="2s" fill="freeze"/>
-  </text>
 </svg>
