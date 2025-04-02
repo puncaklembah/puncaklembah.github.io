@@ -1,20 +1,32 @@
 <svg width="400px" height="400px" xmlns="http://www.w3.org/2000/svg">
-  <!-- Latar belakang lingkaran berwarna -->
+  <!-- Latar belakang lingkaran berwarna dengan animasi translasi -->
   <g>
-    <circle cx="150" cy="150" r="120" fill="#219EBC" opacity="0.7"/>
-    <circle cx="250" cy="150" r="120" fill="#F4A261" opacity="0.7"/>
-    <circle cx="150" cy="250" r="120" fill="#9B59B6" opacity="0.7"/>
-    <circle cx="250" cy="250" r="120" fill="#2A9D8F" opacity="0.7"/>
+    <circle cx="150" cy="150" r="120" fill="#219EBC" opacity="0.7">
+      <animate attributeName="cy" from="150" to="160" dur="3s" repeatCount="indefinite" direction="alternate"/>
+    </circle>
+    <circle cx="250" cy="150" r="120" fill="#F4A261" opacity="0.7">
+      <animate attributeName="cy" from="150" to="140" dur="3s" repeatCount="indefinite" direction="alternate"/>
+    </circle>
+    <circle cx="150" cy="250" r="120" fill="#9B59B6" opacity="0.7">
+      <animate attributeName="cx" from="150" to="160" dur="3s" repeatCount="indefinite" direction="alternate"/>
+    </circle>
+    <circle cx="250" cy="250" r="120" fill="#2A9D8F" opacity="0.7">
+      <animate attributeName="cx" from="250" to="240" dur="3s" repeatCount="indefinite" direction="alternate"/>
+    </circle>
   </g>
 
-  <!-- Gunung sederhana di tengah -->
-  <path d="M 100 300 L 200 150 L 300 300 Z" fill="#264653" opacity="0.9"/>
+  <!-- Gunung sederhana di tengah dengan animasi skala -->
+  <path d="M 100 300 L 200 150 L 300 300 Z" fill="#264653" opacity="0.9">
+    <animateTransform attributeName="transform" type="scale" from="1" to="1.05" dur="2s" repeatCount="indefinite" direction="alternate"/>
+  </path>
 
-  <!-- Elemen kotak dengan transformasi matrix -->
+  <!-- Elemen kotak dengan animasi rotasi -->
   <g>
     <!-- Kotak 1 -->
     <g transform="matrix(1, 0, 0, 1, 50, 50)">
-      <rect x="0" y="0" width="50" height="50" fill="#000000"/>
+      <rect x="0" y="0" width="50" height="50" fill="#000000">
+        <animateTransform attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="5s" repeatCount="indefinite"/>
+      </rect>
       <circle cx="15" cy="15" r="10" fill="#219EBC"/>
       <circle cx="35" cy="15" r="10" fill="#F4A261"/>
       <circle cx="15" cy="35" r="10" fill="#9B59B6"/>
@@ -23,7 +35,9 @@
 
     <!-- Kotak 2 -->
     <g transform="matrix(0.9, 0.1, -0.1, 0.9, 250, 50)">
-      <rect x="0" y="0" width="50" height="50" fill="#000000"/>
+      <rect x="0" y="0" width="50" height="50" fill="#000000">
+        <animateTransform attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="5s" repeatCount="indefinite"/>
+      </rect>
       <circle cx="15" cy="15" r="10" fill="#219EBC"/>
       <circle cx="35" cy="15" r="10" fill="#F4A261"/>
       <circle cx="15" cy="35" r="10" fill="#9B59B6"/>
@@ -32,7 +46,9 @@
 
     <!-- Kotak 3 -->
     <g transform="matrix(0.8, 0.2, -0.2, 0.8, 50, 250)">
-      <rect x="0" y="0" width="50" height="50" fill="#000000"/>
+      <rect x="0" y="0" width="50" height="50" fill="#000000">
+        <animateTransform attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="5s" repeatCount="indefinite"/>
+      </rect>
       <circle cx="15" cy="15" r="10" fill="#219EBC"/>
       <circle cx="35" cy="15" r="10" fill="#F4A261"/>
       <circle cx="15" cy="35" r="10" fill="#9B59B6"/>
@@ -41,7 +57,9 @@
 
     <!-- Kotak 4 -->
     <g transform="matrix(0.7, 0.3, -0.3, 0.7, 250, 250)">
-      <rect x="0" y="0" width="50" height="50" fill="#000000"/>
+      <rect x="0" y="0" width="50" height="50" fill="#000000">
+        <animateTransform attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="5s" repeatCount="indefinite"/>
+      </rect>
       <circle cx="15" cy="15" r="10" fill="#219EBC"/>
       <circle cx="35" cy="15" r="10" fill="#F4A261"/>
       <circle cx="15" cy="35" r="10" fill="#9B59B6"/>
@@ -49,6 +67,9 @@
     </g>
   </g>
 
-  <!-- Teks "Puncak Lembah" -->
-  <text x="200" y="380" font-family="Arial" font-size="24" fill="#264653" text-anchor="middle">Puncak Lembah</text>
+  <!-- Teks "Puncak Lembah" dengan animasi fade-in -->
+  <text x="200" y="380" font-family="Arial" font-size="24" fill="#264653" text-anchor="middle" opacity="0">
+    Puncak Lembah
+    <animate attributeName="opacity" from="0" to="1" dur="2s" fill="freeze"/>
+  </text>
 </svg>
