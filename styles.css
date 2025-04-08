@@ -7,8 +7,8 @@
 /* Body dan Tema */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #000000;
-    color: white;
+    background-color: #121212; /* Background hitam pekat untuk dark mode */
+    color: #e0e0e0; /* Warna teks abu-abu terang untuk kontras */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -18,8 +18,8 @@ body {
 }
 
 body.light-mode {
-    background-color: #ffffff;
-    color: #1a2526;
+    background-color: #f5f5f5; /* Background putih abu-abu lembut untuk light mode */
+    color: #212121; /* Warna teks hitam pekat untuk kontras */
 }
 
 /* Navigasi */
@@ -31,34 +31,40 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #161c30;
+    background-color: #1c2526; /* Background navigasi lebih gelap untuk dark mode */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Bayangan halus untuk kesan profesional */
     z-index: 1000;
 }
 
 body.light-mode nav {
-    background-color: #ffffff;
+    background-color: #ffffff; /* Background putih bersih untuk light mode */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Bayangan lebih ringan */
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 30px; /* Jarak antar menu lebih lebar untuk kesan elegan */
 }
 
 nav ul li a {
-    color: white;
+    color: #e0e0e0; /* Warna teks abu-abu terang untuk dark mode */
     text-decoration: none;
     font-size: 16px;
-    opacity: 0.8;
-    transition: opacity 0.3s;
+    font-weight: 500; /* Tebal sedang untuk kesan profesional */
+    transition: color 0.3s;
 }
 
 nav ul li a:hover {
-    opacity: 1;
+    color: #ffffff; /* Warna teks putih cerah saat hover */
 }
 
 body.light-mode nav ul li a {
-    color: #1a2526;
+    color: #212121; /* Warna teks hitam pekat untuk light mode */
+}
+
+body.light-mode nav ul li a:hover {
+    color: #ff6f61; /* Warna aksen saat hover di light mode */
 }
 
 .theme-icon {
@@ -91,14 +97,14 @@ body.light-mode nav ul li a {
     font-size: 64px;
     margin-bottom: 30px;
     font-weight: 700;
-    letter-spacing: 0.5px;
-    background: linear-gradient(90deg, #ff6f61, #ffcc5c);
+    letter-spacing: 1px; /* Jarak antar huruf lebih lebar untuk kesan elegan */
+    background: linear-gradient(90deg, #ff8a80, #ffd180); /* Gradasi lebih lembut */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 body.light-mode .content h1 {
-    background: linear-gradient(90deg, #ff6f61, #ffcc5c);
+    background: linear-gradient(90deg, #ff6f61, #ffca28); /* Gradasi lebih cerah untuk light mode */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -106,27 +112,28 @@ body.light-mode .content h1 {
 .content h2 {
     font-size: 32px;
     margin-bottom: 20px;
+    font-weight: 600; /* Sedikit lebih tebal untuk kesan profesional */
 }
 
 .content h3 {
     font-size: 20px;
     margin-bottom: 20px;
     line-height: 1.6;
-    opacity: 0.8;
+    opacity: 0.9; /* Sedikit lebih terang untuk visibilitas */
 }
 
 body.light-mode .content h3 {
-    color: #1a2526;
+    color: #424242; /* Abu-abu gelap untuk light mode */
 }
 
 .content .highlight {
     font-style: italic;
-    color: #ffcc5c;
+    color: #ffd180; /* Warna aksen lebih lembut untuk dark mode */
     margin-bottom: 30px;
 }
 
 body.light-mode .content .highlight {
-    color: #ffcc5c;
+    color: #ff8a80; /* Warna aksen lebih cerah untuk light mode */
 }
 
 /* Tombol */
@@ -141,71 +148,80 @@ body.light-mode .content .highlight {
 .buttons button {
     padding: 12px 30px;
     font-size: 16px;
+    font-weight: 500; /* Tebal sedang untuk kesan profesional */
     border: none;
     border-radius: 25px;
     cursor: pointer;
     transition: all 0.3s ease;
-    background-color: white;
-    color: #1a2526;
+    background-color: #ffffff; /* Tombol putih untuk dark mode */
+    color: #212121; /* Teks hitam untuk kontras */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Bayangan halus */
 }
 
 body.light-mode .buttons button {
-    background-color: #1a2526;
-    color: white;
+    background-color: #212121; /* Tombol hitam untuk light mode */
+    color: #ffffff; /* Teks putih untuk kontras */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .buttons button:hover {
-    background-color: transparent;
-    color: white;
-    border: 2px solid white;
+    background-color: #ff6f61; /* Warna aksen saat hover */
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 body.light-mode .buttons button:hover {
-    background-color: transparent;
-    color: #1a2526;
-    border: 2px solid #1a2526;
+    background-color: #ff6f61;
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .buttons .whatsapp-btn {
     display: inline-block;
     background-color: #25D366;
-    color: white;
+    color: #ffffff;
     border: none;
     padding: 12px 30px;
     cursor: pointer;
     text-decoration: none;
     border-radius: 25px;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .buttons .whatsapp-btn:hover {
     background-color: #20b858;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 /* Tautan Learn More */
 .learn-more {
-    color: #ffcc5c;
+    color: #ffd180; /* Warna aksen lembut untuk dark mode */
     text-decoration: none;
     font-size: 16px;
+    font-weight: 500;
     display: flex;
     align-items: center;
     gap: 5px;
-    opacity: 0.8;
+    opacity: 0.9;
     justify-content: center;
     transition: opacity 0.3s, color 0.3s;
     margin-top: 20px;
 }
 
 body.light-mode .learn-more {
-    color: #ff6f61;
+    color: #ff6f61; /* Warna aksen cerah untuk light mode */
 }
 
 .learn-more:hover {
     opacity: 1;
-    color: #ff6f61;
+    color: #ff8a80;
 }
 
 body.light-mode .learn-more:hover {
-    color: #ffcc5c;
+    color: #ffca28;
 }
 
 .learn-more::after {
@@ -243,7 +259,7 @@ body.light-mode .learn-more:hover {
 }
 
 .mountain-peaks {
-    fill: #1877F2;
+    fill: #1976D2; /* Warna biru lebih profesional */
     transition: fill 0.4s ease-in-out;
 }
 
@@ -272,7 +288,7 @@ body.light-mode .learn-more:hover {
 }
 
 .logo-container:hover .mountain-peaks {
-    fill: #4CAF50;
+    fill: #388E3C; /* Hijau lebih elegan */
 }
 
 .logo-container:hover {
@@ -287,22 +303,25 @@ body.light-mode .learn-more:hover {
 
 /* Form */
 .form-container {
-    background-color: #1a2526;
+    background-color: #1c2526; /* Background form lebih gelap untuk dark mode */
     padding: 20px;
     border-radius: 8px;
     margin-bottom: 40px;
     width: 100%;
     max-width: 500px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Bayangan untuk kesan profesional */
 }
 
 body.light-mode .form-container {
-    background-color: #e0e0e0;
+    background-color: #ffffff; /* Background putih bersih untuk light mode */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .form-container h2 {
     font-size: 24px;
     margin-bottom: 20px;
     text-align: center;
+    font-weight: 600;
 }
 
 .form-container form {
@@ -313,22 +332,24 @@ body.light-mode .form-container {
 
 .form-container label {
     font-size: 16px;
+    font-weight: 500;
 }
 
 .form-container input,
 .form-container select {
     padding: 8px;
     font-size: 16px;
-    border: none;
+    border: 1px solid #424242; /* Border halus untuk dark mode */
     border-radius: 4px;
-    background-color: #2a3b3c;
-    color: white;
+    background-color: #2a2a2a;
+    color: #e0e0e0;
 }
 
 body.light-mode .form-container input,
 body.light-mode .form-container select {
-    background-color: #ffffff;
-    color: #1a2526;
+    background-color: #f5f5f5;
+    color: #212121;
+    border: 1px solid #d0d0d0; /* Border halus untuk light mode */
 }
 
 .form-container input::placeholder {
@@ -339,24 +360,29 @@ body.light-mode .form-container select {
     padding: 10px;
     font-size: 16px;
     background-color: #ffffff;
-    color: #1a2526;
+    color: #212121;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 body.light-mode .form-container button {
-    background-color: #1a2526;
+    background-color: #212121;
     color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .form-container button:hover {
-    background-color: #e0e0e0;
+    background-color: #ff6f61;
+    color: #ffffff;
 }
 
 body.light-mode .form-container button:hover {
-    background-color: #2a3b3c;
+    background-color: #ff6f61;
+    color: #ffffff;
 }
 
 .error-message {
@@ -386,6 +412,7 @@ body.light-mode .form-container button:hover {
     font-size: 24px;
     margin-bottom: 20px;
     text-align: center;
+    font-weight: 600;
 }
 
 .table-container table,
@@ -394,6 +421,14 @@ body.light-mode .form-container button:hover {
 .growth-container table {
     width: 100%;
     border-collapse: collapse;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Bayangan untuk kesan profesional */
+}
+
+body.light-mode .table-container table,
+body.light-mode .table-wrapper table,
+body.light-mode .summary-container table,
+body.light-mode .growth-container table {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .table-container th,
@@ -406,8 +441,8 @@ body.light-mode .form-container button:hover {
 .growth-container td {
     padding: 12px;
     text-align: left;
-    border-bottom: 1px solid #2a3b3c;
-    border-right: 1px solid #2a3b3c;
+    border-bottom: 1px solid #424242; /* Border lebih halus untuk dark mode */
+    border-right: 1px solid #424242;
 }
 
 body.light-mode .table-container th,
@@ -448,37 +483,38 @@ body.light-mode .growth-container td:last-child {
 .table-wrapper th,
 .summary-container th,
 .growth-container th {
-    background-color: #2a3b3c;
-    color: white;
+    background-color: #1c2526; /* Header tabel lebih gelap untuk dark mode */
+    color: #e0e0e0;
+    font-weight: 600;
 }
 
 body.light-mode .table-container th,
 body.light-mode .table-wrapper th,
 body.light-mode .summary-container th,
 body.light-mode .growth-container th {
-    background-color: #d0d0d0;
-    color: #1a2526;
+    background-color: #e0e0e0;
+    color: #212121;
 }
 
 body.light-mode .table-container td,
 body.light-mode .table-wrapper td,
 body.light-mode .summary-container td,
 body.light-mode .growth-container td {
-    color: #1a2526;
+    color: #212121;
 }
 
 .table-container tbody tr:nth-child(odd),
 .table-wrapper tbody tr:nth-child(odd),
 .summary-container tbody tr:nth-child(odd),
 .growth-container tbody tr:nth-child(odd) {
-    background-color: #1a2526;
+    background-color: #1c2526;
 }
 
 .table-container tbody tr:nth-child(even),
 .table-wrapper tbody tr:nth-child(even),
 .summary-container tbody tr:nth-child(even),
 .growth-container tbody tr:nth-child(even) {
-    background-color: #2a3b3c;
+    background-color: #2a2a2a;
 }
 
 body.light-mode .table-container tbody tr:nth-child(odd),
@@ -492,30 +528,32 @@ body.light-mode .table-container tbody tr:nth-child(even),
 body.light-mode .table-wrapper tbody tr:nth-child(even),
 body.light-mode .summary-container tbody tr:nth-child(even),
 body.light-mode .growth-container tbody tr:nth-child(even) {
-    background-color: #f0f0f0;
+    background-color: #f5f5f5;
 }
 
 .table-wrapper caption,
 .summary-container caption {
     font-size: 16px;
     margin-bottom: 10px;
+    font-weight: 500;
 }
 
 .table-wrapper caption a,
 .summary-container caption a {
-    color: white;
+    color: #e0e0e0;
     text-decoration: none;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 body.light-mode .table-wrapper caption a,
 body.light-mode .summary-container caption a {
-    color: #1a2526;
+    color: #212121;
 }
 
 .table-wrapper caption a:hover,
 .summary-container caption a:hover {
     opacity: 1;
+    color: #ff6f61;
 }
 
 .summary-container button {
@@ -524,15 +562,18 @@ body.light-mode .summary-container caption a {
     padding: 10px 20px;
     font-size: 16px;
     background-color: #ff5555;
-    color: white;
+    color: #ffffff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .summary-container button:hover {
     background-color: #ff7777;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 /* Grafik dan Legenda */
@@ -551,16 +592,17 @@ body.light-mode .summary-container caption a {
 .growth-container h1 {
     font-size: 28px;
     margin-bottom: 20px;
+    font-weight: 600;
 }
 
 .growth-container p {
     font-size: 16px;
     margin-bottom: 20px;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 body.light-mode .growth-container p {
-    color: #1a2526;
+    color: #424242;
 }
 
 .legend {
@@ -575,6 +617,7 @@ body.light-mode .growth-container p {
     align-items: center;
     gap: 5px;
     font-size: 14px;
+    font-weight: 500;
 }
 
 .legend-color {
@@ -614,7 +657,7 @@ body.light-mode .growth-container p {
         width: 100%; 
         padding: 0 10px; 
     }
-    nav ul { gap: 10px; }
+    nav ul { gap: 15px; }
     nav ul li a { font-size: 14px; }
     .theme-icon { right: 20px; top: 15px; }
     .chart-container { height: 300px; }
