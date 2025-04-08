@@ -7,7 +7,7 @@
 /* Body dan Tema */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #121212; /* Background hitam pekat untuk dark mode */
+    background-color: #000000; /* Background hitam pekat untuk dark mode */
     color: #e0e0e0; /* Warna teks abu-abu terang untuk kontras */
     min-height: 100vh;
     display: flex;
@@ -19,7 +19,7 @@ body {
 
 body.light-mode {
     background-color: #f5f5f5; /* Background putih abu-abu lembut untuk light mode */
-    color: #212121; /* Warna teks hitam pekat untuk kontras */
+    color: #000000; /* Warna teks hitam pekat untuk kontras */
 }
 
 /* Navigasi */
@@ -31,7 +31,7 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #1c2526; /* Background navigasi lebih gelap untuk dark mode */
+    background-color: #02191c; /* Background navigasi lebih gelap untuk dark mode */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Bayangan halus untuk kesan profesional */
     z-index: 1000;
 }
@@ -48,7 +48,7 @@ nav ul {
 }
 
 nav ul li a {
-    color: #e0e0e0; /* Warna teks abu-abu terang untuk dark mode */
+    color: #ffffff; 
     text-decoration: none;
     font-size: 16px;
     font-weight: 500; /* Tebal sedang untuk kesan profesional */
@@ -60,7 +60,7 @@ nav ul li a:hover {
 }
 
 body.light-mode nav ul li a {
-    color: #212121; /* Warna teks hitam pekat untuk light mode */
+    color: #000000; /* Warna teks hitam untuk light mode */
 }
 
 body.light-mode nav ul li a:hover {
@@ -97,14 +97,14 @@ body.light-mode nav ul li a:hover {
     font-size: 64px;
     margin-bottom: 30px;
     font-weight: 700;
-    letter-spacing: 1px; /* Jarak antar huruf lebih lebar untuk kesan elegan */
-    background: linear-gradient(90deg, #ff8a80, #ffd180); /* Gradasi lebih lembut */
+    letter-spacing: 1px;
+    background: linear-gradient(90deg, #1877F2, #42A5F5); /* Gradasi biru Facebook */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 body.light-mode .content h1 {
-    background: linear-gradient(90deg, #ff6f61, #ffca28); /* Gradasi lebih cerah untuk light mode */
+    background: linear-gradient(90deg, #1877F2, #64B5F6); /* Gradasi biru lebih cerah untuk light mode */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -133,7 +133,7 @@ body.light-mode .content h3 {
 }
 
 body.light-mode .content .highlight {
-    color: #ff8a80; /* Warna aksen lebih cerah untuk light mode */
+    color: #b33429; /* Warna aksen lebih cerah untuk light mode */
 }
 
 /* Tombol */
@@ -154,12 +154,12 @@ body.light-mode .content .highlight {
     cursor: pointer;
     transition: all 0.3s ease;
     background-color: #ffffff; /* Tombol putih untuk dark mode */
-    color: #212121; /* Teks hitam untuk kontras */
+    color: #000000; /* Teks hitam untuk kontras */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Bayangan halus */
 }
 
 body.light-mode .buttons button {
-    background-color: #212121; /* Tombol hitam untuk light mode */
+    background-color: #000000; /* Tombol hitam untuk light mode */
     color: #ffffff; /* Teks putih untuk kontras */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
