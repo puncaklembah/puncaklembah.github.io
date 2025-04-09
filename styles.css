@@ -126,12 +126,10 @@ body.light-mode .theme-icon svg {
     margin-left: 240px; /* Memberi ruang untuk navbar di sisi kiri */
     padding: 20px;
     width: calc(100% - 240px); /* Mengisi sisa lebar */
-    text-align: center;
-    margin-bottom: 60px;
-    max-width: 800px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Mengatur elemen dari atas ke bawah */
     align-items: center;
+    gap: 40px; /* Jarak antar elemen */
 }
 
 .content h1 {
@@ -279,7 +277,6 @@ body.light-mode .learn-more:hover {
     justify-content: center;
     align-items: center;
     transition: transform 0.4s ease-in-out;
-    margin-bottom: 20px;
 }
 
 .mountain-svg {
@@ -347,7 +344,6 @@ body.light-mode .learn-more:hover {
     background-color: #1c2526;
     padding: 20px;
     border-radius: 8px;
-    margin-bottom: 40px;
     width: 100%;
     max-width: 500px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
@@ -438,7 +434,7 @@ body.light-mode .form-container button:hover {
 .summary-container,
 .growth-container {
     width: 100%;
-    max-width: 1000px;
+    max-width: 800px; /* Membatasi lebar maksimum agar lebih rapi */
     margin-bottom: 40px;
     overflow-x: auto;
 }
@@ -621,13 +617,14 @@ body.light-mode .summary-container caption a {
 .chart-container {
     position: relative;
     width: 100%;
-    max-width: 1000px;
+    max-width: 800px; /* Membatasi lebar maksimum agar lebih rapi */
     height: 400px;
-    margin-bottom: 40px;
 }
 
 .growth-container {
     text-align: center;
+    width: 100%;
+    max-width: 800px; /* Membatasi lebar maksimum agar lebih rapi */
 }
 
 .growth-container h1 {
