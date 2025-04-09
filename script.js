@@ -353,12 +353,12 @@ if (document.getElementById('levelTable')) {
         { level: 46, initialBalance: 300.00, volume: 0.30, targetProfitLoss: 30.00, ifProfit: 330.00, ifLoss: 0.00, nextLevelBalance: 400.00, color: '#3498db' },
         { level: 45, initialBalance: 200.00, volume: 0.20, targetProfitLoss: 20.00, ifProfit: 220.00, ifLoss: 0.00, nextLevelBalance: 300.00, color: '#3498db' },
         { level: 44, initialBalance: 180.00, volume: 0.18, targetProfitLoss: 20.00, ifProfit: 200.00, ifLoss: 0.00, nextLevelBalance: 200.00, color: '#3498db' },
-        { level: 43, initialBalance: 165.00, volume: 0.15, targetProfitLoss: 19.00, ifProfit: 184.00, ifLoss: 0.00, nextLevelBalance: 180.00, color: '#3498db' },
-        { level: 42, initialBalance: 150.00, volume: 0.14, targetProfitLoss: 17.00, ifProfit: 167.00, ifLoss: 0.00, nextLevelBalance: 165.00, color: '#3498db' },
-        { level: 41, initialBalance: 126.00, volume: 0.11, targetProfitLoss: 14.00, ifProfit: 140.00, ifLoss: 0.00, nextLevelBalance: 150.00, color: '#3498db' },
-        { level: 40, initialBalance: 115.00, volume: 0.11, targetProfitLoss: 11.00, ifProfit: 126.00, ifLoss: 104.00, nextLevelBalance: 126.00, color: '#3498db' },
-        { level: 39, initialBalance: 105.00, volume: 0.10, targetProfitLoss: 10.00, ifProfit: 115.00, ifLoss: 95.00, nextLevelBalance: 115.00, color: '#3498db' },
-        { level: 38, initialBalance: 96.00, volume: 0.09, targetProfitLoss: 9.00, ifProfit: 105.00, ifLoss: 87.00, nextLevelBalance: 105.00, color: '#3498db' },
+        { level: 43, initialBalance: 141.00, volume: 0.14, targetProfitLoss: 14.00, ifProfit: 155.00, ifLoss: 127.00, nextLevelBalance: 155.00, color: '#d13f0f' },
+        { level: 42, initialBalance: 129.00, volume: 0.12, targetProfitLoss: 12.00, ifProfit: 141.00, ifLoss: 117.00, nextLevelBalance: 141.00, color: '#d13f0f' },
+        { level: 41, initialBalance: 118.00, volume: 0.11, targetProfitLoss: 11.00, ifProfit: 129.00, ifLoss: 107.00, nextLevelBalance: 107.00, color: '#d13f0f' },
+        { level: 40, initialBalance: 108.00, volume: 0.10, targetProfitLoss: 10.00, ifProfit: 118.00, ifLoss: 98.00, nextLevelBalance: 118.00, color: '#3498db' },
+        { level: 39, initialBalance: 99.00, volume: 0.09, targetProfitLoss: 9.00, ifProfit: 108.00, ifLoss: 90.00, nextLevelBalance: 108.00, color: '#3498db' },
+        { level: 38, initialBalance: 90.00, volume: 0.09, targetProfitLoss: 9.00, ifProfit: 99.00, ifLoss: 81.00, nextLevelBalance: 99.00, color: '#3498db' },
         { level: 37, initialBalance: 82.00, volume: 0.08, targetProfitLoss: 8.00, ifProfit: 90.00, ifLoss: 74.00, nextLevelBalance: 90.00, color: '#ca34db' },
         { level: 36, initialBalance: 75.00, volume: 0.07, targetProfitLoss: 7.00, ifProfit: 82.00, ifLoss: 68.00, nextLevelBalance: 82.00, color: '#ca34db' },
         { level: 35, initialBalance: 69.00, volume: 0.06, targetProfitLoss: 6.00, ifProfit: 75.00, ifLoss: 63.00, nextLevelBalance: 75.00, color: '#ca34db' },
@@ -395,7 +395,7 @@ if (document.getElementById('levelTable')) {
         { level: 4, initialBalance: 4.00, volume: 0.01, targetProfitLoss: 1.00, ifProfit: 5.00, ifLoss: 3.00, nextLevelBalance: 5.00, color: '#2ecc78' },
         { level: 3, initialBalance: 3.00, volume: 0.01, targetProfitLoss: 1.00, ifProfit: 4.00, ifLoss: 2.00, nextLevelBalance: 4.00, color: '#3498db' },
         { level: 2, initialBalance: 2.00, volume: 0.01, targetProfitLoss: 1.00, ifProfit: 3.00, ifLoss: 1.00, nextLevelBalance: 3.00, color: '#3498db' },
-        { level: 1, initialBalance: 1.00, volume: 0.01, targetProfitLoss: 1.00, ifProfit: 2.00, ifLoss: 0.00, nextLevelBalance: 2.00, color: '#3498db' }
+        { level: 1, initialBalance: 1.00, volume: 0.01, targetProfitLoss: 1.00, ifProfit: 2.00, ifLoss: 0.00, nextLevelBalance: 2.00, color: '#2ecc78' }
     ];
 
     // Fungsi untuk mengisi tabel dengan tanda koma
