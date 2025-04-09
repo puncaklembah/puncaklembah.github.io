@@ -7,16 +7,16 @@
 /* Body dan Layout Utama */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f0f2f5; /* Background abu-abu terang seperti Facebook */
-    color: #1c1e21; /* Warna teks hitam pekat */
+    background-color: #000000; /* Background hitam pekat untuk dark mode */
+    color: #e0e0e0; /* Warna teks abu-abu terang untuk kontras */
     min-height: 100vh;
     display: flex;
     transition: background-color 0.3s, color 0.3s;
 }
 
 body.light-mode {
-    background-color: #f0f2f5; /* Tetap sama untuk light mode */
-    color: #1c1e21;
+    background-color: #f5f5f5; /* Background putih abu-abu lembut untuk light mode */
+    color: #000000; /* Warna teks hitam pekat untuk kontras */
 }
 
 /* Container Utama */
@@ -25,141 +25,113 @@ body.light-mode {
     width: 100%;
 }
 
-/* Sidebar */
-.sidebar {
+/* Navbar sebagai Sidebar */
+nav {
     position: fixed;
     top: 0;
     left: 0;
-    width: 240px; /* Lebar sidebar seperti Facebook */
+    width: 240px; /* Lebar navbar seperti sidebar Facebook */
     height: 100vh;
-    background-color: #ffffff; /* Background putih untuk sidebar */
+    background-color: #02191c; /* Background navigasi lebih gelap untuk dark mode */
     padding: 20px 0;
     overflow-y: auto; /* Scroll jika konten terlalu panjang */
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Bayangan di sisi kanan */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3); /* Bayangan di sisi kanan */
     z-index: 1000;
 }
 
-body.light-mode .sidebar {
-    background-color: #ffffff; /* Tetap putih untuk light mode */
+body.light-mode nav {
+    background-color: #ffffff; /* Background putih bersih untuk light mode */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Profil Pengguna di Sidebar */
-.sidebar .profile {
-    display: flex;
-    align-items: center;
-    padding: 10px 16px;
-    margin-bottom: 10px;
-}
-
-.sidebar .profile img {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-
-.sidebar .profile a {
-    color: #1c1e21;
-    font-size: 16px;
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.sidebar .profile a:hover {
-    color: #1877F2; /* Warna biru Facebook saat hover */
-}
-
-/* Menu Sidebar */
-.sidebar ul {
+/* Menu Navbar */
+nav ul {
     list-style: none;
 }
 
-.sidebar ul li {
+nav ul li {
     display: flex;
     align-items: center;
     padding: 10px 16px;
     margin-bottom: 5px;
 }
 
-.sidebar ul li a {
+nav ul li a {
     display: flex;
     align-items: center;
-    color: #1c1e21;
+    color: #ffffff;
     text-decoration: none;
     font-size: 16px;
     font-weight: 500;
     transition: background-color 0.3s, color 0.3s;
 }
 
-.sidebar ul li a:hover {
-    background-color: #f0f2f5; /* Background abu-abu terang saat hover */
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Efek hover ringan */
     border-radius: 8px;
-    color: #1877F2;
+    color: #ffffff;
 }
 
-.sidebar ul li a svg,
-.sidebar ul li a img {
+body.light-mode nav ul li a {
+    color: #1c1e21; /* Warna teks hitam untuk light mode */
+}
+
+body.light-mode nav ul li a:hover {
+    background-color: #e4e6eb; /* Warna hover abu-abu muda */
+    color: #1877F2; /* Warna biru Facebook saat hover */
+}
+
+nav ul li a svg,
+nav ul li a img {
     width: 28px;
     height: 28px;
     margin-right: 10px;
 }
 
-body.light-mode .sidebar ul li a {
-    color: #1c1e21;
-}
-
-body.light-mode .sidebar ul li a:hover {
-    background-color: #e4e6eb; /* Warna hover abu-abu muda */
-    color: #1877F2;
-}
-
-/* Konten Utama */
-.main-content {
-    margin-left: 240px; /* Memberi ruang untuk sidebar */
-    padding: 20px;
-    width: calc(100% - 240px); /* Mengisi sisa lebar */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Search Bar (Opsional, jika Anda ingin menambahkannya di atas) */
-.search-bar {
-    position: fixed;
-    top: 0;
-    left: 240px;
-    right: 0;
-    background-color: #ffffff;
-    padding: 10px 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 999;
+/* Theme Icon di Sidebar */
+.theme-icon {
+    position: static; /* Tidak lagi absolut, mengikuti alur sidebar */
     display: flex;
     align-items: center;
-}
-
-.search-bar input {
-    width: 300px;
-    padding: 8px 12px;
+    padding: 10px 16px;
+    cursor: pointer;
+    background: none;
     border: none;
-    border-radius: 20px;
-    background-color: #f0f2f5;
-    font-size: 14px;
-    outline: none;
+    transition: background-color 0.3s;
 }
 
-.search-bar input::placeholder {
-    color: #606770;
+.theme-icon:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Efek hover ringan */
+    border-radius: 8px;
+}
+
+body.light-mode .theme-icon:hover {
+    background-color: #e4e6eb; /* Warna hover abu-abu muda */
+}
+
+.theme-icon svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    fill: #ffffff;
+    stroke: #ffffff;
+}
+
+body.light-mode .theme-icon svg {
+    fill: #606770;
+    stroke: #606770;
 }
 
 /* Konten Utama */
 .content {
+    margin-left: 240px; /* Memberi ruang untuk navbar di sisi kiri */
+    padding: 20px;
+    width: calc(100% - 240px); /* Mengisi sisa lebar */
     text-align: center;
     margin-bottom: 60px;
     max-width: 800px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 60px; /* Memberi ruang untuk search bar */
 }
 
 .content h1 {
@@ -222,24 +194,28 @@ body.light-mode .content .highlight {
     border-radius: 25px;
     cursor: pointer;
     transition: all 0.3s ease;
-    background-color: #1877F2; /* Warna biru Facebook */
-    color: #ffffff;
+    background-color: #ffffff;
+    color: #000000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 body.light-mode .buttons button {
-    background-color: #1877F2;
+    background-color: #000000;
     color: #ffffff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .buttons button:hover {
-    background-color: #166fe5; /* Warna biru lebih gelap saat hover */
+    background-color: #ff6f61;
+    color: #ffffff;
+    border: none;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 body.light-mode .buttons button:hover {
-    background-color: #166fe5;
+    background-color: #ff6f61;
+    color: #ffffff;
+    border: none;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -263,7 +239,7 @@ body.light-mode .buttons button:hover {
 
 /* Tautan Learn More */
 .learn-more {
-    color: #1877F2;
+    color: #ffd180;
     text-decoration: none;
     font-size: 16px;
     font-weight: 500;
@@ -277,16 +253,16 @@ body.light-mode .buttons button:hover {
 }
 
 body.light-mode .learn-more {
-    color: #1877F2;
+    color: #ff6f61;
 }
 
 .learn-more:hover {
     opacity: 1;
-    color: #166fe5;
+    color: #ff8a80;
 }
 
 body.light-mode .learn-more:hover {
-    color: #166fe5;
+    color: #ffca28;
 }
 
 .learn-more::after {
@@ -368,13 +344,13 @@ body.light-mode .learn-more:hover {
 
 /* Form */
 .form-container {
-    background-color: #ffffff;
+    background-color: #1c2526;
     padding: 20px;
     border-radius: 8px;
     margin-bottom: 40px;
     width: 100%;
     max-width: 500px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 body.light-mode .form-container {
@@ -404,28 +380,28 @@ body.light-mode .form-container {
 .form-container select {
     padding: 8px;
     font-size: 16px;
-    border: 1px solid #d0d0d0;
+    border: 1px solid #424242;
     border-radius: 4px;
-    background-color: #f5f5f5;
-    color: #1c1e21;
+    background-color: #2a2a2a;
+    color: #e0e0e0;
 }
 
 body.light-mode .form-container input,
 body.light-mode .form-container select {
     background-color: #f5f5f5;
-    color: #1c1e21;
+    color: #212121;
     border: 1px solid #d0d0d0;
 }
 
 .form-container input::placeholder {
-    color: #606770;
+    color: #a0a0a0;
 }
 
 .form-container button {
     padding: 10px;
     font-size: 16px;
-    background-color: #1877F2;
-    color: #ffffff;
+    background-color: #ffffff;
+    color: #212121;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -435,18 +411,18 @@ body.light-mode .form-container select {
 }
 
 body.light-mode .form-container button {
-    background-color: #1877F2;
+    background-color: #212121;
     color: #ffffff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .form-container button:hover {
-    background-color: #166fe5;
+    background-color: #ff6f61;
     color: #ffffff;
 }
 
 body.light-mode .form-container button:hover {
-    background-color: #166fe5;
+    background-color: #ff6f61;
     color: #ffffff;
 }
 
@@ -486,7 +462,7 @@ body.light-mode .form-container button:hover {
 .growth-container table {
     width: 100%;
     border-collapse: collapse;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 body.light-mode .table-container table,
@@ -506,8 +482,8 @@ body.light-mode .growth-container table {
 .growth-container td {
     padding: 12px;
     text-align: left;
-    border-bottom: 1px solid #d0d0d0;
-    border-right: 1px solid #d0d0d0;
+    border-bottom: 1px solid #424242;
+    border-right: 1px solid #424242;
 }
 
 body.light-mode .table-container th,
@@ -548,8 +524,8 @@ body.light-mode .growth-container td:last-child {
 .table-wrapper th,
 .summary-container th,
 .growth-container th {
-    background-color: #e0e0e0;
-    color: #1c1e21;
+    background-color: #1c2526;
+    color: #e0e0e0;
     font-weight: 600;
 }
 
@@ -558,28 +534,28 @@ body.light-mode .table-wrapper th,
 body.light-mode .summary-container th,
 body.light-mode .growth-container th {
     background-color: #e0e0e0;
-    color: #1c1e21;
+    color: #212121;
 }
 
 body.light-mode .table-container td,
 body.light-mode .table-wrapper td,
 body.light-mode .summary-container td,
 body.light-mode .growth-container td {
-    color: #1c1e21;
+    color: #212121;
 }
 
 .table-container tbody tr:nth-child(odd),
 .table-wrapper tbody tr:nth-child(odd),
 .summary-container tbody tr:nth-child(odd),
 .growth-container tbody tr:nth-child(odd) {
-    background-color: #ffffff;
+    background-color: #1c2526;
 }
 
 .table-container tbody tr:nth-child(even),
 .table-wrapper tbody tr:nth-child(even),
 .summary-container tbody tr:nth-child(even),
 .growth-container tbody tr:nth-child(even) {
-    background-color: #f5f5f5;
+    background-color: #2a2a2a;
 }
 
 body.light-mode .table-container tbody tr:nth-child(odd),
@@ -605,20 +581,20 @@ body.light-mode .growth-container tbody tr:nth-child(even) {
 
 .table-wrapper caption a,
 .summary-container caption a {
-    color: #1c1e21;
+    color: #e0e0e0;
     text-decoration: none;
     opacity: 0.9;
 }
 
 body.light-mode .table-wrapper caption a,
 body.light-mode .summary-container caption a {
-    color: #1c1e21;
+    color: #212121;
 }
 
 .table-wrapper caption a:hover,
 .summary-container caption a:hover {
     opacity: 1;
-    color: #1877F2;
+    color: #ff6f61;
 }
 
 .summary-container button {
@@ -693,34 +669,26 @@ body.light-mode .growth-container p {
 
 /* Media Queries */
 @media (max-width: 768px) {
-    .sidebar {
-        width: 60px; /* Sidebar menyusut menjadi hanya ikon */
+    nav {
+        width: 60px; /* Navbar menyusut menjadi hanya ikon */
         padding: 10px 0;
     }
 
-    .sidebar .profile img {
-        margin-right: 0;
-    }
-
-    .sidebar .profile a {
-        display: none; /* Sembunyikan nama pengguna */
-    }
-
-    .sidebar ul li a {
+    nav ul li a {
         justify-content: center;
     }
 
-    .sidebar ul li a span {
+    nav ul li a span {
         display: none; /* Sembunyikan teks menu */
     }
 
-    .main-content {
-        margin-left: 60px;
-        width: calc(100% - 60px);
+    .theme-icon {
+        justify-content: center;
     }
 
-    .search-bar {
-        left: 60px;
+    .content {
+        margin-left: 60px;
+        width: calc(100% - 60px);
     }
 
     .content h1 { 
