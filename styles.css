@@ -4,13 +4,16 @@
     box-sizing: border-box;
 }
 
-/* Body dan Layout Utama */
+/* Body dan Tema */
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #000000; /* Background hitam pekat untuk dark mode */
     color: #e0e0e0; /* Warna teks abu-abu terang untuk kontras */
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 20px 20px;
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -19,90 +22,103 @@ body.light-mode {
     color: #000000; /* Warna teks hitam pekat untuk kontras */
 }
 
-/* Container Utama */
-.container {
-    display: flex;
-    width: 100%;
-}
-
-/* Navbar sebagai Sidebar */
+/* Navigasi */
 nav {
     position: fixed;
     top: 0;
-    left: 0;
-    width: 240px; /* Lebar navbar seperti sidebar Facebook */
-    height: 100vh;
-    background-color: #02191c; /* Background navigasi lebih gelap untuk dark mode */
-    padding: 20px 0;
-    overflow-y: auto; /* Scroll jika konten terlalu panjang */
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3); /* Bayangan di sisi kanan */
+    width: 100%;
+    padding: 10px 20px; /* Padding lebih kecil untuk kesan ringkas seperti Facebook */
+    display: flex;
+    justify-content: space-between; /* Membagi ruang antara logo, menu, dan ikon */
+    align-items: center;
+    background-color: #1877F2; /* Warna biru khas Facebook */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Bayangan lebih lembut */
     z-index: 1000;
+    height: 60px; /* Tinggi tetap seperti navbar Facebook */
 }
 
 body.light-mode nav {
-    background-color: #ffffff; /* Background putih bersih untuk light mode */
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff; /* Background putih untuk light mode */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Menu Navbar */
+/* Kontainer Logo */
+.nav-logo {
+    flex: 0 0 auto; /* Logo tetap di sisi kiri */
+}
+
+.nav-logo a {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 700;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+body.light-mode .nav-logo a {
+    color: #1877F2; /* Warna biru Facebook untuk light mode */
+}
+
+/* Menu Navigasi */
 nav ul {
     list-style: none;
+    display: flex;
+    gap: 40px; /* Jarak antar menu lebih besar untuk ruang */
+    flex: 1; /* Mengisi ruang tengah */
+    justify-content: center; /* Menu berada di tengah */
 }
 
 nav ul li {
-    display: flex;
-    align-items: center;
-    padding: 10px 16px;
-    margin-bottom: 5px;
+    position: relative;
 }
 
 nav ul li a {
-    display: flex;
-    align-items: center;
     color: #ffffff;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 18px; /* Ukuran ikon lebih besar */
     font-weight: 500;
-    transition: background-color 0.3s, color 0.3s;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s, background-color 0.3s;
 }
 
 nav ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Efek hover ringan */
-    border-radius: 8px;
     color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.2); /* Efek hover ringan */
+    border-radius: 50%; /* Ikon membulat saat hover */
 }
 
 body.light-mode nav ul li a {
-    color: #1c1e21; /* Warna teks hitam untuk light mode */
+    color: #606770; /* Abu-abu khas Facebook di light mode */
 }
 
 body.light-mode nav ul li a:hover {
     background-color: #e4e6eb; /* Warna hover abu-abu muda */
-    color: #1877F2; /* Warna biru Facebook saat hover */
+    color: #050505;
 }
 
-nav ul li a svg,
-nav ul li a img {
-    width: 28px;
-    height: 28px;
-    margin-right: 10px;
-}
-
-/* Theme Icon di Sidebar */
-.theme-icon {
-    position: static; /* Tidak lagi absolut, mengikuti alur sidebar */
+/* Ikon di sisi kanan */
+.nav-right {
     display: flex;
     align-items: center;
-    padding: 10px 16px;
+    gap: 15px;
+    flex: 0 0 auto; /* Ikon tetap di sisi kanan */
+}
+
+.theme-icon {
+    position: static; /* Tidak lagi absolut, mengikuti alur flex */
     cursor: pointer;
     background: none;
     border: none;
+    padding: 10px;
+    border-radius: 50%;
     transition: background-color 0.3s;
 }
 
 .theme-icon:hover {
     background-color: rgba(255, 255, 255, 0.2); /* Efek hover ringan */
-    border-radius: 8px;
 }
 
 body.light-mode .theme-icon:hover {
@@ -123,13 +139,12 @@ body.light-mode .theme-icon svg {
 
 /* Konten Utama */
 .content {
-    margin-left: 240px; /* Memberi ruang untuk navbar di sisi kiri */
-    padding: 20px;
-    width: calc(100% - 240px); /* Mengisi sisa lebar */
+    text-align: center;
+    margin-bottom: 60px;
+    max-width: 800px;
     display: flex;
-    flex-direction: column; /* Mengatur elemen dari atas ke bawah */
+    flex-direction: column;
     align-items: center;
-    gap: 40px; /* Jarak antar elemen */
 }
 
 .content h1 {
@@ -151,28 +166,28 @@ body.light-mode .content h1 {
 .content h2 {
     font-size: 32px;
     margin-bottom: 20px;
-    font-weight: 600;
+    font-weight: 600; /* Sedikit lebih tebal untuk kesan profesional */
 }
 
 .content h3 {
     font-size: 20px;
     margin-bottom: 20px;
     line-height: 1.6;
-    opacity: 0.9;
+    opacity: 0.9; /* Sedikit lebih terang untuk visibilitas */
 }
 
 body.light-mode .content h3 {
-    color: #424242;
+    color: #424242; /* Abu-abu gelap untuk light mode */
 }
 
 .content .highlight {
     font-style: italic;
-    color: #ffd180;
+    color: #ffd180; /* Warna aksen lebih lembut untuk dark mode */
     margin-bottom: 30px;
 }
 
 body.light-mode .content .highlight {
-    color: #b33429;
+    color: #b33429; /* Warna aksen lebih cerah untuk light mode */
 }
 
 /* Tombol */
@@ -187,24 +202,24 @@ body.light-mode .content .highlight {
 .buttons button {
     padding: 12px 30px;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 500; /* Tebal sedang untuk kesan profesional */
     border: none;
     border-radius: 25px;
     cursor: pointer;
     transition: all 0.3s ease;
-    background-color: #ffffff;
-    color: #000000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff; /* Tombol putih untuk dark mode */
+    color: #000000; /* Teks hitam untuk kontras */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Bayangan halus */
 }
 
 body.light-mode .buttons button {
-    background-color: #000000;
-    color: #ffffff;
+    background-color: #000000; /* Tombol hitam untuk light mode */
+    color: #ffffff; /* Teks putih untuk kontras */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .buttons button:hover {
-    background-color: #ff6f61;
+    background-color: #ff6f61; /* Warna aksen saat hover */
     color: #ffffff;
     border: none;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -237,7 +252,7 @@ body.light-mode .buttons button:hover {
 
 /* Tautan Learn More */
 .learn-more {
-    color: #ffd180;
+    color: #ffd180; /* Warna aksen lembut untuk dark mode */
     text-decoration: none;
     font-size: 16px;
     font-weight: 500;
@@ -251,7 +266,7 @@ body.light-mode .buttons button:hover {
 }
 
 body.light-mode .learn-more {
-    color: #ff6f61;
+    color: #ff6f61; /* Warna aksen cerah untuk light mode */
 }
 
 .learn-more:hover {
@@ -277,6 +292,7 @@ body.light-mode .learn-more:hover {
     justify-content: center;
     align-items: center;
     transition: transform 0.4s ease-in-out;
+    margin-bottom: 20px;
 }
 
 .mountain-svg {
@@ -297,7 +313,7 @@ body.light-mode .learn-more:hover {
 }
 
 .mountain-peaks {
-    fill: #1976D2;
+    fill: #1976D2; /* Warna biru lebih profesional */
     transition: fill 0.4s ease-in-out;
 }
 
@@ -326,7 +342,7 @@ body.light-mode .learn-more:hover {
 }
 
 .logo-container:hover .mountain-peaks {
-    fill: #388E3C;
+    fill: #388E3C; /* Hijau lebih elegan */
 }
 
 .logo-container:hover {
@@ -341,16 +357,17 @@ body.light-mode .learn-more:hover {
 
 /* Form */
 .form-container {
-    background-color: #1c2526;
+    background-color: #1c2526; /* Background form lebih gelap untuk dark mode */
     padding: 20px;
     border-radius: 8px;
+    margin-bottom: 40px;
     width: 100%;
     max-width: 500px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Bayangan untuk kesan profesional */
 }
 
 body.light-mode .form-container {
-    background-color: #ffffff;
+    background-color: #ffffff; /* Background putih bersih untuk light mode */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -376,7 +393,7 @@ body.light-mode .form-container {
 .form-container select {
     padding: 8px;
     font-size: 16px;
-    border: 1px solid #424242;
+    border: 1px solid #424242; /* Border halus untuk dark mode */
     border-radius: 4px;
     background-color: #2a2a2a;
     color: #e0e0e0;
@@ -386,7 +403,7 @@ body.light-mode .form-container input,
 body.light-mode .form-container select {
     background-color: #f5f5f5;
     color: #212121;
-    border: 1px solid #d0d0d0;
+    border: 1px solid #d0d0d0; /* Border halus untuk light mode */
 }
 
 .form-container input::placeholder {
@@ -434,7 +451,7 @@ body.light-mode .form-container button:hover {
 .summary-container,
 .growth-container {
     width: 100%;
-    max-width: 800px; /* Membatasi lebar maksimum agar lebih rapi */
+    max-width: 1000px;
     margin-bottom: 40px;
     overflow-x: auto;
 }
@@ -458,7 +475,7 @@ body.light-mode .form-container button:hover {
 .growth-container table {
     width: 100%;
     border-collapse: collapse;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Bayangan untuk kesan profesional */
 }
 
 body.light-mode .table-container table,
@@ -478,7 +495,7 @@ body.light-mode .growth-container table {
 .growth-container td {
     padding: 12px;
     text-align: left;
-    border-bottom: 1px solid #424242;
+    border-bottom: 1px solid #424242; /* Border lebih halus untuk dark mode */
     border-right: 1px solid #424242;
 }
 
@@ -520,7 +537,7 @@ body.light-mode .growth-container td:last-child {
 .table-wrapper th,
 .summary-container th,
 .growth-container th {
-    background-color: #1c2526;
+    background-color: #1c2526; /* Header tabel lebih gelap untuk dark mode */
     color: #e0e0e0;
     font-weight: 600;
 }
@@ -617,14 +634,13 @@ body.light-mode .summary-container caption a {
 .chart-container {
     position: relative;
     width: 100%;
-    max-width: 800px; /* Membatasi lebar maksimum agar lebih rapi */
+    max-width: 1000px;
     height: 400px;
+    margin-bottom: 40px;
 }
 
 .growth-container {
     text-align: center;
-    width: 100%;
-    max-width: 800px; /* Membatasi lebar maksimum agar lebih rapi */
 }
 
 .growth-container h1 {
@@ -666,28 +682,6 @@ body.light-mode .growth-container p {
 
 /* Media Queries */
 @media (max-width: 768px) {
-    nav {
-        width: 60px; /* Navbar menyusut menjadi hanya ikon */
-        padding: 10px 0;
-    }
-
-    nav ul li a {
-        justify-content: center;
-    }
-
-    nav ul li a span {
-        display: none; /* Sembunyikan teks menu */
-    }
-
-    .theme-icon {
-        justify-content: center;
-    }
-
-    .content {
-        margin-left: 60px;
-        width: calc(100% - 60px);
-    }
-
     .content h1 { 
         font-size: 40px; 
         margin-bottom: 20px; 
@@ -717,6 +711,22 @@ body.light-mode .growth-container p {
         width: 100%; 
         padding: 0 10px; 
     }
+    nav ul { 
+        gap: 20px; /* Jarak antar ikon lebih kecil di layar kecil */
+    }
+    nav ul li a { 
+        font-size: 16px; /* Ukuran ikon lebih kecil */
+        padding: 8px;
+    }
+    .nav-logo a {
+        font-size: 20px; /* Logo lebih kecil */
+    }
+    .nav-right {
+        gap: 10px; /* Jarak antar ikon kanan lebih kecil */
+    }
+    .theme-icon { 
+        padding: 8px; 
+    }
     .chart-container { 
         height: 300px; 
     }
@@ -726,5 +736,15 @@ body.light-mode .growth-container p {
     .logo-container { 
         width: 200px; 
         height: 200px; 
+    }
+    nav ul {
+        gap: 10px; /* Jarak sangat kecil untuk layar kecil */
+    }
+    nav ul li a {
+        font-size: 14px;
+        padding: 6px;
+    }
+    .nav-logo a {
+        font-size: 18px;
     }
 }
