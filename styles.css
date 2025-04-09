@@ -27,60 +27,114 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 20px 40px;
+    padding: 10px 20px; /* Padding lebih kecil untuk kesan ringkas seperti Facebook */
     display: flex;
-    justify-content: center;
+    justify-content: space-between; /* Membagi ruang antara logo, menu, dan ikon */
     align-items: center;
-    background-color: #02191c; /* Background navigasi lebih gelap untuk dark mode */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Bayangan halus untuk kesan profesional */
+    background-color: #1877F2; /* Warna biru khas Facebook */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Bayangan lebih lembut */
     z-index: 1000;
+    height: 60px; /* Tinggi tetap seperti navbar Facebook */
 }
 
 body.light-mode nav {
-    background-color: #ffffff; /* Background putih bersih untuk light mode */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Bayangan lebih ringan */
+    background-color: #ffffff; /* Background putih untuk light mode */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Kontainer Logo */
+.nav-logo {
+    flex: 0 0 auto; /* Logo tetap di sisi kiri */
+}
+
+.nav-logo a {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 700;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+body.light-mode .nav-logo a {
+    color: #1877F2; /* Warna biru Facebook untuk light mode */
+}
+
+/* Menu Navigasi */
 nav ul {
     list-style: none;
     display: flex;
-    gap: 30px; /* Jarak antar menu lebih lebar untuk kesan elegan */
+    gap: 40px; /* Jarak antar menu lebih besar untuk ruang */
+    flex: 1; /* Mengisi ruang tengah */
+    justify-content: center; /* Menu berada di tengah */
+}
+
+nav ul li {
+    position: relative;
 }
 
 nav ul li a {
-    color: #ffffff; 
+    color: #ffffff;
     text-decoration: none;
-    font-size: 16px;
-    font-weight: 500; /* Tebal sedang untuk kesan profesional */
-    transition: color 0.3s;
+    font-size: 18px; /* Ukuran ikon lebih besar */
+    font-weight: 500;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s, background-color 0.3s;
 }
 
 nav ul li a:hover {
-    color: #ffffff; /* Warna teks putih cerah saat hover */
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.2); /* Efek hover ringan */
+    border-radius: 50%; /* Ikon membulat saat hover */
 }
 
 body.light-mode nav ul li a {
-    color: #000000; /* Warna teks hitam untuk light mode */
+    color: #606770; /* Abu-abu khas Facebook di light mode */
 }
 
 body.light-mode nav ul li a:hover {
-    color: #ff6f61; /* Warna aksen saat hover di light mode */
+    background-color: #e4e6eb; /* Warna hover abu-abu muda */
+    color: #050505;
+}
+
+/* Ikon di sisi kanan */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 0 0 auto; /* Ikon tetap di sisi kanan */
 }
 
 .theme-icon {
-    position: absolute;
-    right: 40px;
-    top: 20px;
+    position: static; /* Tidak lagi absolut, mengikuti alur flex */
     cursor: pointer;
     background: none;
     border: none;
+    padding: 10px;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.theme-icon:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Efek hover ringan */
+}
+
+body.light-mode .theme-icon:hover {
+    background-color: #e4e6eb; /* Warna hover abu-abu muda */
 }
 
 .theme-icon svg {
     width: 1.25rem;
     height: 1.25rem;
-    fill: currentColor;
-    stroke: currentColor;
+    fill: #ffffff;
+    stroke: #ffffff;
+}
+
+body.light-mode .theme-icon svg {
+    fill: #606770;
+    stroke: #606770;
 }
 
 /* Konten Utama */
@@ -657,12 +711,40 @@ body.light-mode .growth-container p {
         width: 100%; 
         padding: 0 10px; 
     }
-    nav ul { gap: 15px; }
-    nav ul li a { font-size: 14px; }
-    .theme-icon { right: 20px; top: 15px; }
-    .chart-container { height: 300px; }
+    nav ul { 
+        gap: 20px; /* Jarak antar ikon lebih kecil di layar kecil */
+    }
+    nav ul li a { 
+        font-size: 16px; /* Ukuran ikon lebih kecil */
+        padding: 8px;
+    }
+    .nav-logo a {
+        font-size: 20px; /* Logo lebih kecil */
+    }
+    .nav-right {
+        gap: 10px; /* Jarak antar ikon kanan lebih kecil */
+    }
+    .theme-icon { 
+        padding: 8px; 
+    }
+    .chart-container { 
+        height: 300px; 
+    }
 }
 
 @media (max-width: 400px) {
-    .logo-container { width: 200px; height: 200px; }
+    .logo-container { 
+        width: 200px; 
+        height: 200px; 
+    }
+    nav ul {
+        gap: 10px; /* Jarak sangat kecil untuk layar kecil */
+    }
+    nav ul li a {
+        font-size: 14px;
+        padding: 6px;
+    }
+    .nav-logo a {
+        font-size: 18px;
+    }
 }
