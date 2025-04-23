@@ -167,6 +167,10 @@ body.light-mode .content h1 {
     text-transform: uppercase;
 }
 
+body.light-mode .content h2 {
+    color: #000000;
+}
+
 .content h3 {
     font-size: 24px;
     margin-bottom: 20px;
