@@ -7,8 +7,8 @@
 /* Body dan Tema */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #000000; /* Background hitam pekat untuk dark mode */
-    color: #e0e0e0; /* Warna teks abu-abu terang untuk kontras */
+    background: linear-gradient(135deg, #1a1a3d 0%, #2a2a5a 100%); /* CHANGED: Dark gradient to match image */
+    color: #e0e0e0; /* Light gray text for contrast */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -18,8 +18,8 @@ body {
 }
 
 body.light-mode {
-    background-color: #f5f5f5; /* Background putih abu-abu lembut untuk light mode */
-    color: #000000; /* Warna teks hitam pekat untuk kontras */
+    background-color: #f5f5f5; /* Kept as is */
+    color: #000000;
 }
 
 /* Navigasi */
@@ -27,24 +27,24 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 10px 20px; /* Padding lebih kecil untuk kesan ringkas seperti Facebook */
+    padding: 10px 20px;
     display: flex;
-    justify-content: space-between; /* Membagi ruang antara logo, menu, dan ikon */
+    justify-content: space-between;
     align-items: center;
-    background-color: #1877F2; /* Warna biru khas Facebook */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Bayangan lebih lembut */
+    background-color: #1a1a3d; /* CHANGED: Darker background to blend with body */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     z-index: 1000;
-    height: 60px; /* Tinggi tetap seperti navbar Facebook */
+    height: 60px;
 }
 
 body.light-mode nav {
-    background-color: #ffffff; /* Background putih untuk light mode */
+    background-color: #ffffff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Kontainer Logo */
 .nav-logo {
-    flex: 0 0 auto; /* Logo tetap di sisi kiri */
+    flex: 0 0 auto;
 }
 
 .nav-logo a {
@@ -57,16 +57,16 @@ body.light-mode nav {
 }
 
 body.light-mode .nav-logo a {
-    color: #1877F2; /* Warna biru Facebook untuk light mode */
+    color: #1877F2;
 }
 
 /* Menu Navigasi */
 nav ul {
     list-style: none;
     display: flex;
-    gap: 40px; /* Jarak antar menu lebih besar untuk ruang */
-    flex: 1; /* Mengisi ruang tengah */
-    justify-content: center; /* Menu berada di tengah */
+    gap: 40px;
+    flex: 1;
+    justify-content: center;
 }
 
 nav ul li {
@@ -76,7 +76,7 @@ nav ul li {
 nav ul li a {
     color: #ffffff;
     text-decoration: none;
-    font-size: 18px; /* Ukuran ikon lebih besar */
+    font-size: 18px;
     font-weight: 500;
     padding: 10px;
     display: flex;
@@ -86,16 +86,16 @@ nav ul li a {
 
 nav ul li a:hover {
     color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.2); /* Efek hover ringan */
-    border-radius: 50%; /* Ikon membulat saat hover */
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
 }
 
 body.light-mode nav ul li a {
-    color: #606770; /* Abu-abu khas Facebook di light mode */
+    color: #606770;
 }
 
 body.light-mode nav ul li a:hover {
-    background-color: #e4e6eb; /* Warna hover abu-abu muda */
+    background-color: #e4e6eb;
     color: #050505;
 }
 
@@ -104,11 +104,11 @@ body.light-mode nav ul li a:hover {
     display: flex;
     align-items: center;
     gap: 15px;
-    flex: 0 0 auto; /* Ikon tetap di sisi kanan */
+    flex: 0 0 auto;
 }
 
 .theme-icon {
-    position: static; /* Tidak lagi absolut, mengikuti alur flex */
+    position: static;
     cursor: pointer;
     background: none;
     border: none;
@@ -118,11 +118,11 @@ body.light-mode nav ul li a:hover {
 }
 
 .theme-icon:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Efek hover ringan */
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 body.light-mode .theme-icon:hover {
-    background-color: #e4e6eb; /* Warna hover abu-abu muda */
+    background-color: #e4e6eb;
 }
 
 .theme-icon svg {
@@ -148,46 +148,80 @@ body.light-mode .theme-icon svg {
 }
 
 .content h1 {
-    font-size: 64px;
-    margin-bottom: 30px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    background: linear-gradient(90deg, #1877F2, #42A5F5); /* Gradasi biru Facebook */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-size: 72px; /* CHANGED: Larger font to match image */
+    margin-bottom: 20px;
+    font-weight: 800; /* CHANGED: Bolder */
+    color: #ffffff; /* CHANGED: White text */
+    line-height: 1.2; /* CHANGED: Added for spacing */
 }
 
 body.light-mode .content h1 {
-    background: linear-gradient(90deg, #1877F2, #64B5F6); /* Gradasi biru lebih cerah untuk light mode */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #000000; /* CHANGED: Adjusted for light mode */
 }
 
 .content h2 {
-    font-size: 32px;
-    margin-bottom: 20px;
-    font-weight: 600; /* Sedikit lebih tebal untuk kesan profesional */
+    font-size: 36px; /* CHANGED: Adjusted size */
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #e0e0e0; /* CHANGED: Light gray */
+    text-transform: uppercase; /* CHANGED: Match image */
 }
 
 .content h3 {
-    font-size: 20px;
+    font-size: 24px; /* CHANGED: Adjusted size */
     margin-bottom: 20px;
     line-height: 1.6;
-    opacity: 0.9; /* Sedikit lebih terang untuk visibilitas */
+    color: #e0e0e0; /* CHANGED: Light gray */
+    text-transform: uppercase; /* CHANGED: Match image */
 }
 
 body.light-mode .content h3 {
-    color: #424242; /* Abu-abu gelap untuk light mode */
+    color: #424242;
 }
 
 .content .highlight {
-    font-style: italic;
-    color: #ffd180; /* Warna aksen lebih lembut untuk dark mode */
+    font-size: 24px; /* CHANGED: Adjusted size */
+    font-weight: 700; /* CHANGED: Bolder */
+    color: #e0e0e0; /* CHANGED: Light gray */
     margin-bottom: 30px;
 }
 
+.content .highlight span {
+    color: #a855f7; /* CHANGED: Purple for "FREE" */
+}
+
 body.light-mode .content .highlight {
-    color: #b33429; /* Warna aksen lebih cerah untuk light mode */
+    color: #b33429;
+}
+
+/* Checklist - NEW SECTION */
+.checklist {
+    list-style: none;
+    margin: 30px 0;
+    text-align: left;
+    max-width: 600px;
+}
+
+.checklist li {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    color: #e0e0e0;
+    margin-bottom: 15px;
+}
+
+.checklist li::before {
+    content: "✔";
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-color: #a855f7;
+    color: #ffffff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 24px;
+    margin-right: 15px;
+    font-size: 14px;
 }
 
 /* Tombol */
@@ -200,33 +234,35 @@ body.light-mode .content .highlight {
 }
 
 .buttons button {
-    padding: 12px 30px;
-    font-size: 16px;
-    font-weight: 500; /* Tebal sedang untuk kesan profesional */
+    padding: 15px 40px; /* CHANGED: Adjusted padding */
+    font-size: 18px; /* CHANGED: Adjusted size */
+    font-weight: 600; /* CHANGED: Bolder */
     border: none;
-    border-radius: 25px;
+    border-radius: 50px; /* CHANGED: More rounded */
     cursor: pointer;
     transition: all 0.3s ease;
-    background-color: #ffffff; /* Tombol putih untuk dark mode */
-    color: #000000; /* Teks hitam untuk kontras */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Bayangan halus */
+    background-color: #a855f7; /* CHANGED: Purple to match image */
+    color: #ffffff; /* CHANGED: White text */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* CHANGED: Stronger shadow */
+    text-transform: uppercase; /* CHANGED: Match image */
 }
 
 body.light-mode .buttons button {
-    background-color: #000000; /* Tombol hitam untuk light mode */
-    color: #ffffff; /* Teks putih untuk kontras */
+    background-color: #a855f7; /* CHANGED: Keep purple in light mode */
+    color: #ffffff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .buttons button:hover {
-    background-color: #ff6f61; /* Warna aksen saat hover */
+    background-color: #9333ea; /* CHANGED: Darker purple on hover */
     color: #ffffff;
     border: none;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4); /* CHANGED: Stronger shadow */
+    transform: translateY(-2px); /* CHANGED: Added lift effect */
 }
 
 body.light-mode .buttons button:hover {
-    background-color: #ff6f61;
+    background-color: #9333ea;
     color: #ffffff;
     border: none;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -252,7 +288,7 @@ body.light-mode .buttons button:hover {
 
 /* Tautan Learn More */
 .learn-more {
-    color: #ffd180; /* Warna aksen lembut untuk dark mode */
+    color: #ffd180;
     text-decoration: none;
     font-size: 16px;
     font-weight: 500;
@@ -266,7 +302,7 @@ body.light-mode .buttons button:hover {
 }
 
 body.light-mode .learn-more {
-    color: #ff6f61; /* Warna aksen cerah untuk light mode */
+    color: #ff6f61;
 }
 
 .learn-more:hover {
@@ -313,7 +349,7 @@ body.light-mode .learn-more:hover {
 }
 
 .mountain-peaks {
-    fill: #1976D2; /* Warna biru lebih profesional */
+    fill: #1976D2;
     transition: fill 0.4s ease-in-out;
 }
 
@@ -342,7 +378,7 @@ body.light-mode .learn-more:hover {
 }
 
 .logo-container:hover .mountain-peaks {
-    fill: #388E3C; /* Hijau lebih elegan */
+    fill: #388E3C;
 }
 
 .logo-container:hover {
@@ -357,17 +393,17 @@ body.light-mode .learn-more:hover {
 
 /* Form */
 .form-container {
-    background-color: #1c2526; /* Background form lebih gelap untuk dark mode */
+    background-color: #1c2526;
     padding: 20px;
     border-radius: 8px;
     margin-bottom: 40px;
     width: 100%;
     max-width: 500px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Bayangan untuk kesan profesional */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 body.light-mode .form-container {
-    background-color: #ffffff; /* Background putih bersih untuk light mode */
+    background-color: #ffffff;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -393,7 +429,7 @@ body.light-mode .form-container {
 .form-container select {
     padding: 8px;
     font-size: 16px;
-    border: 1px solid #424242; /* Border halus untuk dark mode */
+    border: 1px solid #424242;
     border-radius: 4px;
     background-color: #2a2a2a;
     color: #e0e0e0;
@@ -403,7 +439,7 @@ body.light-mode .form-container input,
 body.light-mode .form-container select {
     background-color: #f5f5f5;
     color: #212121;
-    border: 1px solid #d0d0d0; /* Border halus untuk light mode */
+    border: 1px solid #d0d0d0;
 }
 
 .form-container input::placeholder {
@@ -475,7 +511,7 @@ body.light-mode .form-container button:hover {
 .growth-container table {
     width: 100%;
     border-collapse: collapse;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Bayangan untuk kesan profesional */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 body.light-mode .table-container table,
@@ -495,7 +531,7 @@ body.light-mode .growth-container table {
 .growth-container td {
     padding: 12px;
     text-align: left;
-    border-bottom: 1px solid #424242; /* Border lebih halus untuk dark mode */
+    border-bottom: 1px solid #424242;
     border-right: 1px solid #424242;
 }
 
@@ -537,7 +573,7 @@ body.light-mode .growth-container td:last-child {
 .table-wrapper th,
 .summary-container th,
 .growth-container th {
-    background-color: #1c2526; /* Header tabel lebih gelap untuk dark mode */
+    background-color: #1c2526;
     color: #e0e0e0;
     font-weight: 600;
 }
@@ -683,26 +719,33 @@ body.light-mode .growth-container p {
 /* Media Queries */
 @media (max-width: 768px) {
     .content h1 { 
-        font-size: 40px; 
-        margin-bottom: 20px; 
-    }
-    .content h2 { 
-        font-size: 24px; 
+        font-size: 48px; /* CHANGED: Adjusted */
         margin-bottom: 15px; 
     }
+    .content h2 { 
+        font-size: 28px; /* CHANGED: Adjusted */
+        margin-bottom: 10px; 
+    }
     .content h3 { 
-        font-size: 16px; 
+        font-size: 18px; /* CHANGED: Adjusted */
         margin-bottom: 15px; 
     }
     .content .highlight { 
-        font-size: 20px; 
+        font-size: 18px; /* CHANGED: Adjusted */
         margin-bottom: 20px; 
+    }
+    .checklist li {
+        font-size: 16px; /* CHANGED: Added */
     }
     .buttons { 
         flex-direction: column; 
         gap: 15px; 
         margin-top: 30px; 
         margin-bottom: 30px; 
+    }
+    .buttons button {
+        padding: 12px 30px; /* CHANGED: Added */
+        font-size: 16px; /* CHANGED: Added */
     }
     .learn-more { 
         margin-top: 15px; 
@@ -712,17 +755,17 @@ body.light-mode .growth-container p {
         padding: 0 10px; 
     }
     nav ul { 
-        gap: 20px; /* Jarak antar ikon lebih kecil di layar kecil */
+        gap: 20px;
     }
     nav ul li a { 
-        font-size: 16px; /* Ukuran ikon lebih kecil */
+        font-size: 16px;
         padding: 8px;
     }
     .nav-logo a {
-        font-size: 20px; /* Logo lebih kecil */
+        font-size: 20px;
     }
     .nav-right {
-        gap: 10px; /* Jarak antar ikon kanan lebih kecil */
+        gap: 10px;
     }
     .theme-icon { 
         padding: 8px; 
@@ -738,7 +781,7 @@ body.light-mode .growth-container p {
         height: 200px; 
     }
     nav ul {
-        gap: 10px; /* Jarak sangat kecil untuk layar kecil */
+        gap: 10px;
     }
     nav ul li a {
         font-size: 14px;
