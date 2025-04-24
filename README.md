@@ -8,3 +8,5 @@ Block yang transaksinya cuma 7, lainnya pada ribuan https://ordinals.com/block/8
 https://id.react.dev/
 
 https://etherscan.io/address/arema.eth
+
+https://codegym.cc/id/me
