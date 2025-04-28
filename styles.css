@@ -803,3 +803,39 @@ body.light-mode .growth-container p {
         font-size: 18px;
     }
 }
+
+.logo-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #1E1E2F;
+        height: 100vh;
+    }
+
+    .pyth-svg {
+        width: 300px;
+        height: 300px;
+    }
+
+    /* Animation for radiating lines */
+    @keyframes drop {
+        0% {
+            opacity: 0;
+            stroke: #24D3FF; /* Starting color (cyan) */
+            stroke-opacity: 1;
+        }
+        50% {
+            opacity: 0.5;
+            stroke: #7720F1; /* Transition to purple */
+            stroke-opacity: 0.7;
+        }
+        100% {
+            opacity: 0;
+            stroke: #8313ed; /* End with a darker purple */
+            stroke-opacity: 0;
+        }
+    }
+
+    .radiating-line {
+        animation: drop 3s ease-out infinite;
+    }
