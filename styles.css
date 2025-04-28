@@ -1,10 +1,15 @@
+/* ========================================================================= */
+/* RESET STYLES */
+/* ========================================================================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body dan Tema */
+/* ========================================================================= */
+/* BODY AND THEME STYLES */
+/* ========================================================================= */
 body {
     font-family: 'Roboto', sans-serif;
     background: linear-gradient(135deg, #1a1a3d 0%, #2a2a5a 100%); /* Dark gradient for dark mode */
@@ -22,7 +27,9 @@ body.light-mode {
     color: #000000;
 }
 
-/* Navigasi */
+/* ========================================================================= */
+/* NAVIGATION STYLES */
+/* ========================================================================= */
 nav {
     position: fixed;
     top: 0;
@@ -42,7 +49,9 @@ body.light-mode nav {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Kontainer Logo */
+/* ========================================================================= */
+/* LOGO CONTAINER STYLES */
+/* ========================================================================= */
 .nav-logo {
     flex: 0 0 auto;
 }
@@ -60,7 +69,9 @@ body.light-mode .nav-logo a {
     color: #1877F2;
 }
 
-/* Menu Navigasi */
+/* ========================================================================= */
+/* NAVIGATION MENU STYLES */
+/* ========================================================================= */
 nav ul {
     list-style: none;
     display: flex;
@@ -99,7 +110,9 @@ body.light-mode nav ul li a:hover {
     color: #050505;
 }
 
-/* Ikon di sisi kanan */
+/* ========================================================================= */
+/* RIGHT NAVIGATION ICONS */
+/* ========================================================================= */
 .nav-right {
     display: flex;
     align-items: center;
@@ -137,7 +150,9 @@ body.light-mode .theme-icon svg {
     stroke: #606770;
 }
 
-/* Konten Utama */
+/* ========================================================================= */
+/* MAIN CONTENT STYLES */
+/* ========================================================================= */
 .content {
     text-align: center;
     margin-bottom: 60px;
@@ -202,7 +217,9 @@ body.light-mode .content .highlight span {
     color: #a855f7; /* CHANGED: Keep purple in light mode */
 }
 
-/* Checklist */
+/* ========================================================================= */
+/* CHECKLIST STYLES */
+/* ========================================================================= */
 .checklist {
     list-style: none;
     margin: 30px 0;
@@ -236,7 +253,9 @@ body.light-mode .checklist li {
     font-size: 14px;
 }
 
-/* Tombol */
+/* ========================================================================= */
+/* BUTTON STYLES */
+/* ========================================================================= */
 .buttons {
     display: flex;
     gap: 30px;
@@ -298,7 +317,9 @@ body.light-mode .buttons button:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Tautan Learn More */
+/* ========================================================================= */
+/* LEARN MORE LINK STYLES */
+/* ========================================================================= */
 .learn-more {
     color: #ffd180;
     text-decoration: none;
@@ -331,7 +352,9 @@ body.light-mode .learn-more:hover {
     font-size: 18px;
 }
 
-/* Logo */
+/* ========================================================================= */
+/* LOGO ANIMATION STYLES */
+/* ========================================================================= */
 .logo-container {
     width: 300px;
     height: 300px;
@@ -403,7 +426,9 @@ body.light-mode .learn-more:hover {
     100% { transform: scale(0.8); opacity: 0.5; }
 }
 
-/* Form */
+/* ========================================================================= */
+/* FORM STYLES */
+/* ========================================================================= */
 .form-container {
     background-color: #1c2526;
     padding: 20px;
@@ -493,7 +518,9 @@ body.light-mode .form-container button:hover {
     text-align: center;
 }
 
-/* Tabel */
+/* ========================================================================= */
+/* TABLE STYLES */
+/* ========================================================================= */
 .table-container,
 .table-wrapper,
 .summary-container,
@@ -678,7 +705,9 @@ body.light-mode .summary-container caption a {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Grafik dan Legenda */
+/* ========================================================================= */
+/* CHART AND LEGEND STYLES */
+/* ========================================================================= */
 .chart-container {
     position: relative;
     width: 100%;
@@ -728,6 +757,9 @@ body.light-mode .growth-container p {
     border-radius: 50%;
 }
 
+/* ========================================================================= */
+/* UTILITY CLASSES */
+/* ========================================================================= */
 /* Layout and Positioning */
 .relative {
     position: relative;
@@ -796,22 +828,28 @@ body.light-mode .growth-container p {
     align-items: center;
 }
 
+/* ========================================================================= */
+/* LOGO CONTAINER STYLES (Updated) */
+/* ========================================================================= */
 .logo-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    /* background: #1E1E2F; <-- Dihapus untuk menghilangkan kotak hitam */
     background: transparent; /* Ditambahkan untuk memastikan latar belakang transparan */
 }
 
-/* SVG and Logo */
+/* ========================================================================= */
+/* SVG AND LOGO STYLES */
+/* ========================================================================= */
 .pyth-svg {
     width: 300px;
     height: 300px;
 }
 
-/* Animations */
+/* ========================================================================= */
+/* ANIMATION STYLES */
+/* ========================================================================= */
 @keyframes drop {
     0% {
         opacity: 0;
@@ -859,13 +897,17 @@ body.light-mode .growth-container p {
     animation: bounce-icon 1.5s ease-in-out infinite;
 }
 
-/* Hover Effects */
+/* ========================================================================= */
+/* HOVER EFFECTS */
+/* ========================================================================= */
 .relative:hover {
     transform: scale(1.02);
     transition: transform 0.3s ease-in-out;
 }
 
-/* Media Queries */
+/* ========================================================================= */
+/* MEDIA QUERIES */
+/* ========================================================================= */
 @media (max-width: 768px) {
     .logo-container {
         width: 250px;
