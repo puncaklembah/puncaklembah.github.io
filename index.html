@@ -37,23 +37,62 @@
     <div class="content">
         <!-- Logo Container dipindah ke sini -->
         <div class="logo-container">
-            <svg class="mountain-svg" viewBox="0 0 300 300">
-                <g transform="translate(150, 60)">
-                    <circle class="sun" cx="0" cy="0" r="15" />
-                    <line class="sun-rays" x1="0" y1="-30" x2="0" y2="-25" />
-                    <line class="sun-rays" x1="0" y1="25" x2="0" y2="30" />
-                    <line class="sun-rays" x1="-30" y1="0" x2="-25" y2="0" />
-                    <line class="sun-rays" x1="25" y1="0" x2="30" y2="0" />
-                    <line class="sun-rays" x1="-21" y1="-21" x2="-15" y2="-18" transform="rotate(45)" />
-                    <line class="sun-rays" x1="21" y1="21" x2="15" y2="15" transform="rotate(45)" />
-                    <line class="sun-rays" x1="-21" y1="21" x2="-15" y2="15" transform="rotate(-45)" />
-                    <line class="sun-rays" x1="21" y1="-21" x2="15" y2="-15" transform="rotate(-45)" />
-                </g>
-                <path class="mountain-peaks" d="M 0 300 C 50 180 90 160 130 120 C 150 80 170 100 180 130 C 210 160 250 180 300 300 C 250 200 200 240 150 210 C 100 180 50 210 0 300 Z" />
-                <path class="market-line-green" d="M 50 260 Q 100 230, 150 260 T 250 240" />
-                <path class="market-line-red" d="M 50 280 Q 100 250, 150 280 T 250 260" />
-            </svg>
-        </div>
+    <svg class="pyth-svg" viewBox="0 0 300 300">
+        <!-- Radial gradient for the circle -->
+        <defs>
+            <radialGradient id="circleGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#1E1E2F;stop-opacity:1" />
+            </radialGradient>
+        </defs>
+
+        <!-- Background circle with gradient -->
+        <circle cx="150" cy="150" r="80" fill="url(#circleGradient)" />
+
+        <!-- Radiating lines with animation -->
+        <g transform="translate(150, 150)">
+            <line class="radiating-line" x1="0" y1="0" x2="0" y2="120" stroke="#8B5CF6" stroke-width="1" transform="rotate(0)" style="animation-delay: 0s;" />
+            <line class="radiating-line" x1="0" y1="0" x2="0" y2="120" stroke="#8B5CF6" stroke-width="1" transform="rotate(10)" style="animation-delay: 0.1s;" />
+            <line class="radiating-line" x1="0" y1="0" x2="0" y2="120" stroke="#8B5CF6" stroke-width="1" transform="rotate(20)" style="animation-delay: 0.2s;" />
+            <line class="radiating-line" x1="0" y1="0" x2="0" y2="120" stroke="#8B5CF6" stroke-width="1" transform="rotate(30)" style="animation-delay: 0.3s;" />
+            <line class="radiating-line" x1="0" y1="0" x2="0" y2="120" stroke="#8B5CF6" stroke-width="1" transform="rotate(40)" style="animation-delay: 0.4s;" />
+            <line class="radiating-line" x1="0" y1="0" x2="0" y2="120" stroke="#8B5CF6" stroke-width="1" transform="rotate(50)" style="animation-delay: 0.5s;" />
+            <line class="radiating-line" x1="0" y1="0" x2="0" y2="120" stroke="#8B5CF6" stroke-width="1" transform="rotate(60)" style="animation-delay: 0.6s;" />
+            <line class="radiating-line" x1="0" y1="0" x2="0" y2="120" stroke="#8B5CF6" stroke-width="1" transform="rotate(70)" style="animation-delay: 0.7s;" />
+            <line class="radiating-line" x1="0" y1="0" x2="0" y2="120" stroke="#8B5CF6" stroke-width="1" transform="rotate(80)" style="animation-delay: 0.8s;" />
+            <line class="radiating-line" x1="0" y1="0" x2="0" y2="120" stroke="#8B5CF6" stroke-width="1" transform="rotate(90)" style="animation-delay: 0.9s;" />
+            <line class="radiating-line" x1="0" y1="0" x2="0" y2="120" stroke="#8B5CF6" stroke-width="1" transform="rotate(100)" style="animation-delay: 1s;" />
+            <line class="radiating-line" x1="0" y1="0" x2="0" y2="120" stroke="#8B5CF6" stroke-width="1" transform="rotate(110)" style="animation-delay: 1.1s;" />
+            <line class="radiating-line" x1="0" y1="0" x2="0" y2="120" stroke="#8B5CF6" stroke-width="1" transform="rotate(120)" style="animation-delay: 1.2s;" />
+            <line class="radiating-line" x1="0" y1="0" x2="0" y2="120" stroke="#8B5CF6" stroke-width="1" transform="rotate(130)" style="animation-delay: 1.3s;" />
+            <line class="radiating-line" x1="0" y1="0" x2="0" y2="120" stroke="#8B5CF6" stroke-width="1" transform="rotate(140)" style="animation-delay: 1.4s;" />
+            <line class="radiating-line" x1="0" y1="0" x2="0" y2="120" stroke="#8B5CF6" stroke-width="1" transform="rotate(150)" style="animation-delay: 1.5s;" />
+            <line class="radiating-line" x1="0" y1="0" x2="0" y2="120" stroke="#8B5CF6" stroke-width="1" transform="rotate(160)" style="animation-delay: 1.6s;" />
+            <line class="radiating-line" x1="0" y1="0" x2="0" y2="120" stroke="#8B5CF6" stroke-width="1" transform="rotate(170)" style="animation-delay: 1.7s;" />
+            <line class="radiating-line" x1="0" y1="0" x2="0" y2="120" stroke="#8B5CF6" stroke-width="1" transform="rotate(180)" style="animation-delay: 1.8s;" />
+            <line class="radiating-line" x1="0" y1="0" x2="0" y2="120" stroke="#8B5CF6" stroke-width="1" transform="rotate(190)" style="animation-delay: 1.9s;" />
+            <line class="radiating-line" x1="0" y1="0" x2="0" y2="120" stroke="#8B5CF6" stroke-width="1" transform="rotate(200)" style="animation-delay: 2s;" />
+            <line class="radiating-line" x1="0" y1="0" x2="0" y2="120" stroke="#8B5CF6" stroke-width="1" transform="rotate(210)" style="animation-delay: 2.1s;" />
+            <line class="radiating-line" x1="0" y1="0" x2="0" y2="120" stroke="#8B5CF6" stroke-width="1" transform="rotate(220)" style="animation-delay: 2.2s;" />
+            <line class="radiating-line" x1="0" y1="0" x2="0" y2="120" stroke="#8B5CF6" stroke-width="1" transform="rotate(230)" style="animation-delay: 2.3s;" />
+            <line class="radiating-line" x1="0" y1="0" x2="0" y2="120" stroke="#8B5CF6" stroke-width="1" transform="rotate(240)" style="animation-delay: 2.4s;" />
+            <line class="radiating-line" x1="0" y1="0" x2="0" y2="120" stroke="#8B5CF6" stroke-width="1" transform="rotate(250)" style="animation-delay: 2.5s;" />
+            <line class="radiating-line" x1="0" y1="0" x2="0" y2="120" stroke="#8B5CF6" stroke-width="1" transform="rotate(260)" style="animation-delay: 2.6s;" />
+            <line class="radiating-line" x1="0" y1="0" x2="0" y2="120" stroke="#8B5CF6" stroke-width="1" transform="rotate(270)" style="animation-delay: 2.7s;" />
+            <line class="radiating-line" x1="0" y1="0" x2="0" y2="120" stroke="#8B5CF6" stroke-width="1" transform="rotate(280)" style="animation-delay: 2.8s;" />
+            <line class="radiating-line" x1="0" y1="0" x2="0" y2="120" stroke="#8B5CF6" stroke-width="1" transform="rotate(290)" style="animation-delay: 2.9s;" />
+            <line class="radiating-line" x1="0" y1="0" x2="0" y2="120" stroke="#8B5CF6" stroke-width="1" transform="rotate(300)" style="animation-delay: 3s;" />
+            <line class="radiating-line" x1="0" y1="0" x2="0" y2="120" stroke="#8B5CF6" stroke-width="1" transform="rotate(310)" style="animation-delay: 3.1s;" />
+            <line class="radiating-line" x1="0" y1="0" x2="0" y2="120" stroke="#8B5CF6" stroke-width="1" transform="rotate(320)" style="animation-delay: 3.2s;" />
+            <line class="radiating-line" x1="0" y1="0" x2="0" y2="120" stroke="#8B5CF6" stroke-width="1" transform="rotate(330)" style="animation-delay: 3.3s;" />
+            <line class="radiating-line" x1="0" y1="0" x2="0" y2="120" stroke="#8B5CF6" stroke-width="1" transform="rotate(340)" style="animation-delay: 3.4s;" />
+            <line class="radiating-line" x1="0" y1="0" x2="0" y2="120" stroke="#8B5CF6" stroke-width="1" transform="rotate(350)" style="animation-delay: 3.5s;" />
+        </g>
+
+        <!-- PYTH text -->
+        <text x="150" y="160" font-family="Arial" font-size="30" fill="white" text-anchor="middle">PYTH</text>
+    </svg>
+</div>
         <h1>Padibot</h1>
         <h2>Inovasi Pedagang 2025</h2>
         <h3>Cerita panjangnya: Biaya usaha dan transaksi lebih rendah + Keuntungan yang signifikan</h3>
