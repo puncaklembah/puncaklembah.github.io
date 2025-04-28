@@ -839,3 +839,110 @@ body.light-mode .growth-container p {
     .radiating-line {
         animation: drop 3s ease-out infinite;
     }
+
+/* Base styles (from the original code) */
+    .relative {
+        position: relative;
+    }
+    .w-full {
+        width: 100%;
+    }
+    .cursor-default {
+        cursor: default;
+    }
+    .overflow-hidden {
+        overflow: hidden;
+    }
+    .border {
+        border: 1px solid;
+    }
+    .border-b-0 {
+        border-bottom: 0;
+    }
+    .border-beige-100 {
+        border-color: #f5f5dc; /* Assuming beige-100 is a light beige color */
+    }
+    .bg-darkGray {
+        background-color: #2d2d2d; /* Assuming darkGray is a dark shade */
+    }
+    .py-[13px] {
+        padding-top: 13px;
+        padding-bottom: 13px;
+    }
+    .pl-14 {
+        padding-left: 3.5rem; /* 14 * 0.25rem */
+    }
+    .pr-14 {
+        padding-right: 3.5rem; /* 14 * 0.25rem */
+    }
+    .text-base {
+        font-size: 1rem;
+    }
+    .leading-5 {
+        line-height: 1.25rem;
+    }
+    .text-light {
+        color: #f5f5f5; /* Assuming text-light is a light color */
+    }
+    .outline-none {
+        outline: none;
+    }
+    .absolute {
+        position: absolute;
+    }
+    .inset-y-0 {
+        top: 0;
+        bottom: 0;
+    }
+    .left-0 {
+        left: 0;
+    }
+    .flex {
+        display: flex;
+    }
+    .items-center {
+        align-items: center;
+    }
+    .pl-6 {
+        padding-left: 1.5rem; /* 6 * 0.25rem */
+    }
+
+    /* Animation for the search bar container: subtle border color pulse */
+    @keyframes pulseBorder {
+        0% {
+            border-color: #f5f5dc; /* beige-100 */
+            box-shadow: 0 0 5px rgba(245, 245, 220, 0.3);
+        }
+        50% {
+            border-color: #E6DAFE; /* Matching the SVG stroke color */
+            box-shadow: 0 0 10px rgba(230, 218, 254, 0.5);
+        }
+        100% {
+            border-color: #f5f5dc;
+            box-shadow: 0 0 5px rgba(245, 245, 220, 0.3);
+        }
+    }
+
+    .animate-pulse-border {
+        animation: pulseBorder 2s ease-in-out infinite;
+    }
+
+    /* Animation for the magnifying glass icon: subtle bounce */
+    @keyframes bounceIcon {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-3px);
+        }
+    }
+
+    .animate-bounce-icon {
+        animation: bounceIcon 1.5s ease-in-out infinite;
+    }
+
+    /* Hover effect for the search bar */
+    .relative:hover {
+        transform: scale(1.02);
+        transition: transform 0.3s ease-in-out;
+    }
