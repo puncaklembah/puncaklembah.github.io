@@ -12,7 +12,7 @@
 /* ========================================================================= */
 body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #1a1a3d 0%, #2a2a5a 100%); /* Dark gradient for dark mode */
+    background: linear-gradient(135deg, #1a1a3d 0%, #020d33 100%); /* Dark gradient for dark mode */
     color: #e0e0e0;
     min-height: 100vh;
     display: flex;
