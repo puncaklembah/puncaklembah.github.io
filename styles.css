@@ -272,14 +272,14 @@ body.light-mode .checklist li {
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease;
-    background-color: #a855f7;
+    background-color: #7702e6;
     color: #ffffff;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     text-transform: uppercase;
 }
 
 body.light-mode .buttons button {
-    background-color: #a855f7;
+    background-color: #7702e6;
     color: #ffffff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
