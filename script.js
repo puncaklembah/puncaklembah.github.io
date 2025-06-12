@@ -457,3 +457,10 @@ if (document.getElementById('levelTable')) {
         });
     }
 }
+ // Picu efek konfeti
+    confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#ff0000', '#00ff00', '#0000ff', '#ffff00']
+    });
