@@ -149,6 +149,30 @@
         </table>
     </div>
 
+<!-- Market Prices Ticker -->
+<div class="market-prices" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0;">
+    <div class="price-card" style="background: var(--card-bg, #1e1e2d); padding: 15px; border-radius: 10px; text-align: center;">
+        <div style="font-size: 14px; opacity: 0.7;">EURUSD</div>
+        <div id="price-EURUSD" style="font-size: 22px; font-weight: bold;">-</div>
+        <div id="change-EURUSD" style="font-size: 13px;"></div>
+    </div>
+    <div class="price-card" style="background: var(--card-bg, #1e1e2d); padding: 15px; border-radius: 10px; text-align: center;">
+        <div style="font-size: 14px; opacity: 0.7;">XAUUSD</div>
+        <div id="price-XAUUSD" style="font-size: 22px; font-weight: bold;">-</div>
+        <div id="change-XAUUSD" style="font-size: 13px;"></div>
+    </div>
+    <div class="price-card" style="background: var(--card-bg, #1e1e2d); padding: 15px; border-radius: 10px; text-align: center;">
+        <div style="font-size: 14px; opacity: 0.7;">BTC</div>
+        <div id="price-BTC" style="font-size: 22px; font-weight: bold;">-</div>
+        <div id="change-BTC" style="font-size: 13px;"></div>
+    </div>
+    <div class="price-card" style="background: var(--card-bg, #1e1e2d); padding: 15px; border-radius: 10px; text-align: center;">
+        <div style="font-size: 14px; opacity: 0.7;">ETH</div>
+        <div id="price-ETH" style="font-size: 22px; font-weight: bold;">-</div>
+        <div id="change-ETH" style="font-size: 13px;"></div>
+    </div>
+</div>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
 </body>
