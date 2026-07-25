@@ -348,32 +348,71 @@ function initTanggaSaldoEngine() {
   }
 }
 
+/**
+ * Calculates lot min & max based on saldo bracket rules (user-defined):
+ *  $1–19   → 0.01 / 0.01
+ *  $20–29  → 0.01 / 0.02
+ *  $30–49  → 0.01 / 0.03
+ *  $50–99  → 0.02 / 0.04
+ *  $100–199 → 0.05 / 0.10
+ *  $200–499 → 0.10 / 0.20
+ *  $500–999 → 0.20 / 0.40
+ *  $1000–1999 → 0.50 / 1.00
+ *  $2000–4999 → 1.00 / 2.00
+ *  $5000–9999 → 2.00 / 4.00
+ *  $10000+    → 5.00 / 10.00 (scales 10× per decade)
+ */
+function getLotBracket(saldo) {
+  if (saldo < 20)    return { min: 0.01, max: 0.01 };
+  if (saldo < 30)    return { min: 0.01, max: 0.02 };
+  if (saldo < 50)    return { min: 0.01, max: 0.03 };
+  if (saldo < 100)   return { min: 0.02, max: 0.04 };
+  if (saldo < 200)   return { min: 0.05, max: 0.10 };
+  if (saldo < 500)   return { min: 0.10, max: 0.20 };
+  if (saldo < 1000)  return { min: 0.20, max: 0.40 };
+  if (saldo < 2000)  return { min: 0.50, max: 1.00 };
+  if (saldo < 5000)  return { min: 1.00, max: 2.00 };
+  if (saldo < 10000) return { min: 2.00, max: 4.00 };
+  if (saldo < 20000) return { min: 5.00, max: 10.00 };
+  if (saldo < 50000) return { min: 10.00, max: 20.00 };
+  return              { min: 20.00, max: 50.00 };
+}
+
 function generate100TanggaLevels(startCapital = 1.00) {
   const data = [];
   let cap = startCapital;
 
   for (let i = 1; i <= 100; i++) {
-    let vol = 0.01;
-    if (cap >= 1000) vol = Math.floor((cap / 1000) * 10) / 10;
-    else if (cap >= 100) vol = Math.floor((cap / 100) * 10) / 100;
-    else vol = 0.01;
+    const lot = getLotBracket(cap);
 
-    vol = Math.max(0.01, vol);
-
-    // Target step growth
-    const profitTarget = cap * 0.10; // 10% per ladder step
+    // Target step growth: 10% per ladder step
+    const profitTarget = cap * 0.10;
     const ifProfit = cap + profitTarget;
     const ifLoss = Math.max(0, cap - (profitTarget * 0.5));
     const nextLevel = ifProfit;
 
+    // Target pips / points calculation
+    // 500 points (XAUUSD) or 50 pips (FOREX) per trade using lot.max
+    // For XAUUSD: $profit = lot * 100 * points * 0.01  => points = profit / (lot * 1)
+    // Simplified: target 500 pts @ lot.max means USD value
+    const targetPts = 500; // points target
+    const targetPips = 50; // pip target
+    const estimatedUSD_pts = (lot.max * targetPts * 0.01).toFixed(2);  // XAUUSD
+    const estimatedUSD_pips = (lot.max * targetPips * 10 * 0.01).toFixed(2); // FOREX
+
     data.push({
       tingkat: i,
       saldoAwal: cap,
-      volume: vol,
+      lotMin: lot.min,
+      lotMax: lot.max,
       targetProfit: profitTarget,
       ifProfit: ifProfit,
       ifLoss: ifLoss,
-      nextLevel: nextLevel
+      nextLevel: nextLevel,
+      targetPts: targetPts,
+      targetPips: targetPips,
+      estUSD_pts: parseFloat(estimatedUSD_pts),
+      estUSD_pips: parseFloat(estimatedUSD_pips)
     });
 
     cap = nextLevel;
@@ -394,7 +433,18 @@ function renderLevelTable(levels) {
     tr.innerHTML = `
       <td><strong>Tangga ${l.tingkat}</strong></td>
       <td class="val-gold">$${l.saldoAwal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-      <td>${l.volume.toFixed(2)} Lot</td>
+      <td style="white-space:nowrap;">
+        <span style="color:var(--accent-cyan);">${l.lotMin.toFixed(2)}</span>
+        <span style="color:var(--text-muted);"> / </span>
+        <span style="color:var(--accent-gold);">${l.lotMax.toFixed(2)}</span>
+        <small style="color:var(--text-muted);display:block;font-size:0.7rem;">min / maks</small>
+      </td>
+      <td style="white-space:nowrap;">
+        <span class="val-green" style="font-size:0.85rem;">500 pts</span>
+        <span style="color:var(--text-muted);font-size:0.75rem;"> / </span>
+        <span style="color:var(--accent-amber);font-size:0.85rem;">50 pip</span>
+        <small style="color:var(--text-muted);display:block;font-size:0.7rem;">≈$${l.estUSD_pts} (XAU) / $${l.estUSD_pips} (FX)</small>
+      </td>
       <td class="val-green">+$${l.targetProfit.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
       <td class="val-green">$${l.ifProfit.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
       <td class="val-red">$${l.ifLoss.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
