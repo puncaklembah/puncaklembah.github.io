@@ -155,7 +155,7 @@ if (document.getElementById('transactionForm')) {
         const cumulativePL = [];
         let runningTotal = 0;
         transactions.forEach((t, index) => {
-            runningTotal += t.profitLoss || 0; // Jika profitLoss null, tambahkan 0
+            runningTotal += t.profitLoss || 0;
             cumulativePL.push({
                 date: t.date,
                 profitLoss: runningTotal,
@@ -304,42 +304,54 @@ if (document.getElementById('transactionForm')) {
     }
 }
 
-// Logika 100 tingkatan tangga saldo
+// ====================== LOGIKA 100 TINGKATAN TANGGA SALDO ======================
 if (document.getElementById('levelTable')) {
-    // Data statis untuk 100 tingkatan tangga saldo (tanpa koma di definisi)
+    // Data 100 tingkatan (sudah konsisten semua pakai "tingkat")
     const levelData = [
-        { level: 88, initialBalance: 100000.00, volume: 100.00, targetProfitLoss: 10000.00, ifProfit: 110000.00, ifLoss: 90000.00, nextLevelBalance: 110000.00, color: '#e74c3c' },
-        { level: 87, initialBalance: 91000.00, volume: 90.00, targetProfitLoss: 9000.00, ifProfit: 100000.00, ifLoss: 82000.00, nextLevelBalance: 100000.00, color: '#2ecc71' },
-        { level: 86, initialBalance: 82000.00, volume: 80.00, targetProfitLoss: 8000.00, ifProfit: 90000.00, ifLoss: 74000.00, nextLevelBalance: 91000.00, color: '#2ecc71' },
-        { level: 85, initialBalance: 74000.00, volume: 70.00, targetProfitLoss: 7000.00, ifProfit: 81000.00, ifLoss: 67000.00, nextLevelBalance: 82000.00, color: '#2ecc71' },
-        { level: 84, initialBalance: 67000.00, volume: 60.00, targetProfitLoss: 6000.00, ifProfit: 73000.00, ifLoss: 61000.00, nextLevelBalance: 74000.00, color: '#2ecc71' },
-        { level: 83, initialBalance: 61000.00, volume: 60.00, targetProfitLoss: 6000.00, ifProfit: 67000.00, ifLoss: 55000.00, nextLevelBalance: 67000.00, color: '#2ecc71' },
-        { level: 82, initialBalance: 55000.00, volume: 50.00, targetProfitLoss: 5000.00, ifProfit: 60000.00, ifLoss: 50000.00, nextLevelBalance: 61000.00, color: '#2ecc71' },
-        { level: 81, initialBalance: 50000.00, volume: 50.00, targetProfitLoss: 5000.00, ifProfit: 55000.00, ifLoss: 45000.00, nextLevelBalance: 55000.00, color: '#2ecc71' },
-        { level: 80, initialBalance: 45000.00, volume: 40.00, targetProfitLoss: 4000.00, ifProfit: 49000.00, ifLoss: 41000.00, nextLevelBalance: 50000.00, color: '#2ecc71' },
-        { level: 79, initialBalance: 41000.00, volume: 40.00, targetProfitLoss: 4000.00, ifProfit: 45000.00, ifLoss: 37000.00, nextLevelBalance: 45000.00, color: '#2ecc71' },
-        { level: 78, initialBalance: 37000.00, volume: 30.00, targetProfitLoss: 3000.00, ifProfit: 40000.00, ifLoss: 34000.00, nextLevelBalance: 41000.00, color: '#3498db' },
-        { level: 77, initialBalance: 34000.00, volume: 30.00, targetProfitLoss: 3000.00, ifProfit: 37000.00, ifLoss: 31000.00, nextLevelBalance: 37000.00, color: '#3498db' },
-        { level: 76, initialBalance: 31000.00, volume: 30.00, targetProfitLoss: 3000.00, ifProfit: 34000.00, ifLoss: 28000.00, nextLevelBalance: 34000.00, color: '#3498db' },
-        { level: 75, initialBalance: 28000.00, volume: 20.00, targetProfitLoss: 2000.00, ifProfit: 30000.00, ifLoss: 26000.00, nextLevelBalance: 31000.00, color: '#3498db' },
-        { level: 74, initialBalance: 26000.00, volume: 20.00, targetProfitLoss: 2000.00, ifProfit: 28000.00, ifLoss: 24000.00, nextLevelBalance: 28000.00, color: '#3498db' },
-        { level: 73, initialBalance: 24000.00, volume: 20.00, targetProfitLoss: 2000.00, ifProfit: 26000.00, ifLoss: 22000.00, nextLevelBalance: 26000.00, color: '#3498db' },
-        { level: 72, initialBalance: 22000.00, volume: 20.00, targetProfitLoss: 2000.00, ifProfit: 24000.00, ifLoss: 20000.00, nextLevelBalance: 24000.00, color: '#3498db' },
-        { level: 71, initialBalance: 20000.00, volume: 20.00, targetProfitLoss: 2000.00, ifProfit: 22000.00, ifLoss: 18000.00, nextLevelBalance: 22000.00, color: '#3498db' },
-        { level: 70, initialBalance: 18000.00, volume: 10.00, targetProfitLoss: 1000.00, ifProfit: 19000.00, ifLoss: 17000.00, nextLevelBalance: 20000.00, color: '#3498db' },
-        { level: 69, initialBalance: 17000.00, volume: 10.00, targetProfitLoss: 1000.00, ifProfit: 18000.00, ifLoss: 16000.00, nextLevelBalance: 18000.00, color: '#3498db' },
-        { level: 68, initialBalance: 16000.00, volume: 10.00, targetProfitLoss: 1000.00, ifProfit: 17000.00, ifLoss: 15000.00, nextLevelBalance: 17000.00, color: '#3498db' },
-        { level: 67, initialBalance: 15000.00, volume: 10.00, targetProfitLoss: 1000.00, ifProfit: 16000.00, ifLoss: 14000.00, nextLevelBalance: 16000.00, color: '#3498db' },
-        { level: 66, initialBalance: 14000.00, volume: 10.00, targetProfitLoss: 1000.00, ifProfit: 15000.00, ifLoss: 13000.00, nextLevelBalance: 15000.00, color: '#3498db' },
-        { level: 65, initialBalance: 13000.00, volume: 10.00, targetProfitLoss: 1000.00, ifProfit: 14000.00, ifLoss: 12000.00, nextLevelBalance: 14000.00, color: '#3498db' },
-        { level: 64, initialBalance: 12000.00, volume: 10.00, targetProfitLoss: 1000.00, ifProfit: 13000.00, ifLoss: 11000.00, nextLevelBalance: 13000.00, color: '#3498db' },
-        { level: 63, initialBalance: 11000.00, volume: 10.00, targetProfitLoss: 1000.00, ifProfit: 12000.00, ifLoss: 10000.00, nextLevelBalance: 12000.00, color: '#3498db' },
-        { level: 62, initialBalance: 10000.00, volume: 10.00, targetProfitLoss: 1000.00, ifProfit: 11000.00, ifLoss: 9000.00, nextLevelBalance: 11000.00, color: '#3498db' },
-        { level: 61, initialBalance: 9000.00, volume: 9.00, targetProfitLoss: 900.00, ifProfit: 9900.00, ifLoss: 8100.00, nextLevelBalance: 10000.00, color: '#3498db' },
-        { level: 60, initialBalance: 8000.00, volume: 8.00, targetProfitLoss: 800.00, ifProfit: 8800.00, ifLoss: 7200.00, nextLevelBalance: 9000.00, color: '#3498db' },
-        { level: 59, initialBalance: 7000.00, volume: 7.00, targetProfitLoss: 700.00, ifProfit: 7700.00, ifLoss: 6000.00, nextLevelBalance: 8000.00, color: '#3498db' },
-        { level: 58, initialBalance: 6000.00, volume: 6.00, targetProfitLoss: 600.00, ifProfit: 6600.00, ifLoss: 5000.00, nextLevelBalance: 7000.00, color: '#3498db' },
-        { level: 57, initialBalance: 5000.00, volume: 5.00, targetProfitLoss: 500.00, ifProfit: 5500.00, ifLoss: 4000.00, nextLevelBalance: 6000.00, color: '#3498db' },
+        { tingkat: 100, initialBalance: 5700.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 5800.00, ifLoss: 5600.00, nextLevelBalance: 5800.00, color: '#3498db' },
+        { tingkat: 99, initialBalance: 5600.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 5700.00, ifLoss: 5500.00, nextLevelBalance: 5700.00, color: '#3498db' },
+        { tingkat: 98, initialBalance: 5500.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 5600.00, ifLoss: 5400.00, nextLevelBalance: 5600.00, color: '#3498db' },
+        { tingkat: 97, initialBalance: 5400.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 5500.00, ifLoss: 5300.00, nextLevelBalance: 5500.00, color: '#3498db' },
+        { tingkat: 96, initialBalance: 5300.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 5400.00, ifLoss: 5200.00, nextLevelBalance: 5400.00, color: '#3498db' },
+        { tingkat: 95, initialBalance: 5200.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 5300.00, ifLoss: 5100.00, nextLevelBalance: 5300.00, color: '#3498db' },
+        { tingkat: 94, initialBalance: 5100.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 5200.00, ifLoss: 5000.00, nextLevelBalance: 5200.00, color: '#3498db' },
+        { tingkat: 93, initialBalance: 5000.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 5100.00, ifLoss: 4900.00, nextLevelBalance: 5100.00, color: '#3498db' },
+        { tingkat: 92, initialBalance: 4900.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 5000.00, ifLoss: 4800.00, nextLevelBalance: 5000.00, color: '#3498db' },
+        { tingkat: 91, initialBalance: 4800.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 4900.00, ifLoss: 4700.00, nextLevelBalance: 4900.00, color: '#3498db' },
+        { tingkat: 90, initialBalance: 4700.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 4800.00, ifLoss: 4600.00, nextLevelBalance: 4800.00, color: '#3498db' },
+        { tingkat: 89, initialBalance: 4600.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 4700.00, ifLoss: 4500.00, nextLevelBalance: 4700.00, color: '#3498db' },
+        { tingkat: 88, initialBalance: 4500.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 4600.00, ifLoss: 4400.00, nextLevelBalance: 4600.00, color: '#3498db' },
+        { tingkat: 87, initialBalance: 4400.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 4500.00, ifLoss: 4300.00, nextLevelBalance: 4500.00, color: '#3498db' },
+        { tingkat: 86, initialBalance: 4300.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 4400.00, ifLoss: 4200.00, nextLevelBalance: 4400.00, color: '#3498db' },
+        { tingkat: 85, initialBalance: 4200.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 4300.00, ifLoss: 4100.00, nextLevelBalance: 4300.00, color: '#3498db' },
+        { tingkat: 84, initialBalance: 4100.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 4200.00, ifLoss: 4000.00, nextLevelBalance: 4200.00, color: '#3498db' },
+        { tingkat: 83, initialBalance: 4000.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 4100.00, ifLoss: 3900.00, nextLevelBalance: 4100.00, color: '#3498db' },
+        { tingkat: 82, initialBalance: 3900.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 4000.00, ifLoss: 3800.00, nextLevelBalance: 4000.00, color: '#3498db' },
+        { tingkat: 81, initialBalance: 3800.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 3900.00, ifLoss: 3700.00, nextLevelBalance: 3900.00, color: '#3498db' },
+        { tingkat: 80, initialBalance: 3700.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 3800.00, ifLoss: 3600.00, nextLevelBalance: 3800.00, color: '#3498db' },
+        { tingkat: 79, initialBalance: 3600.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 3700.00, ifLoss: 3500.00, nextLevelBalance: 3700.00, color: '#3498db' },
+        { tingkat: 78, initialBalance: 3500.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 3600.00, ifLoss: 3400.00, nextLevelBalance: 3600.00, color: '#3498db' },
+        { tingkat: 77, initialBalance: 3400.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 3500.00, ifLoss: 3300.00, nextLevelBalance: 3500.00, color: '#3498db' },
+        { tingkat: 76, initialBalance: 3300.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 3400.00, ifLoss: 3200.00, nextLevelBalance: 3400.00, color: '#3498db' },
+        { tingkat: 75, initialBalance: 3200.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 3300.00, ifLoss: 3100.00, nextLevelBalance: 3300.00, color: '#3498db' },
+        { tingkat: 74, initialBalance: 3100.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 3200.00, ifLoss: 3000.00, nextLevelBalance: 3200.00, color: '#3498db' },
+        { tingkat: 73, initialBalance: 3000.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 3100.00, ifLoss: 2900.00, nextLevelBalance: 3100.00, color: '#3498db' },
+        { tingkat: 72, initialBalance: 2900.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 3000.00, ifLoss: 2800.00, nextLevelBalance: 3000.00, color: '#3498db' },
+        { tingkat: 71, initialBalance: 2800.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 2900.00, ifLoss: 2700.00, nextLevelBalance: 2900.00, color: '#3498db' },
+        { tingkat: 70, initialBalance: 2700.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 2800.00, ifLoss: 2600.00, nextLevelBalance: 2800.00, color: '#3498db' },
+        { tingkat: 69, initialBalance: 2600.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 2700.00, ifLoss: 2500.00, nextLevelBalance: 2700.00, color: '#3498db' },
+        { tingkat: 68, initialBalance: 2500.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 2600.00, ifLoss: 2400.00, nextLevelBalance: 2600.00, color: '#3498db' },
+        { tingkat: 67, initialBalance: 2400.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 2500.00, ifLoss: 2300.00, nextLevelBalance: 2500.00, color: '#3498db' },
+        { tingkat: 66, initialBalance: 2300.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 2400.00, ifLoss: 2200.00, nextLevelBalance: 2400.00, color: '#3498db' },
+        { tingkat: 65, initialBalance: 2200.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 2300.00, ifLoss: 2100.00, nextLevelBalance: 2300.00, color: '#3498db' },
+        { tingkat: 64, initialBalance: 2100.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 2200.00, ifLoss: 2000.00, nextLevelBalance: 2200.00, color: '#3498db' },
+        { tingkat: 63, initialBalance: 2000.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 2100.00, ifLoss: 1900.00, nextLevelBalance: 2100.00, color: '#3498db' },
+        { tingkat: 62, initialBalance: 1900.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 2000.00, ifLoss: 1800.00, nextLevelBalance: 2000.00, color: '#3498db' },
+        { tingkat: 61, initialBalance: 1800.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 1900.00, ifLoss: 1700.00, nextLevelBalance: 1900.00, color: '#3498db' },
+        { tingkat: 60, initialBalance: 1700.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 1800.00, ifLoss: 1600.00, nextLevelBalance: 1800.00, color: '#3498db' },
+        { tingkat: 59, initialBalance: 1600.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 1700.00, ifLoss: 1500.00, nextLevelBalance: 1700.00, color: '#3498db' },
+        { tingkat: 58, initialBalance: 1500.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 1600.00, ifLoss: 1400.00, nextLevelBalance: 1600.00, color: '#3498db' },
+        { tingkat: 57, initialBalance: 1400.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 1500.00, ifLoss: 1300.00, nextLevelBalance: 1500.00, color: '#3498db' },
         { tingkat: 56, initialBalance: 1300.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 1400.00, ifLoss: 1200.00, nextLevelBalance: 1400.00, color: '#3498db' },
         { tingkat: 55, initialBalance: 1200.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 1300.00, ifLoss: 1100.00, nextLevelBalance: 1300.00, color: '#3498db' },
         { tingkat: 54, initialBalance: 1100.00, volume: 1.00, targetProfitLoss: 100.00, ifProfit: 1200.00, ifLoss: 1000.00, nextLevelBalance: 1200.00, color: '#3498db' },
@@ -398,7 +410,7 @@ if (document.getElementById('levelTable')) {
         { tingkat: 1, initialBalance: 1.00, volume: 0.01, targetProfitLoss: 1.00, ifProfit: 2.00, ifLoss: 0.00, nextLevelBalance: 2.00, color: '#3498db' }
     ];
 
-    // Fungsi untuk mengisi tabel dengan tanda koma
+    // Fungsi untuk mengisi tabel
     function populateLevelTable() {
         const tableBody = document.querySelector("#levelTable tbody");
         if (!tableBody) {
@@ -409,7 +421,7 @@ if (document.getElementById('levelTable')) {
         levelData.forEach(row => {
             const tr = document.createElement('tr');
             tr.innerHTML = `
-                <td>${row.level}</td>
+                <td>${row.tingkat}</td>
                 <td>${row.initialBalance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
                 <td>${row.volume.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
                 <td>${row.targetProfitLoss.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
@@ -424,7 +436,7 @@ if (document.getElementById('levelTable')) {
     // Pastikan tabel terisi saat halaman dimuat
     window.addEventListener('load', populateLevelTable);
 
-    // Grafik dengan level kecil di kiri dan besar di kanan
+    // Grafik Equity
     const ctxEquity = document.getElementById('equityChart')?.getContext('2d');
     if (!ctxEquity) {
         console.error('Canvas #equityChart not found or context not available');
@@ -433,7 +445,7 @@ if (document.getElementById('levelTable')) {
         new Chart(ctxEquity, {
             type: 'line',
             data: {
-                labels: reversedLevelData.map(row => `Level ${row.level}`),
+                labels: reversedLevelData.map(row => `Tingkat ${row.tingkat}`),
                 datasets: [{
                     label: 'Saldo Awal Perdagangan ($)',
                     data: reversedLevelData.map(row => row.initialBalance),
@@ -450,17 +462,18 @@ if (document.getElementById('levelTable')) {
                 maintainAspectRatio: false,
                 scales: {
                     y: { beginAtZero: true, title: { display: true, text: 'Saldo Awal ($)' } },
-                    x: { title: { display: true, text: 'Level' } }
+                    x: { title: { display: true, text: 'Tingkat' } }
                 },
                 plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false } }
             }
         });
     }
 }
- // Picu efek konfeti
-    confetti({
-        particleCount: 100,
-        spread: 70,
-        origin: { y: 0.6 },
-        colors: ['#ff0000', '#00ff00', '#0000ff', '#ffff00']
-    });
+
+// Picu efek konfeti
+confetti({
+    particleCount: 100,
+    spread: 70,
+    origin: { y: 0.6 },
+    colors: ['#ff0000', '#00ff00', '#0000ff', '#ffff00']
+});
