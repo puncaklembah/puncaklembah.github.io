@@ -3,304 +3,592 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Puncak Lembah - Perjalanan Perdagangan Metode Grafik Tabranij (GT Method)</title>
-  <meta name="description" content="Platform Perjalanan Perdagangan berbasis Metode Grafik Tabranij (GT Method) dengan sistem matematika Quad-Bar dan Kaizen berkelanjutan.">
+  <title>Puncak Lembah - Platform Perdagangan Metode GT & Kebun Saldo</title>
+  <meta name="description" content="Platform Perdagangan Terpadu Metode Grafik Tabranij (GT Method), Tangga Kebun Saldo Dolar, Dashboard Jurnal Trading, dan EA Algo MQL5.">
   <link rel="icon" type="image/svg+xml" href="dunia.svg">
   <link rel="stylesheet" href="styles.css">
+  
+  <!-- External Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
 </head>
 <body>
 
-  <!-- Sticky Glassmorphic Navbar -->
-  <nav class="navbar">
-    <a href="index.html" class="nav-brand">
-      <img src="dunia.svg" class="nav-brand-icon" alt="Puncak Lembah Logo" style="width:44px;height:44px;border-radius:50%;object-fit:cover;">
-      Puncak <span>Lembah</span>
-    </a>
+  <!-- APP CONTAINER -->
+  <div class="app-container">
 
-    <ul class="nav-menu" id="navMenu">
-      <li><a href="index.html" class="nav-link active">Home</a></li>
-      <li><a href="metode-gt.html" class="nav-link">Metode GT</a></li>
-      <li><a href="tanggasaldo.html" class="nav-link">Tangga Saldo</a></li>
-      <li><a href="dashboard.html" class="nav-link">Dashboard & Jurnal</a></li>
-      <li><a href="kaizen.html" class="nav-link">Jurnal Kaizen</a></li>
-      <li><a href="ea-gt.html" class="nav-link">EA GT Algo</a></li>
-    </ul>
-
-    <div class="nav-controls">
-      <button class="btn-icon" id="themeToggleBtn" title="Toggle Theme" aria-label="Toggle Theme">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="12" cy="12" r="5"></circle>
-          <line x1="12" y1="1" x2="12" y2="3"></line>
-          <line x1="12" y1="21" x2="12" y2="23"></line>
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-          <line x1="1" y1="12" x2="3" y2="12"></line>
-          <line x1="21" y1="12" x2="23" y2="12"></line>
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-        </svg>
-      </button>
-      <button class="btn-icon mobile-toggle" id="mobileToggleBtn" title="Open Menu" aria-label="Open Menu">
-        <svg width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-      </button>
-    </div>
-  </nav>
-
-  <!-- Main Wrapper -->
-  <main class="main-wrapper">
-    
-    <!-- Hero Section -->
-    <section class="hero-section container">
-      <div class="badge-kaizen">✨ Continuous Improvement & Kaizen Platform</div>
-      
-      <!-- Hero Globe Logo - dunia.svg -->
-      <div class="hero-logo-wrapper">
-        <div class="dunia-globe-container">
-          <img src="dunia.svg" class="dunia-globe" alt="Puncak Lembah - Globe Dunia" />
-          <div class="globe-orbit-ring globe-orbit-ring-1"></div>
-          <div class="globe-orbit-ring globe-orbit-ring-2"></div>
-        </div>
-      </div>
-
-      <h1 class="hero-title">Perjalanan Perdagangan<br>Metode Grafik Tabranij (GT)</h1>
-      <p class="hero-subtitle">
-        Sistem ekuitas matematika terstruktur dengan geometri Quad-Bar, kalkulasi level pasti, serta peta Tangga Saldo Dolar yang di-Kaizen secara bertahap untuk konsistensi profit jangka panjang.
-      </p>
-
-      <div class="btn-group">
-        <a href="dashboard.html" class="btn-primary">
-          🚀 Buka Dashboard Trading
-        </a>
-        <a href="metode-gt.html" class="btn-secondary">
-          📐 Pelajari Kalkulasi GT
-        </a>
-        <a href="tanggasaldo.html" class="btn-secondary">
-          📈 Lihat Tangga Saldo
-        </a>
-      </div>
-    </section>
-
-    <!-- Live Market Prices Ticker Container -->
-    <section class="container">
-      <div class="ticker-strip">
-        <div class="ticker-card">
-          <div>
-            <div style="font-size: 0.8rem; color: var(--text-muted);">SYMBOL</div>
-            <strong>BTC/USD</strong>
-          </div>
-          <div style="text-align: right;">
-            <div class="val-gold">$64,250.00</div>
-            <small class="val-green">+2.4%</small>
-          </div>
-        </div>
-
-        <div class="ticker-card">
-          <div>
-            <div style="font-size: 0.8rem; color: var(--text-muted);">SYMBOL</div>
-            <strong>XAU/USD (Gold)</strong>
-          </div>
-          <div style="text-align: right;">
-            <div class="val-gold">$2,385.50</div>
-            <small class="val-green">+0.8%</small>
-          </div>
-        </div>
-
-        <div class="ticker-card">
-          <div>
-            <div style="font-size: 0.8rem; color: var(--text-muted);">SYMBOL</div>
-            <strong>EUR/USD</strong>
-          </div>
-          <div style="text-align: right;">
-            <div class="val-gold">1.08520</div>
-            <small class="val-green">+0.15%</small>
-          </div>
-        </div>
-
-        <div class="ticker-card">
-          <div>
-            <div style="font-size: 0.8rem; color: var(--text-muted);">SYSTEM STATUS</div>
-            <strong class="val-green">EA GT ACTIVE</strong>
-          </div>
-          <div style="text-align: right;">
-            <div class="val-gold">v0.01 Professional</div>
-            <small style="color: var(--accent-cyan);">Kebun Saldo</small>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4 Pillar Cards Section -->
-    <section class="container">
-      <h2 style="text-align: center; margin-bottom: 2rem;">Empat Pilar Utama Metode GT</h2>
-      <div class="grid-3">
+    <!-- 1. STICKY TOP NAVBAR -->
+    <header class="top-navbar">
+      <div class="nav-left">
+        <button class="sidebar-toggle-btn" id="sidebarToggleBtn" title="Toggle Sidebar">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
         
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title">
-              <span style="font-size: 1.5rem;">📊</span> Quad-Bar Geometry
-            </div>
-          </div>
-          <p style="color: var(--text-secondary); font-size: 0.95rem;">
-            Analisis sinkronisasi durasi pasar melalui 4 baris waktu (GT Live, GT1, GT2, GT3) untuk membaca pergerakan harga secara objektif tanpa indikator lagging.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title">
-              <span style="font-size: 1.5rem;">📐</span> Matematika Level Inti
-            </div>
-          </div>
-          <p style="color: var(--text-secondary); font-size: 0.95rem;">
-            Penetapan 8 garis matematis kunci: <em>Tinggi, Rendah, Atas, Bawah, Awal, Neto, Inti, dan Jangkauan</em> sebagai komando titik eksekusi dan keamanan modal.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title">
-              <span style="font-size: 1.5rem;">📶</span> Tangga Saldo Dolar
-            </div>
-          </div>
-          <p style="color: var(--text-secondary); font-size: 0.95rem;">
-            Peta eskalasi 100 tingkatan modal dari skala mikro hingga target $100,000 USD dengan manajemen volume lot terukur dan kontrol Stop Out presisi.
-          </p>
-        </div>
-
+        <a href="#home" class="nav-brand">
+          <img src="dunia.svg" class="nav-brand-icon" alt="Puncak Lembah Logo">
+          Puncak <span>Lembah</span>
+        </a>
       </div>
-    </section>
 
-    <!-- Live Interactive GT Level Calculator Preview -->
-    <section class="container" style="margin-top: 2rem;">
-      <div class="card">
-        <div class="card-header">
-          <div class="card-title">
-            <span>⚡</span> Kalkulator Level GT (Live Preview)
-          </div>
-          <a href="metode-gt.html" style="font-size: 0.9rem; color: var(--accent-gold);">Lihat Selengkapnya &rarr;</a>
-        </div>
-        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem;">
-          Masukkan harga Open, High, Low, Close untuk menghitung level pasti Metode Grafik Tabranij secara otomatis:
-        </p>
+      <!-- Quick Top Links -->
+      <ul class="top-nav-links">
+        <li><a href="#home" class="top-nav-link active">Home</a></li>
+        <li><a href="#metode" class="top-nav-link">Metode GT</a></li>
+        <li><a href="#tangga" class="top-nav-link">Kebun Saldo</a></li>
+        <li><a href="#dashboard" class="top-nav-link">Dashboard</a></li>
+        <li><a href="#kaizen" class="top-nav-link">Kaizen</a></li>
+        <li><a href="#ea" class="top-nav-link">EA Algo</a></li>
+      </ul>
 
-        <form id="gtCalcForm">
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem;">
-            <div class="form-group">
-              <label class="form-label" for="gtOpen">Open (Awal)</label>
-              <input type="number" step="0.0001" id="gtOpen" class="form-input" value="64000.00" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="gtHigh">High (Tinggi)</label>
-              <input type="number" step="0.0001" id="gtHigh" class="form-input" value="64900.00" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="gtLow">Low (Rendah)</label>
-              <input type="number" step="0.0001" id="gtLow" class="form-input" value="63800.00" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="gtClose">Close (Inti)</label>
-              <input type="number" step="0.0001" id="gtClose" class="form-input" value="64600.00" required>
-            </div>
-          </div>
-
-          <div style="text-align: right; margin-top: 1rem;">
-            <button type="submit" class="btn-primary" style="padding: 10px 24px; font-size: 0.9rem;">
-              🧮 Hitung Level GT
-            </button>
-          </div>
-        </form>
-
-        <div class="gt-level-grid" style="margin-top: 1.5rem;">
-          <div class="gt-level-badge level-tinggi">
-            <div class="gt-level-name">Tinggi (High)</div>
-            <div class="gt-level-val" id="resTinggi">64900.00</div>
-          </div>
-          <div class="gt-level-badge level-atas">
-            <div class="gt-level-name">Atas (Body High)</div>
-            <div class="gt-level-val" id="resAtas">64600.00</div>
-          </div>
-          <div class="gt-level-badge level-awal">
-            <div class="gt-level-name">Awal (Open)</div>
-            <div class="gt-level-val" id="resAwal">64000.00</div>
-          </div>
-          <div class="gt-level-badge level-inti">
-            <div class="gt-level-name">Inti (Close)</div>
-            <div class="gt-level-val" id="resInti">64600.00</div>
-          </div>
-          <div class="gt-level-badge level-bawah">
-            <div class="gt-level-name">Bawah (Body Low)</div>
-            <div class="gt-level-val" id="resBawah">64000.00</div>
-          </div>
-          <div class="gt-level-badge level-rendah">
-            <div class="gt-level-name">Rendah (Low)</div>
-            <div class="gt-level-val" id="resRendah">63800.00</div>
-          </div>
-          <div class="gt-level-badge">
-            <div class="gt-level-name">Neto</div>
-            <div class="gt-level-val" id="resNeto">600.00</div>
-          </div>
-          <div class="gt-level-badge">
-            <div class="gt-level-name">Jangkauan (Range)</div>
-            <div class="gt-level-val" id="resJangkauan">1100.00</div>
-          </div>
-        </div>
-
-        <div style="margin-top: 1.5rem;">
-          <canvas id="gtCandleCanvas" width="800" height="220" style="width: 100%; height: 220px; background: rgba(10,14,23,0.9); border-radius: var(--radius-sm);"></canvas>
+      <div class="nav-right">
+        <div class="market-clock" id="marketClock">
+          <span class="clock-dot"></span> 00:00:00 WIB
         </div>
       </div>
-    </section>
+    </header>
 
-    <!-- Kaizen Progression Roadmap Section -->
-    <section class="container" style="margin-top: 3rem;">
-      <h2 style="text-align: center; margin-bottom: 0.5rem;">Peta Jalan Kaizen (Continuous Improvement)</h2>
-      <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem;">
-        Peningkatan berkelanjutan aturan perdagangan & algoritma EA Grafik Tabranij secara bertahap.
-      </p>
+    <!-- 2. MAIN BODY (SIDEBAR + CONTENT) -->
+    <div class="app-body">
 
-      <div class="timeline">
-        <div class="timeline-item">
-          <div style="font-weight: 700; color: var(--accent-gold);">Fase 1: Kaizen Dasar (v0.01) — Juli 2026</div>
-          <p style="color: var(--text-secondary); font-size: 0.95rem;">
-            Penyusunan Quad-Bar Geometry MQL5 dashboard, perancangan 8 level matematika pasar, dan pembuatan tangga saldo awal.
-          </p>
+      <!-- LEFT SIDEBAR -->
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-top">
+          <ul class="sidebar-menu">
+            <li class="sidebar-category">Utama</li>
+            <li class="sidebar-item">
+              <a href="#home" class="sidebar-link active">
+                <span class="sidebar-icon">🏠</span> Home Platform
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a href="#dashboard" class="sidebar-link">
+                <span class="sidebar-icon">📊</span> Dashboard & Jurnal
+              </a>
+            </li>
+
+            <li class="sidebar-category">Analisis & Strategi</li>
+            <li class="sidebar-item">
+              <a href="#metode" class="sidebar-link">
+                <span class="sidebar-icon">📐</span> Metode GT Quad-Bar
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a href="#tangga" class="sidebar-link">
+                <span class="sidebar-icon">📈</span> Tangga Kebun Saldo
+              </a>
+            </li>
+
+            <li class="sidebar-category">Management & EA</li>
+            <li class="sidebar-item">
+              <a href="#kaizen" class="sidebar-link">
+                <span class="sidebar-icon">✅</span> Jurnal Kaizen
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a href="#ea" class="sidebar-link">
+                <span class="sidebar-icon">🤖</span> EA GT Algo MQL5
+              </a>
+            </li>
+
+            <li class="sidebar-category">Tools & Kalkulator</li>
+            <li class="sidebar-item">
+              <a href="#tools" class="sidebar-link">
+                <span class="sidebar-icon">🧮</span> Risk & Position Sizer
+              </a>
+            </li>
+          </ul>
         </div>
 
-        <div class="timeline-item">
-          <div style="font-weight: 700; color: var(--accent-cyan);">Fase 2: Kaizen Eksekusi (v1.00) — Dalam Pengembangan</div>
-          <p style="color: var(--text-secondary); font-size: 0.95rem;">
-            Integrasi jurnal trading lokal otomatis, analisis Win Rate real-time, penyempurnaan Martingale multiplier & Risk Management per instrumen.
-          </p>
+        <!-- Sidebar Footer Author Badge -->
+        <div class="sidebar-footer">
+          <div class="author-badge">
+            <img src="dunia.svg" class="author-avatar" alt="Mochamad Tabrani">
+            <div class="author-info">
+              <div class="author-name">MOCHAMAD TABRANI</div>
+              <div class="author-role">Kebun Saldo Founder</div>
+            </div>
+          </div>
         </div>
+      </aside>
 
-        <div class="timeline-item">
-          <div style="font-weight: 700; color: var(--accent-purple);">Fase 3: Kaizen Otomatisasi (v2.00) — Target Masa Depan</div>
-          <p style="color: var(--text-secondary); font-size: 0.95rem;">
-            Sinkronisasi sinyal MQL5 cloud, webhook alert, dan pemantauan perlindungan ekuitas penuh untuk target 1000% APR.
+      <!-- CONTENT AREA -->
+      <main class="content-area" id="contentArea">
+
+        <!-- ========================================================================= -->
+        <!-- VIEW 1: HOME PLATFORM                                                     -->
+        <!-- ========================================================================= -->
+        <section class="spa-view active-view" id="view-home">
+          <div class="hero-section">
+            <div class="badge-kaizen">✨ Continuous Improvement & Kaizen Platform</div>
+            
+            <div class="hero-globe-container">
+              <img src="dunia.svg" class="hero-globe-img" alt="Puncak Lembah Globe Logo">
+              <div class="orbit-ring orbit-1"></div>
+              <div class="orbit-ring orbit-2"></div>
+            </div>
+
+            <h1 class="hero-title">Perjalanan Perdagangan<br>Metode Grafik Tabranij (GT)</h1>
+            <p class="hero-subtitle">
+              Sistem ekuitas matematika terstruktur dengan geometri Quad-Bar, kalkulasi level pasti, serta peta Tangga Kebun Saldo Dolar yang di-Kaizen secara bertahap untuk konsistensi profit jangka panjang.
+            </p>
+
+            <div class="btn-group">
+              <a href="#dashboard" class="btn-primary">
+                🚀 Buka Dashboard Trading
+              </a>
+              <a href="#metode" class="btn-secondary">
+                📐 Pelajari Kalkulasi GT
+              </a>
+              <a href="#tangga" class="btn-secondary">
+                📈 Lihat Kebun Saldo
+              </a>
+            </div>
+          </div>
+
+          <!-- Feature Cards Grid -->
+          <div class="grid-3" style="margin-top: 2rem;">
+            <div class="card">
+              <div class="card-title"><span>📐</span> Geometri Quad-Bar</div>
+              <p style="color: var(--text-secondary); margin-top: 0.5rem; font-size: 0.95rem;">
+                Analisis 4 candlestick berurutan (GT Live, GT1, GT2, GT3) untuk menentukan arah harga dengan probabilitas tinggi.
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="card-title"><span>📈</span> Tangga Kebun Saldo</div>
+              <p style="color: var(--text-secondary); margin-top: 0.5rem; font-size: 0.95rem;">
+                Peta 100 level akumulasi modal dari atas ke bawah dengan aturan lot ketat & estimasi target 500 poin.
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="card-title"><span>🤖</span> EA GT MQL5 Algo</div>
+              <p style="color: var(--text-secondary); margin-top: 0.5rem; font-size: 0.95rem;">
+                Eksekusi otomatis berbasis algoritma GT dengan 4 pilihan visual dashboard untuk MetaTrader 5.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- VIEW 2: METODE GT                                                         -->
+        <!-- ========================================================================= -->
+        <section class="spa-view" id="view-metode">
+          <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem;">Metode Grafik Tabranij (GT Method)</h1>
+          <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+            Konsep matematika pasar Quad-Bar Geometry dan kalkulasi 8 level komando harga pasti.
           </p>
-        </div>
-      </div>
-    </section>
 
-  </main>
+          <div class="grid-2">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title"><span>📐</span> Konsep Quad-Bar Geometry</div>
+              </div>
+              <ul style="margin-left: 1.2rem; color: var(--text-secondary); line-height: 1.8;">
+                <li><strong>GT Live (Bar 0)</strong>: Candlestick aktif real-time tempat eksekusi.</li>
+                <li><strong>GT 1 (Bar -1)</strong>: Candlestick konfirmator tren jarak pendek.</li>
+                <li><strong>GT 2 (Bar -2)</strong>: Bar histori kedua sebagai zona support/resistance.</li>
+                <li><strong>GT 3 (Bar -3)</strong>: Bar acuan arah pergerakan besar.</li>
+              </ul>
+            </div>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="metode-gt.html">Metode GT</a>
-      <a href="tanggasaldo.html">Tangga Saldo</a>
-      <a href="dashboard.html">Dashboard</a>
-      <a href="kaizen.html">Kaizen</a>
-      <a href="https://www.mql5.com/en/signals/2379962" target="_blank" rel="noopener">MQL5 Signal</a>
-      <a href="https://api.whatsapp.com/send/?phone=628999587888" target="_blank" rel="noopener">WhatsApp Support</a>
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title"><span>🧮</span> Rumus 8 Level Matematika GT</div>
+              </div>
+              <div style="font-family: var(--font-mono); color: var(--accent-lime); line-height: 1.8; font-size: 0.9rem;">
+                <div>1. <strong>Tinggi</strong> = High price bar</div>
+                <div>2. <strong>Rendah</strong> = Low price bar</div>
+                <div>3. <strong>Atas</strong> = MathMax(Open, Close)</div>
+                <div>4. <strong>Bawah</strong> = MathMin(Open, Close)</div>
+                <div>5. <strong>Awal</strong> = Open price bar</div>
+                <div>6. <strong>Neto</strong> = MathAbs(Close - Open)</div>
+                <div>7. <strong>Inti</strong> = Close price bar</div>
+                <div>8. <strong>Jangkauan</strong> = High - Low</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- GT Level Calculator -->
+          <div class="card" style="margin-top: 1.5rem;">
+            <div class="card-header">
+              <div class="card-title"><span>⚡</span> Kalkulator Level GT & Visualizer</div>
+            </div>
+
+            <form id="gtCalcForm">
+              <div class="grid-4">
+                <div class="form-group">
+                  <label class="form-label" for="gtOpen">Harga Open (Awal)</label>
+                  <input type="number" step="0.0001" id="gtOpen" class="form-input" value="1.0850" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="gtHigh">Harga High (Tinggi)</label>
+                  <input type="number" step="0.0001" id="gtHigh" class="form-input" value="1.0890" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="gtLow">Harga Low (Rendah)</label>
+                  <input type="number" step="0.0001" id="gtLow" class="form-input" value="1.0820" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="gtClose">Harga Close (Inti)</label>
+                  <input type="number" step="0.0001" id="gtClose" class="form-input" value="1.0875" required>
+                </div>
+              </div>
+
+              <button type="submit" class="btn-primary" style="margin-top: 0.5rem;">
+                🧮 Hitung Level GT
+              </button>
+            </form>
+
+            <div class="grid-4" style="margin-top: 1.5rem;">
+              <div class="gt-metric-card"><div class="gt-metric-title">Tinggi</div><div class="gt-metric-value" id="resTinggi">1.0890</div></div>
+              <div class="gt-metric-card"><div class="gt-metric-title">Atas</div><div class="gt-metric-value" id="resAtas">1.0875</div></div>
+              <div class="gt-metric-card"><div class="gt-metric-title">Awal</div><div class="gt-metric-value" id="resAwal">1.0850</div></div>
+              <div class="gt-metric-card"><div class="gt-metric-title">Inti</div><div class="gt-metric-value" id="resInti">1.0875</div></div>
+              <div class="gt-metric-card"><div class="gt-metric-title">Bawah</div><div class="gt-metric-value" id="resBawah">1.0850</div></div>
+              <div class="gt-metric-card"><div class="gt-metric-title">Rendah</div><div class="gt-metric-value" id="resRendah">1.0820</div></div>
+              <div class="gt-metric-card"><div class="gt-metric-title">Neto</div><div class="gt-metric-value" id="resNeto">0.0025</div></div>
+              <div class="gt-metric-card"><div class="gt-metric-title">Jangkauan</div><div class="gt-metric-value" id="resJangkauan">0.0070</div></div>
+            </div>
+
+            <div style="margin-top: 1.5rem;">
+              <h4 style="margin-bottom: 0.5rem;">Plot Visual Line Levels Canvas:</h4>
+              <canvas id="gtCandleCanvas" width="900" height="260" style="width: 100%; height: 260px; background: rgba(3,7,18,0.9); border-radius: var(--radius-sm); border: 1px solid var(--border-color);"></canvas>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- VIEW 3: TANGGA KEBUN SALDO                                                -->
+        <!-- ========================================================================= -->
+        <section class="spa-view" id="view-tangga">
+          <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem;">Tangga Kebun Saldo (100 Level)</h1>
+          <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+            Matriks eskalasi saldo 100 level (dari atas ke bawah: 100 s/d 1) dengan pembatasan lot volume ketat dan estimasi target 500 Pts / 50 Pip.
+          </p>
+
+          <div class="card">
+            <div class="table-responsive">
+              <table class="table-gt">
+                <thead>
+                  <tr>
+                    <th>Level Tangga</th>
+                    <th>Target Saldo</th>
+                    <th>Volume Lot (Min - Maks)</th>
+                    <th>Target 500 Pts / 50 Pip</th>
+                    <th>Status Kaizen</th>
+                  </tr>
+                </thead>
+                <tbody id="tanggaSaldoBody">
+                  <!-- Rendered dynamically via app.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- VIEW 4: DASHBOARD & JURNAL                                                -->
+        <!-- ========================================================================= -->
+        <section class="spa-view" id="view-dashboard">
+          <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem;">Dashboard & Jurnal Trading GT</h1>
+          <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+            Pencatatan dan evaluasi otomatis transaksi perdagangan berdasarkan Sinyal Metode GT.
+          </p>
+
+          <!-- KPI Summary Grid -->
+          <div class="grid-4">
+            <div class="gt-metric-card">
+              <div class="gt-metric-title">Total Transaksi</div>
+              <div class="gt-metric-value" id="totalTrades">0</div>
+            </div>
+            <div class="gt-metric-card">
+              <div class="gt-metric-title">Kumulatif Profit / Loss</div>
+              <div class="gt-metric-value" id="totalPL" style="color: var(--color-success);">0.00 USD</div>
+            </div>
+            <div class="gt-metric-card">
+              <div class="gt-metric-title">Rata-rata P/L per Trade</div>
+              <div class="gt-metric-value" id="avgPL">0.00 USD</div>
+            </div>
+            <div class="gt-metric-card">
+              <div class="gt-metric-title">Win Rate (%)</div>
+              <div class="gt-metric-value" id="winRateVal">0.0%</div>
+            </div>
+          </div>
+
+          <!-- Main Layout: Form + Chart -->
+          <div class="grid-2" style="margin-top: 1.5rem;">
+            <!-- New Trade Form -->
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title"><span>📝</span> Tambah Transaksi Baru</div>
+              </div>
+
+              <form id="transactionForm">
+                <div class="form-group">
+                  <label class="form-label" for="asset">Simbol Instrumen</label>
+                  <select id="asset" class="form-select" required>
+                    <option value="BTCUSD">BTCUSD (Bitcoin)</option>
+                    <option value="XAUUSD">XAUUSD (Gold)</option>
+                    <option value="EURUSD">EURUSD (Forex)</option>
+                    <option value="ETHUSD">ETHUSD (Ethereum)</option>
+                  </select>
+                </div>
+
+                <div class="grid-2">
+                  <div class="form-group">
+                    <label class="form-label" for="type">Posisi</label>
+                    <select id="type" class="form-select" required>
+                      <option value="buy">BUY (Beli)</option>
+                      <option value="sell">SELL (Jual)</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="amount">Ukuran Volume (Lot)</label>
+                    <input type="number" step="0.01" min="0.01" id="amount" class="form-input" value="0.01" required>
+                  </div>
+                </div>
+
+                <div class="grid-2">
+                  <div class="form-group">
+                    <label class="form-label" for="entry">Harga Entry</label>
+                    <input type="number" step="0.00001" id="entry" class="form-input" placeholder="64200.00" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="exit">Harga Exit</label>
+                    <input type="number" step="0.00001" id="exit" class="form-input" placeholder="64800.00">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="notes">Catatan Strategy GT</label>
+                  <input type="text" id="notes" class="form-input" placeholder="Breakout GT Live Bar 0">
+                </div>
+
+                <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
+                  💾 Simpan ke Jurnal
+                </button>
+              </form>
+            </div>
+
+            <!-- Equity Growth Chart -->
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title"><span>📈</span> Grafik Pertumbuhan Ekuitas</div>
+              </div>
+              <div style="height: 320px; width: 100%;">
+                <canvas id="transactionChart"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <!-- Trade History Table -->
+          <div class="card" style="margin-top: 1.5rem;">
+            <div class="card-header">
+              <div class="card-title"><span>📋</span> Riwayat Jurnal</div>
+              <button id="resetButton" class="btn-secondary" style="padding: 6px 14px; font-size: 0.8rem; color: var(--color-danger); border-color: var(--color-danger);">
+                🗑️ Reset Jurnal
+              </button>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table-gt">
+                <thead>
+                  <tr>
+                    <th>Waktu</th>
+                    <th>Simbol</th>
+                    <th>Posisi</th>
+                    <th>Lot</th>
+                    <th>Entry</th>
+                    <th>Exit</th>
+                    <th>Profit / Loss</th>
+                    <th>Catatan</th>
+                  </tr>
+                </thead>
+                <tbody id="transactionBody">
+                  <!-- Rendered via app.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- TradingView Widget Card -->
+          <div class="card" style="margin-top: 1.5rem;">
+            <div class="card-header">
+              <div class="card-title"><span>📊</span> Live Market Chart (TradingView)</div>
+            </div>
+            <div style="height: 480px; width: 100%;">
+              <div id="tradingview_chart" style="height:100%;width:100%"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- VIEW 5: JURNAL KAIZEN                                                     -->
+        <!-- ========================================================================= -->
+        <section class="spa-view" id="view-kaizen">
+          <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem;">Jurnal Kaizen & Kedisiplinan</h1>
+          <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+            Filosofi perbaikan bertahap untuk perdagangan yang tenang dan terukur.
+          </p>
+
+          <div class="card" style="border-left: 4px solid var(--accent-cyan);">
+            <h3 style="color: var(--accent-cyan); margin-bottom: 0.5rem;">Prinsip Perdagangan (MOCHAMAD TABRANI)</h3>
+            <p style="font-size: 1.1rem; font-style: italic; color: var(--text-primary);">
+              "Untuk menjadi bahagia dalam trading, Anda harus menghilangkan dua hal: Ketakutan akan masa depan yang buruk dan kenangan akan masa lalu yang buruk."
+            </p>
+          </div>
+
+          <!-- Checklist -->
+          <div class="card" style="margin-top: 1.5rem;">
+            <div class="card-header">
+              <div class="card-title"><span>✅</span> Checklist Kedisiplinan Eksekusi Harian</div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
+              <label style="display: flex; align-items: center; gap: 12px; font-size: 0.98rem; cursor: pointer;">
+                <input type="checkbox" id="rule1" class="kaizen-check" style="width: 18px; height: 18px; accent-color: var(--accent-cyan);">
+                <span>1. Periksa countdown durasi GT Live (H1) sebelum order.</span>
+              </label>
+              <label style="display: flex; align-items: center; gap: 12px; font-size: 0.98rem; cursor: pointer;">
+                <input type="checkbox" id="rule2" class="kaizen-check" style="width: 18px; height: 18px; accent-color: var(--accent-cyan);">
+                <span>2. Konfirmasi tren berdasarkan alignment Quad-Bar (GT3, GT2, GT1).</span>
+              </label>
+              <label style="display: flex; align-items: center; gap: 12px; font-size: 0.98rem; cursor: pointer;">
+                <input type="checkbox" id="rule3" class="kaizen-check" style="width: 18px; height: 18px; accent-color: var(--accent-cyan);">
+                <span>3. Tetapkan lot awal secara ketat sesuai tingkat Tangga Saldo.</span>
+              </label>
+              <label style="display: flex; align-items: center; gap: 12px; font-size: 0.98rem; cursor: pointer;">
+                <input type="checkbox" id="rule4" class="kaizen-check" style="width: 18px; height: 18px; accent-color: var(--accent-cyan);">
+                <span>4. Batasi maksimal iterasi Martingale (Maksimal 5 langkah).</span>
+              </label>
+              <label style="display: flex; align-items: center; gap: 12px; font-size: 0.98rem; cursor: pointer;">
+                <input type="checkbox" id="rule5" class="kaizen-check" style="width: 18px; height: 18px; accent-color: var(--accent-cyan);">
+                <span>5. Catat setiap transaksi yang selesai ke Dashboard Jurnal.</span>
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- VIEW 6: EA GT ALGO                                                        -->
+        <!-- ========================================================================= -->
+        <section class="spa-view" id="view-ea">
+          <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem;">EA GT Trading — MetaTrader 5</h1>
+          <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+            Robot Trading MQL5 beroperasi berdasarkan Sinyal GT Besar (Komando Profit & Keamanan).
+          </p>
+
+          <div class="grid-3">
+            <div class="card">
+              <div class="card-title" style="color: var(--accent-amber);">⚙️ Versi Algoritma</div>
+              <div style="font-size: 1.3rem; font-weight: 700; margin-top: 0.4rem;">v0.01 Professional</div>
+              <small style="color: var(--text-muted);">Grafik Tabranij MQL5</small>
+            </div>
+            <div class="card">
+              <div class="card-title" style="color: var(--accent-cyan);">👤 Pengembang</div>
+              <div style="font-size: 1.3rem; font-weight: 700; margin-top: 0.4rem;">MOCHAMAD TABRANI</div>
+              <small style="color: var(--text-muted);">Kebun Saldo</small>
+            </div>
+            <div class="card">
+              <div class="card-title" style="color: var(--color-success);">🌐 Sinyal MQL5</div>
+              <div style="font-size: 1.3rem; font-weight: 700; margin-top: 0.4rem;">Active Signal</div>
+              <a href="https://www.mql5.com/en/signals/2379962" target="_blank" rel="noopener" style="font-size: 0.85rem;">Lihat Performa MQL5 &rarr;</a>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top: 1.5rem;">
+            <div class="card-header">
+              <div class="card-title"><span>🎨</span> Presets UI Dashboard MetaTrader 5</div>
+            </div>
+            <p style="color: var(--text-secondary);">
+              EA GT memiliki 4 pilihan tema antarmuka langsung di chart MT5:
+            </p>
+            <ul style="margin: 1rem 0 1.5rem 1.5rem; color: var(--text-primary); line-height: 1.8;">
+              <li>🥇 <strong>THEME_ONYX_GOLD</strong>: Classic Charcoal Grey & Amber Gold</li>
+              <li>🔹 <strong>THEME_NEON_BLUE</strong>: Cyberpunk Cyan & Dark Navy</li>
+              <li>🟩 <strong>THEME_MATRIX</strong>: Retro Terminal Green & Black</li>
+              <li>⬛ <strong>THEME_PURE_DARK</strong>: Minimalist Slate Grey</li>
+            </ul>
+
+            <a href="https://api.whatsapp.com/send/?phone=628999587888&text=Halo%20Tabrani,%20saya%20tertarik%20dengan%20EA%20GT%20Trading" target="_blank" class="btn-primary">
+              📲 Hubungi Pengembang di WhatsApp
+            </a>
+          </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- VIEW 7: TOOLS & KALKULATOR (ADDITIONAL FEATURE)                          -->
+        <!-- ========================================================================= -->
+        <section class="spa-view" id="view-tools">
+          <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem;">Kalkulator Manajemen Risiko & Lot</h1>
+          <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+            Hitung besaran lot maksimal sesuai toleransi risiko saldo Anda untuk mencegah margin call.
+          </p>
+
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title"><span>🧮</span> Kalkulator Risk / Reward & Position Sizing</div>
+            </div>
+
+            <form id="riskCalcForm">
+              <div class="grid-3">
+                <div class="form-group">
+                  <label class="form-label" for="riskBalance">Saldo Akun (USD)</label>
+                  <input type="number" id="riskBalance" class="form-input" value="100" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="riskPercent">Toleransi Risiko (%)</label>
+                  <input type="number" step="0.5" id="riskPercent" class="form-input" value="2.0" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="riskSLPips">Jarak Stop Loss (Pip)</label>
+                  <input type="number" id="riskSLPips" class="form-input" value="30" required>
+                </div>
+              </div>
+
+              <button type="submit" class="btn-primary">
+                ⚡ Hitung Ukuran Lot Maksimal
+              </button>
+            </form>
+
+            <div class="grid-2" style="margin-top: 1.5rem;">
+              <div class="gt-metric-card">
+                <div class="gt-metric-title">Batas Kerugian Maksimal (USD)</div>
+                <div class="gt-metric-value" id="resRiskUsd" style="color: var(--color-danger);">$2.00 USD</div>
+              </div>
+              <div class="gt-metric-card">
+                <div class="gt-metric-title">Rekomendasi Lot Maksimal</div>
+                <div class="gt-metric-value" id="resMaxLot" style="color: var(--accent-lime);">0.01 Lot</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
     </div>
-    <p>© 2026 MOCHAMAD TABRANI — Kebun Saldo & Puncak Lembah. All rights reserved.</p>
-    <small style="color: var(--text-muted); font-size: 0.8rem;">EA GT Trading — Komando Profit & Keamanan</small>
-  </footer>
 
-  <script src="script.js"></script>
+    <!-- 3. SHARED FOOTER -->
+    <footer class="footer" id="footerArea">
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#metode">Metode GT</a>
+        <a href="#tangga">Kebun Saldo</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#kaizen">Kaizen</a>
+        <a href="#ea">EA Algo</a>
+        <a href="#tools">Tools</a>
+      </div>
+      <p>© 2026 MOCHAMAD TABRANI — Kebun Saldo & Puncak Lembah GT Method. All rights reserved.</p>
+    </footer>
+
+  </div>
+
+  <script src="app.js"></script>
 </body>
 </html>
