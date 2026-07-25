@@ -1,7 +1,7 @@
 /**
  * PUNCAK LEMBAH - GT METHOD (GRAFIK TABRANIJ) & KAIZEN PLATFORM
  * Core Engine & Interactive Trading Calculators
- * Author: MOCHAMAD TABRANI / Ringin Bambu / Puncak Lembah
+ * Author: MOCHAMAD TABRANI / Kebun Saldo / Puncak Lembah
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -386,7 +386,10 @@ function renderLevelTable(levels) {
   if (!tbody) return;
   tbody.innerHTML = '';
 
-  levels.forEach(l => {
+  // Render from largest level 100 at the top down to smallest level 1 at the bottom
+  const displayLevels = [...levels].reverse();
+
+  displayLevels.forEach(l => {
     const tr = document.createElement('tr');
     tr.innerHTML = `
       <td><strong>Tangga ${l.tingkat}</strong></td>
