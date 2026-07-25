@@ -1,84 +1,132 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tangga Saldo - Puncak Lembah</title>
-    <link rel="icon" type="image/png" href="roket.svg">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tangga Saldo Dolar - Puncak Lembah GT Method</title>
+  <meta name="description" content="Peta eskalasi ekuitas Tangga Saldo Dolar menuju $100,000 USD dengan perhitungan Lot, Target Profit, dan Risk Management Metode Grafik Tabranij.">
+  <link rel="icon" type="image/svg+xml" href="logo.svg">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="dashboard.html">Dashboard</a></li>
-            <li><a href="tanggasaldo.html">Tangga Saldo</a></li>
-            <li><a href="https://x.com/i/grok">Contribute</a></li>
-            <li><a href="https://www.mql5.com/en/signals/2268101" target="_blank" rel="noopener noreferrer">MQL5</a></li>
-        </ul>
-        <span id="disableDarkMode" class="theme-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-sun" viewBox="0 0 16 16">
-                <circle cx="8" cy="8" r="3" />
-                <line x1="8" y1="1" x2="8" y2="3" stroke="currentColor" stroke-width="1" />
-                <line x1="8" y1="13" x2="8" y2="15" stroke="currentColor" stroke-width="1" />
-                <line x1="1" y1="8" x2="3" y2="8" stroke="currentColor" stroke-width="1" />
-                <line x1="13" y1="8" x2="15" y2="8" stroke="currentColor" stroke-width="1" />
-                <line x1="3.5" y1="3.5" x2="5" y2="5" stroke="currentColor" stroke-width="1" />
-                <line x1="11" y1="5" x2="12.5" y2="3.5" stroke="currentColor" stroke-width="1" />
-                <line x1="3.5" y1="12.5" x2="5" y2="11" stroke="currentColor" stroke-width="1" />
-                <line x1="11" y1="11" x2="12.5" y2="12.5" stroke="currentColor" stroke-width="1" />
-            </svg>
-        </span>
-    </nav>
 
-    <!-- Konten Utama -->
-    <div class="content">
-        <h1>Tangga Saldo Menuju $100,000 USD</h1>
-        <h2>Ikuti aturan peta Puncak Lembah dibawah ini sampai selesai, lalu perhatikan apa yang terjadi</h2>
+  <!-- Sticky Glassmorphic Navbar -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-brand">
+      <svg class="nav-brand-icon" viewBox="0 0 300 300">
+        <circle cx="150" cy="80" r="25" fill="#ffd700" />
+        <path d="M 10 300 L 150 100 L 290 300 Z" fill="#1d4ed8" opacity="0.9" />
+        <path d="M 50 300 C 100 220 200 220 250 300 Z" fill="#06b6d4" opacity="0.8" />
+        <path d="M 30 270 Q 150 200, 270 240" stroke="#10b981" stroke-width="6" fill="none" />
+      </svg>
+      Puncak <span>Lembah</span>
+    </a>
+
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="metode-gt.html" class="nav-link">Metode GT</a></li>
+      <li><a href="tanggasaldo.html" class="nav-link active">Tangga Saldo</a></li>
+      <li><a href="dashboard.html" class="nav-link">Dashboard & Jurnal</a></li>
+      <li><a href="kaizen.html" class="nav-link">Jurnal Kaizen</a></li>
+      <li><a href="ea-gt.html" class="nav-link">EA GT Algo</a></li>
+    </ul>
+
+    <div class="nav-controls">
+      <button class="btn-icon" id="themeToggleBtn" title="Toggle Theme" aria-label="Toggle Theme">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+      </button>
+      <button class="btn-icon mobile-toggle" id="mobileToggleBtn" title="Open Menu" aria-label="Open Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
     </div>
+  </nav>
 
-    <!-- Growth Simulation Container -->
-    <div class="growth-container">
-        <h1>Simulasi dan Peta Jalan Menuju Puncak Tangga Saldo</h1>
-        <p>Dengan strategi ekuitas perdagangan yang terarah, kita dapat melihat jalur perjalanan ini dan menuju Tangga Saldo dengan optimisme.</p>
-        <div class="legend">
-            <div class="legend-item"><div class="legend-color" style="background: #3498db;"></div> Tingkat Awal</div>
-            <div class="legend-item"><div class="legend-color" style="background: #2ecc71;"></div> Tingkat Pertumbuhan</div>
-            <div class="legend-item"><div class="legend-color" style="background: #e74c3c;"></div> Tingkat Puncak</div>
+  <!-- Main Wrapper -->
+  <main class="main-wrapper">
+    
+    <section class="container" style="padding-top: 2rem;">
+      <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem;">Tangga Saldo Dolar Menuju $100,000 USD</h1>
+      <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+        Sistem manajemen modal terarah dengan skema 100 tingkatan compounding dan pengaturan volume rasional untuk konsistensi ekuitas.
+      </p>
+
+      <!-- Custom Ladder Generator Card -->
+      <div class="card" style="margin-bottom: 2rem;">
+        <div class="card-header">
+          <div class="card-title">
+            <span>⚙️</span> Generator Simulasi Tangga Saldo
+          </div>
         </div>
-        <table id="levelTable">
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-end;">
+          <div class="form-group" style="flex: 1; min-width: 200px; margin-bottom: 0;">
+            <label class="form-label" for="startCapitalInput">Modal Awal ($ USD)</label>
+            <input type="number" step="0.5" min="0.5" id="startCapitalInput" class="form-input" value="1.00">
+          </div>
+          <button id="calcLadderBtn" class="btn-primary" style="padding: 12px 28px;">
+            🔄 Hitung Ulang Peta 100 Tangga
+          </button>
+        </div>
+      </div>
+
+      <!-- Progression Chart Card -->
+      <div class="card" style="margin-bottom: 2rem;">
+        <div class="card-header">
+          <div class="card-title">
+            <span>📈</span> Kurva Pertumbuhan Ekuitas Tangga Saldo (Skala Logaritmik)
+          </div>
+        </div>
+        <div class="chart-box">
+          <canvas id="equityChart"></canvas>
+        </div>
+      </div>
+
+      <!-- 100-Level Escalation Table Card -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <span>📊</span> Tabel Peta 100 Tingkatan Tangga Saldo Dolar
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table-gt" id="levelTable">
             <thead>
-                <tr>
-                    <th>Tangga</th>
-                    <th>Saldo Jam 8 ($)</th>
-                    <th>Volume Order</th>
-                    <th>Proses Naik/Turun</th>
-                    <th>Jika Naik</th>
-                    <th>Jika Turun</th>
-                    <th>Tangga Selanjutnya ($)</th>
-                </tr>
+              <tr>
+                <th>Tingkat Tangga</th>
+                <th>Saldo Jam 8 ($)</th>
+                <th>Volume Order (Lot)</th>
+                <th>Target Profit (+10%)</th>
+                <th>Jika Profit ($)</th>
+                <th>Jika Loss ($)</th>
+                <th>Tangga Selanjutnya ($)</th>
+              </tr>
             </thead>
-            <tbody></tbody>
-        </table>
-        <div class="chart-container">
-            <canvas id="equityChart"></canvas>
+            <tbody>
+              <!-- Rendered dynamically by script.js -->
+            </tbody>
+          </table>
         </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="metode-gt.html">Metode GT</a>
+      <a href="tanggasaldo.html">Tangga Saldo</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="kaizen.html">Kaizen</a>
     </div>
+    <p>© 2026 MOCHAMAD TABRANI — Ringin Bambu & Puncak Lembah. All rights reserved.</p>
+  </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="script.js"></script>
-
-    <h2>Tangga 10 volume 1.28 btcusd Margin 620.33 target 85,430 poin, Laba 1093.50 USD </h2>
-    <h2>Tangga 9 volume 0.64 btcusd Margin 303.03 target 56,953 poin, Laba 364.50 USD </h2>
-    <h2>Tangga 8 volume 0.32 btcusd Margin 156.12 target 37,969 poin, Laba 121.50 USD </h2>
-    <h2>Tangga 7 volume 0.16 btcusd Margin 75.78 target 25,313 poin, Laba 40.50 USD </h2>
-    <h2>Tangga 6 volume 0.08 btcusd Margin 30.43 target 16,875 poin, Laba 13.50 USD </h2>
-    <h2>Tangga 5 volume 0.04 btcusd Margin 18.99 target 11,250 poin, Laba 4.50 USD</h2>
-    <h2>Tangga 4 volume 0.04 btcusd Margin 18.99 target 11,250 poin, Laba 4.50 USD</h2>
-    <h2>Tangga 3 volume 0.02 btcusd Margin 7.71 target 22,500 poin, Laba 4.50 USD</h2>
-    <h2>Tangga 2 volume 0.02 btcusd Margin 9.47 target 7,500 poin, Laba 1.50 USD</h2>
-    <h2>Tangga 1 volume 0.01 btcusd Margin 4.74 target 5,000 poin, Laba 0.50 USD</h2>
+  <script src="script.js"></script>
 </body>
 </html>

@@ -1,246 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trading Calendar - March 2025</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #1a1a1a;
-            color: #fff;
-            margin: 0;
-            padding: 20px;
-        }
-        .calendar-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .calendar-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        .calendar-header h2 {
-            margin: 0;
-            font-size: 24px;
-        }
-        .calendar {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 5px;
-        }
-        .calendar-day {
-            background-color: #2a2a2a;
-            border-radius: 5px;
-            padding: 10px;
-            min-height: 120px;
-            position: relative;
-            font-size: 14px;
-        }
-        .calendar-day.empty {
-            background-color: #1a1a1a;
-            color: #666;
-        }
-        .calendar-day.header {
-            background-color: transparent;
-            text-align: center;
-            font-weight: bold;
-            padding: 5px;
-        }
-        .day-number {
-            position: absolute;
-            top: 5px;
-            left: 5px;
-            font-size: 12px;
-            color: #888;
-        }
-        .trade-info {
-            margin-top: 15px;
-        }
-        .trade-info p {
-            margin: 2px 0;
-        }
-        .win {
-            color: #00cc00;
-        }
-        .loss {
-            color: #ff3333;
-        }
-        .trade-count {
-            color: #888;
-            font-size: 12px;
-        }
-        .followed-rules {
-            display: flex;
-            align-items: center;
-        }
-        .followed-rules input {
-            margin-right: 5px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalender Perdagangan GT | Puncak Lembah</title>
+  <link rel="icon" type="image/svg+xml" href="logo.svg">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="calendar-container">
-        <div class="calendar-header">
-            <h2>March 2025</h2>
-            <button style="background: #333; color: #fff; border: none; padding: 5px 10px; border-radius: 3px;">Open</button>
-        </div>
-        <div class="calendar">
-            <!-- Header Days -->
-            <div class="calendar-day header">Sun</div>
-            <div class="calendar-day header">Mon</div>
-            <div class="calendar-day header">Tue</div>
-            <div class="calendar-day header">Wed</div>
-            <div class="calendar-day header">Thu</div>
-            <div class="calendar-day header">Fri</div>
-            <div class="calendar-day header">Sat</div>
 
-            <!-- Days before March 1 -->
-            <div class="calendar-day empty"><span class="day-number">23</span></div>
-            <div class="calendar-day empty"><span class="day-number">24</span></div>
-            <div class="calendar-day">
-                <span class="day-number">25</span>
-                <div class="trade-info">
-                    <p>NQ, YM</p>
-                    <p class="followed-rules"><input type="checkbox" checked disabled> Followed Rules</p>
-                    <p class="win">Win</p>
-                    <p class="win">$3,000.00</p>
-                    <p class="trade-count">2 trades</p>
-                </div>
-            </div>
-            <div class="calendar-day">
-                <span class="day-number">26</span>
-                <div class="trade-info">
-                    <p>NQ</p>
-                    <p class="followed-rules"><input type="checkbox" checked disabled> Followed Rules</p>
-                    <p class="win">Win</p>
-                    <p class="win">$240.00</p>
-                    <p class="trade-count">3 trades</p>
-                </div>
-            </div>
-            <div class="calendar-day">
-                <span class="day-number">27</span>
-                <div class="trade-info">
-                    <p>CL, YM</p>
-                    <p class="followed-rules"><input type="checkbox" checked disabled> Followed Rules</p>
-                    <p class="loss">Loss</p>
-                    <p class="loss">-$1,730.00</p>
-                    <p class="trade-count">3 trades</p>
-                </div>
-            </div>
-            <div class="calendar-day empty"><span class="day-number">28</span></div>
-            <div class="calendar-day empty"><span class="day-number">1</span></div>
+  <!-- Sticky Glassmorphic Navbar -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-brand">
+      <svg class="nav-brand-icon" viewBox="0 0 300 300">
+        <circle cx="150" cy="80" r="25" fill="#ffd700" />
+        <path d="M 10 300 L 150 100 L 290 300 Z" fill="#1d4ed8" opacity="0.9" />
+        <path d="M 50 300 C 100 220 200 220 250 300 Z" fill="#06b6d4" opacity="0.8" />
+        <path d="M 30 270 Q 150 200, 270 240" stroke="#10b981" stroke-width="6" fill="none" />
+      </svg>
+      Puncak <span>Lembah</span>
+    </a>
 
-            <!-- March 2 - 8 -->
-            <div class="calendar-day">
-                <span class="day-number">2</span>
-                <div class="trade-info">
-                    <p>PL</p>
-                    <p class="followed-rules"><input type="checkbox" checked disabled> Followed Rules</p>
-                    <p class="win">Win</p>
-                    <p class="win">$1,500.00</p>
-                    <p class="trade-count">1 trade</p>
-                </div>
-            </div>
-            <div class="calendar-day empty"><span class="day-number">3</span></div>
-            <div class="calendar-day">
-                <span class="day-number">4</span>
-                <div class="trade-info">
-                    <p>PL, CL</p>
-                    <p class="followed-rules"><input type="checkbox" checked disabled> Followed Rules</p>
-                    <p class="loss">Loss</p>
-                    <p class="loss">-$2,000.00</p>
-                    <p class="trade-count">3 trades</p>
-                </div>
-            </div>
-            <div class="calendar-day">
-                <span class="day-number">5</span>
-                <div class="trade-info">
-                    <p>CL</p>
-                    <p class="followed-rules"><input type="checkbox" checked disabled> Followed Rules</p>
-                    <p class="win">Win</p>
-                    <p class="win">$1,500.00</p>
-                    <p class="trade-count">1 trade</p>
-                </div>
-            </div>
-            <div class="calendar-day">
-                <span class="day-number">6</span>
-                <div class="trade-info">
-                    <p>PL</p>
-                    <p class="followed-rules"><input type="checkbox" checked disabled> Followed Rules</p>
-                    <p class="win">Win</p>
-                    <p class="win">$1,730.00</p>
-                    <p class="trade-count">2 trades</p>
-                </div>
-            </div>
-            <div class="calendar-day empty"><span class="day-number">7</span></div>
-            <div class="calendar-day empty"><span class="day-number">8</span></div>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="metode-gt.html" class="nav-link">Metode GT</a></li>
+      <li><a href="tanggasaldo.html" class="nav-link">Tangga Saldo</a></li>
+      <li><a href="dashboard.html" class="nav-link">Dashboard & Jurnal</a></li>
+      <li><a href="kaizen.html" class="nav-link active">Jurnal Kaizen</a></li>
+      <li><a href="ea-gt.html" class="nav-link">EA GT Algo</a></li>
+    </ul>
 
-            <!-- March 9 - 15 -->
-            <div class="calendar-day">
-                <span class="day-number">9</span>
-                <div class="trade-info">
-                    <p>CL</p>
-                    <p class="followed-rules"><input type="checkbox" checked disabled> Followed Rules</p>
-                    <p class="win">Win</p>
-                    <p class="win">$150.00</p>
-                    <p class="trade-count">1 trade</p>
-                </div>
-            </div>
-            <div class="calendar-day">
-                <span class="day-number">10</span>
-                <div class="trade-info">
-                    <p>SI</p>
-                    <p class="followed-rules"><input type="checkbox" checked disabled> Followed Rules</p>
-                    <p class="win">Win</p>
-                    <p class="win">$2,475.00</p>
-                    <p class="trade-count">1 trade</p>
-                </div>
-            </div>
-            <div class="calendar-day">
-                <span class="day-number">11</span>
-                <div class="trade-info">
-                    <p>PL, GC</p>
-                    <p class="followed-rules"><input type="checkbox" checked disabled> Followed Rules</p>
-                    <p class="win">Win</p>
-                    <p class="win">$4,240.00</p>
-                    <p class="trade-count">6 trades</p>
-                </div>
-            </div>
-            <div class="calendar-day">
-                <span class="day-number">12</span>
-                <div class="trade-info">
-                    <p>SI, PL, CL</p>
-                    <p class="followed-rules"><input type="checkbox" checked disabled> Followed Rules</p>
-                    <p class="win">Win</p>
-                    <p class="win">$935.00</p>
-                    <p class="trade-count">4 trades</p>
-                </div>
-            </div>
-            <div class="calendar-day">
-                <span class="day-number">13</span>
-                <div class="trade-info">
-                    <p>CL, PL</p>
-                    <p class="followed-rules"><input type="checkbox" checked disabled> Followed Rules</p>
-                    <p class="win">Win</p>
-                    <p class="win">$1,495.00</p>
-                    <p class="trade-count">2 trades</p>
-                </div>
-            </div>
-            <div class="calendar-day empty"><span class="day-number">14</span></div>
-            <div class="calendar-day empty"><span class="day-number">15</span></div>
-
-            <!-- March 16 - 22 -->
-            <div class="calendar-day empty"><span class="day-number">16</span></div>
-            <div class="calendar-day empty"><span class="day-number">17</span></div>
-            <div class="calendar-day empty"><span class="day-number">18</span></div>
-            <div class="calendar-day empty"><span class="day-number">19</span></div>
-            <div class="calendar-day empty"><span class="day-number">20</span></div>
-            <div class="calendar-day empty"><span class="day-number">21</span></div>
-            <div class="calendar-day empty"><span class="day-number">22</span></div>
-        </div>
+    <div class="nav-controls">
+      <button class="btn-icon" id="themeToggleBtn" title="Toggle Theme" aria-label="Toggle Theme">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+      </button>
     </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-wrapper">
+    <section class="container" style="padding-top: 2rem;">
+      <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem;">Kalender Perdagangan & Performance Record</h1>
+      <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+        Catatan histori harian transaksi dan kepatuhan aturan disiplin GT Method.
+      </p>
+
+      <div class="card">
+        <div class="grid-3">
+          <div style="background: rgba(16, 185, 129, 0.12); border: 1px solid var(--color-success); padding: 1.25rem; border-radius: var(--radius-sm);">
+            <div style="font-weight: 700; color: var(--color-success);">Senin, 25 Juli 2026</div>
+            <div style="font-size: 1.5rem; font-weight: 700; margin: 0.5rem 0;">+$3,000.00</div>
+            <small style="color: var(--text-muted);">BTCUSD, XAUUSD — Followed Rules</small>
+          </div>
+
+          <div style="background: rgba(16, 185, 129, 0.12); border: 1px solid var(--color-success); padding: 1.25rem; border-radius: var(--radius-sm);">
+            <div style="font-weight: 700; color: var(--color-success);">Selasa, 26 Juli 2026</div>
+            <div style="font-size: 1.5rem; font-weight: 700; margin: 0.5rem 0;">+$240.00</div>
+            <small style="color: var(--text-muted);">EURUSD — Followed Rules</small>
+          </div>
+
+          <div style="background: rgba(239, 68, 68, 0.12); border: 1px solid var(--color-danger); padding: 1.25rem; border-radius: var(--radius-sm);">
+            <div style="font-weight: 700; color: var(--color-danger);">Rabu, 27 Juli 2026</div>
+            <div style="font-size: 1.5rem; font-weight: 700; margin: 0.5rem 0;">-$1,730.00</div>
+            <small style="color: var(--text-muted);">XAUUSD — Stop Out Protected</small>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 MOCHAMAD TABRANI — Ringin Bambu & Puncak Lembah</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

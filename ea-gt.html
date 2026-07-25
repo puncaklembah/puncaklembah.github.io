@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EA GT Trading - Expert Advisor MQL5 Puncak Lembah</title>
+  <meta name="description" content="Dokumentasi dan panduan Robot EA GT Trading berdasarkan Algoritma Matematika Grafik Tabranij.">
+  <link rel="icon" type="image/svg+xml" href="logo.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Sticky Glassmorphic Navbar -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-brand">
+      <svg class="nav-brand-icon" viewBox="0 0 300 300">
+        <circle cx="150" cy="80" r="25" fill="#ffd700" />
+        <path d="M 10 300 L 150 100 L 290 300 Z" fill="#1d4ed8" opacity="0.9" />
+        <path d="M 50 300 C 100 220 200 220 250 300 Z" fill="#06b6d4" opacity="0.8" />
+        <path d="M 30 270 Q 150 200, 270 240" stroke="#10b981" stroke-width="6" fill="none" />
+      </svg>
+      Puncak <span>Lembah</span>
+    </a>
+
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="metode-gt.html" class="nav-link">Metode GT</a></li>
+      <li><a href="tanggasaldo.html" class="nav-link">Tangga Saldo</a></li>
+      <li><a href="dashboard.html" class="nav-link">Dashboard & Jurnal</a></li>
+      <li><a href="kaizen.html" class="nav-link">Jurnal Kaizen</a></li>
+      <li><a href="ea-gt.html" class="nav-link active">EA GT Algo</a></li>
+    </ul>
+
+    <div class="nav-controls">
+      <button class="btn-icon" id="themeToggleBtn" title="Toggle Theme" aria-label="Toggle Theme">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+      </button>
+      <button class="btn-icon mobile-toggle" id="mobileToggleBtn" title="Open Menu" aria-label="Open Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Wrapper -->
+  <main class="main-wrapper">
+    
+    <section class="container" style="padding-top: 2rem;">
+      <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem;">EA GT Trading — Algoritma MetaTrader 5</h1>
+      <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+        Robot Trading MQL5 beroperasi berdasarkan Sinyal GT Besar (Komando Profit & Keamanan). Didesain spesifik untuk volatilitas tinggi (BTCUSD, XAUUSD, GOLDmicro).
+      </p>
+
+      <!-- Key Specs Card -->
+      <div class="grid-3" style="margin-bottom: 2rem;">
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-gold); margin-bottom: 0.5rem;">⚙️ versi Algoritma</div>
+          <div style="font-size: 1.3rem; font-weight: 700;">v0.01 Professional</div>
+          <small style="color: var(--text-muted);">Grafik Tabranij MQL5</small>
+        </div>
+
+        <div class="card">
+          <div class="card-title" style="color: var(--accent-cyan); margin-bottom: 0.5rem;">👤 Pengembang</div>
+          <div style="font-size: 1.3rem; font-weight: 700;">MOCHAMAD TABRANI</div>
+          <small style="color: var(--text-muted);">Ringin Bambu</small>
+        </div>
+
+        <div class="card">
+          <div class="card-title" style="color: var(--color-success); margin-bottom: 0.5rem;">🌐 Sinyal MQL5</div>
+          <div style="font-size: 1.3rem; font-weight: 700;">Active Signal</div>
+          <a href="https://www.mql5.com/en/signals/2379962" target="_blank" rel="noopener" style="font-size: 0.85rem; color: var(--accent-gold);">Lihat Performa MQL5 &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Features & Inputs Grid -->
+      <div class="grid-2" style="margin-bottom: 2rem;">
+        
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <span>🎛️</span> Parameter Input Algoritma (`gt.mq5`)
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table-gt">
+              <thead>
+                <tr>
+                  <th>Parameter</th>
+                  <th>Default</th>
+                  <th>Deskripsi</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>InpGTTimeframe</code></td>
+                  <td>PERIOD_H1</td>
+                  <td>Durasi GT Besar (Basis Sinyal)</td>
+                </tr>
+                <tr>
+                  <td><code>InpLot</code></td>
+                  <td>0.01</td>
+                  <td>Volume Lot Awal Base</td>
+                </tr>
+                <tr>
+                  <td><code>InpMultiplier</code></td>
+                  <td>2.0x</td>
+                  <td>Faktor Pengali Martingale</td>
+                </tr>
+                <tr>
+                  <td><code>InpMaxSteps</code></td>
+                  <td>5</td>
+                  <td>Batas Maksimum Langkah Martingale</td>
+                </tr>
+                <tr>
+                  <td><code>InpTP / InpSL</code></td>
+                  <td>300 / 150 pts</td>
+                  <td>Jarak Take Profit & Stop Loss</td>
+                </tr>
+                <tr>
+                  <td><code>InpMagic</code></td>
+                  <td>888999</td>
+                  <td>Serial ID unik Algoritma EA</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <span>🎨</span> 4 Preset Tema Visual UI Dashboard
+            </div>
+          </div>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1rem;">
+            EA GT memiliki 4 pilihan tema antarmuka langsung di chart MT5:
+          </p>
+          <ul style="line-height: 1.8; color: var(--text-primary); font-size: 0.95rem; list-style: none;">
+            <li>🥇 <strong>THEME_ONYX_GOLD</strong>: Classic Charcoal Grey & Amber Gold</li>
+            <li>🔹 <strong>THEME_NEON_BLUE</strong>: Cyberpunk Cyan & Dark Navy</li>
+            <li>🟩 <strong>THEME_MATRIX</strong>: Retro Terminal Green & Black</li>
+            <li>⬛ <strong>THEME_PURE_DARK</strong>: Minimalist Slate Grey</li>
+          </ul>
+
+          <div style="margin-top: 1.5rem; text-align: center;">
+            <a href="https://api.whatsapp.com/send/?phone=628999587888&text=Halo%20Tabrani,%20saya%20tertarik%20dengan%20EA%20GT%20Trading" target="_blank" class="btn-primary">
+              📲 Hubungi Pengembang di WhatsApp
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="metode-gt.html">Metode GT</a>
+      <a href="tanggasaldo.html">Tangga Saldo</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="kaizen.html">Kaizen</a>
+    </div>
+    <p>© 2026 MOCHAMAD TABRANI — Ringin Bambu & Puncak Lembah. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

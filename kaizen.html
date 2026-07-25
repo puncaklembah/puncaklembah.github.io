@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jurnal Kaizen & Aturan Disiplin - Puncak Lembah GT</title>
+  <meta name="description" content="Jurnal Kaizen dan Aturan Kedisiplinan Perdagangan Metode Grafik Tabranij (GT Method).">
+  <link rel="icon" type="image/svg+xml" href="logo.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Sticky Glassmorphic Navbar -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-brand">
+      <svg class="nav-brand-icon" viewBox="0 0 300 300">
+        <circle cx="150" cy="80" r="25" fill="#ffd700" />
+        <path d="M 10 300 L 150 100 L 290 300 Z" fill="#1d4ed8" opacity="0.9" />
+        <path d="M 50 300 C 100 220 200 220 250 300 Z" fill="#06b6d4" opacity="0.8" />
+        <path d="M 30 270 Q 150 200, 270 240" stroke="#10b981" stroke-width="6" fill="none" />
+      </svg>
+      Puncak <span>Lembah</span>
+    </a>
+
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="metode-gt.html" class="nav-link">Metode GT</a></li>
+      <li><a href="tanggasaldo.html" class="nav-link">Tangga Saldo</a></li>
+      <li><a href="dashboard.html" class="nav-link">Dashboard & Jurnal</a></li>
+      <li><a href="kaizen.html" class="nav-link active">Jurnal Kaizen</a></li>
+      <li><a href="ea-gt.html" class="nav-link">EA GT Algo</a></li>
+    </ul>
+
+    <div class="nav-controls">
+      <button class="btn-icon" id="themeToggleBtn" title="Toggle Theme" aria-label="Toggle Theme">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+      </button>
+      <button class="btn-icon mobile-toggle" id="mobileToggleBtn" title="Open Menu" aria-label="Open Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Wrapper -->
+  <main class="main-wrapper">
+    
+    <section class="container" style="padding-top: 2rem;">
+      <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem;">Jurnal Kaizen & Aturan Disiplin Trading</h1>
+      <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+        Prinsip perbaikan bertahap (Kaizen) untuk membentuk mentalitas perdagangan yang tenang, sistematis, dan terukur.
+      </p>
+
+      <!-- Key Philosophy Card -->
+      <div class="card" style="border-left: 4px solid var(--accent-gold); margin-bottom: 2rem;">
+        <h3 style="color: var(--accent-gold); margin-bottom: 0.5rem;">Prinsip Kebahagiaan Perdagangan (MOCHAMAD TABRANI)</h3>
+        <p style="font-size: 1.1rem; font-style: italic; color: var(--text-primary);">
+          "Untuk menjadi bahagia dalam trading, Anda harus menghilangkan dua hal: Ketakutan akan masa depan yang buruk dan kenangan akan masa lalu yang buruk."
+        </p>
+      </div>
+
+      <!-- Checklist Card -->
+      <div class="card" style="margin-bottom: 2rem;">
+        <div class="card-header">
+          <div class="card-title">
+            <span>✅</span> Checklist Kedisiplinan Eksekusi Harian (Di-Save Otomatis)
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
+          <label style="display: flex; align-items: center; gap: 12px; font-size: 1rem; cursor: pointer;">
+            <input type="checkbox" id="rule1" class="kaizen-check" style="width: 20px; height: 20px; accent-color: var(--accent-gold);">
+            <span>1. Periksa countdown durasi GT Live (H1) sebelum melakukan order.</span>
+          </label>
+
+          <label style="display: flex; align-items: center; gap: 12px; font-size: 1rem; cursor: pointer;">
+            <input type="checkbox" id="rule2" class="kaizen-check" style="width: 20px; height: 20px; accent-color: var(--accent-gold);">
+            <span>2. Konfirmasi arah tren berdasarkan alignment Quad-Bar (GT3, GT2, GT1).</span>
+          </label>
+
+          <label style="display: flex; align-items: center; gap: 12px; font-size: 1rem; cursor: pointer;">
+            <input type="checkbox" id="rule3" class="kaizen-check" style="width: 20px; height: 20px; accent-color: var(--accent-gold);">
+            <span>3. Tetapkan lot awal secara ketat sesuai tingkat Tangga Saldo Dolar.</span>
+          </label>
+
+          <label style="display: flex; align-items: center; gap: 12px; font-size: 1rem; cursor: pointer;">
+            <input type="checkbox" id="rule4" class="kaizen-check" style="width: 20px; height: 20px; accent-color: var(--accent-gold);">
+            <span>4. Batasi maksimal iterasi Martingale (Maksimal 5 langkah).</span>
+          </label>
+
+          <label style="display: flex; align-items: center; gap: 12px; font-size: 1rem; cursor: pointer;">
+            <input type="checkbox" id="rule5" class="kaizen-check" style="width: 20px; height: 20px; accent-color: var(--accent-gold);">
+            <span>5. Catat setiap transaksi yang selesai ke Dashboard Jurnal untuk review mingguan.</span>
+          </label>
+
+          <label style="display: flex; align-items: center; gap: 12px; font-size: 1rem; cursor: pointer;">
+            <input type="checkbox" id="rule6" class="kaizen-check" style="width: 20px; height: 20px; accent-color: var(--accent-gold);">
+            <span>6. Terima Stop Loss kecil sebagai biaya usaha tanpa melakukan revenge trading.</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Trading Calendar Preview Card -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <span>📅</span> Kalender Evaluasi Perdagangan (Kaizen History)
+          </div>
+        </div>
+
+        <div class="grid-3" style="margin-top: 1rem;">
+          <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid var(--color-success); padding: 1rem; border-radius: var(--radius-sm);">
+            <div style="font-size: 0.85rem; color: var(--color-success); font-weight: 700;">25 Juli 2026</div>
+            <div style="font-size: 1.2rem; font-weight: 700; color: var(--text-primary);">+17.00 USD</div>
+            <small style="color: var(--text-muted);">2 Trades (BTCUSD & XAUUSD) — Followed Rules</small>
+          </div>
+
+          <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid var(--color-success); padding: 1rem; border-radius: var(--radius-sm);">
+            <div style="font-size: 0.85rem; color: var(--color-success); font-weight: 700;">24 Juli 2026</div>
+            <div style="font-size: 1.2rem; font-weight: 700; color: var(--text-primary);">+24.50 USD</div>
+            <small style="color: var(--text-muted);">3 Trades — Followed Rules</small>
+          </div>
+
+          <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid var(--color-danger); padding: 1rem; border-radius: var(--radius-sm);">
+            <div style="font-size: 0.85rem; color: var(--color-danger); font-weight: 700;">23 Juli 2026</div>
+            <div style="font-size: 1.2rem; font-weight: 700; color: var(--text-primary);">-8.00 USD</div>
+            <small style="color: var(--text-muted);">1 Trade — Stopped Out Safely</small>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="metode-gt.html">Metode GT</a>
+      <a href="tanggasaldo.html">Tangga Saldo</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="kaizen.html">Kaizen</a>
+    </div>
+    <p>© 2026 MOCHAMAD TABRANI — Ringin Bambu & Puncak Lembah. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
