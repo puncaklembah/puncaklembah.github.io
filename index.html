@@ -264,15 +264,107 @@
         </section>
 
         <!-- ========================================================================= -->
-        <!-- VIEW 3: TANGGA KEBUN SALDO                                                -->
+        <!-- VIEW 3: TANGGA KEBUN SALDO & PLAN COMPOUNDING                             -->
         <!-- ========================================================================= -->
         <section class="spa-view" id="view-tangga">
-          <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem;">Tangga Kebun Saldo (100 Level)</h1>
+          <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem;">Kebun Saldo & Rencana Compounding GT</h1>
           <p style="color: var(--text-secondary); margin-bottom: 2rem;">
-            Matriks eskalasi saldo 100 level (dari atas ke bawah: 100 s/d 1) dengan pembatasan lot volume ketat dan estimasi target 500 Pts / 50 Pip.
+            Matriks pertumbuhan eksponensial presisi dari $50 hingga $204.800 USD dengan target profit bulanan >100% dan panduan kedisiplinan 4% harian.
           </p>
 
-          <div class="card">
+          <!-- 1. MONTHLY COMPOUNDING PLAN TABLE (CINDO PRECISION MODEL) -->
+          <div class="card" style="border-top: 4px solid var(--accent-cyan);">
+            <div class="card-header">
+              <div class="card-title">
+                <span>🏆</span> Rencana Compounding Bulanan Gold (Target >100% / Bulan)
+              </div>
+              <span class="badge-kaizen">Compounding 12 Bulan</span>
+            </div>
+
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.25rem;">
+              Strategi pertumbuhan diawali dari modal $50 dengan target 5.000 Poin (500 Pip) per bulan.
+            </p>
+
+            <div class="table-responsive">
+              <table class="table-gt">
+                <thead>
+                  <tr>
+                    <th>Bulan / Level</th>
+                    <th>Volume (Lot)</th>
+                    <th>Target Poin (Pip)</th>
+                    <th>Modal Awal</th>
+                    <th>Target Profit</th>
+                    <th>Modal Akhir</th>
+                    <th>Pertumbuhan</th>
+                  </tr>
+                </thead>
+                <tbody id="monthlyCompoundingBody">
+                  <!-- Rendered dynamically via app.js -->
+                </tbody>
+              </table>
+            </div>
+
+            <div style="margin-top: 1.5rem; padding: 1.25rem; background: rgba(25, 188, 184, 0.08); border-radius: var(--radius-md); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+              <div>
+                <div style="font-size: 0.85rem; color: var(--text-muted);">Proyeksi 1 Tahun dari $50 Menjadi:</div>
+                <div style="font-size: 1.8rem; font-weight: 900; color: var(--accent-lime); font-family: var(--font-mono);">$204.800 USD</div>
+              </div>
+              <a href="https://api.whatsapp.com/send/?phone=628999587888&text=Halo%20Tabrani,%20saya%20siap%20memulai%20Compounding%20Kebun%20Saldo" target="_blank" class="btn-primary">
+                🚀 Mulai Program Kebun Saldo
+              </a>
+            </div>
+          </div>
+
+          <!-- 2. DAILY WORKING GUIDE (TARGET 4% PER HARI - 20 HARI KERJA) -->
+          <div class="card" style="margin-top: 2rem;">
+            <div class="card-header">
+              <div class="card-title">
+                <span>📅</span> Panduan Kerja Harian (Target 4% Profit / Hari)
+              </div>
+            </div>
+
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1rem;">
+              Pilih bulan untuk melihat matriks target harian 20 hari kerja (konsistensi 4% per hari):
+            </p>
+
+            <!-- Month Level Selector Buttons -->
+            <div id="monthBtnGroup" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+              <button class="btn-secondary month-select-btn btn-primary" data-month="1">Bulan 1</button>
+              <button class="btn-secondary month-select-btn" data-month="2">Bulan 2</button>
+              <button class="btn-secondary month-select-btn" data-month="3">Bulan 3</button>
+              <button class="btn-secondary month-select-btn" data-month="4">Bulan 4</button>
+              <button class="btn-secondary month-select-btn" data-month="5">Bulan 5</button>
+              <button class="btn-secondary month-select-btn" data-month="6">Bulan 6</button>
+              <button class="btn-secondary month-select-btn" data-month="7">Bulan 7</button>
+              <button class="btn-secondary month-select-btn" data-month="8">Bulan 8</button>
+              <button class="btn-secondary month-select-btn" data-month="9">Bulan 9</button>
+              <button class="btn-secondary month-select-btn" data-month="10">Bulan 10</button>
+              <button class="btn-secondary month-select-btn" data-month="11">Bulan 11</button>
+              <button class="btn-secondary month-select-btn" data-month="12">Bulan 12</button>
+            </div>
+
+            <!-- Daily Summary Header KPI -->
+            <div id="dailyGuideHeader"></div>
+
+            <!-- 20 Days Grid Cards -->
+            <div class="grid-4" id="dailyGuideGrid">
+              <!-- Rendered via app.js -->
+            </div>
+          </div>
+
+          <!-- 3. PETA 100 TANGGA KEBUN SALDO (100 DOWN TO 1 DESCENDING) -->
+          <div class="card" style="margin-top: 2rem;">
+            <div class="card-header">
+              <div class="card-title">
+                <span>📈</span> Peta 100 Tangga Kebun Saldo (Urutan 100 ke 1)
+              </div>
+              <span class="badge-kaizen">Skala Modal Presisi</span>
+            </div>
+
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.25rem;">
+              Matriks tangga urutan terbesar di atas (Tangga 100 = $204.800) hingga terbesar di bawah (Tangga 1 = $50) dengan aturan volume lot presisi.
+            </p>
+
             <div class="table-responsive">
               <table class="table-gt">
                 <thead>
@@ -281,7 +373,7 @@
                     <th>Target Saldo</th>
                     <th>Volume Lot (Min - Maks)</th>
                     <th>Target 500 Pts / 50 Pip</th>
-                    <th>Status Kaizen</th>
+                    <th>Status Level</th>
                   </tr>
                 </thead>
                 <tbody id="tanggaSaldoBody">
